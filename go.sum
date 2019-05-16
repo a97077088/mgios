@@ -1,0 +1,15 @@
+github.com/a97077088/grequests v0.0.0-20190512104714-727b37e1c875 h1:ZxGIji/0ekDNODD0Vos4CzgKkuYErTf9GWIXnkKoczc=
+github.com/a97077088/grequests v0.0.0-20190512104714-727b37e1c875/go.mod h1:Il07zB1Qcg3f/f7ttPByhLaFPNQFW6/zKqgAp/youSs=
+github.com/brianvoe/gofakeit v3.17.0+incompatible h1:C1+30+c0GtjgGDtRC+iePZeP1WMiwsWCELNJhmc7aIc=
+github.com/brianvoe/gofakeit v3.17.0+incompatible/go.mod h1:kfwdRA90vvNhPutZWfH7WPaDzUjz+CZFqG+rPkOjGOc=
+github.com/dgkang/rsa v0.0.0-20190108084924-d19a446bc2ef h1:2OEfA8jvs8gGFcaJ2bhjzAFQe6trSJ1MelgGciVkCL0=
+github.com/dgkang/rsa v0.0.0-20190108084924-d19a446bc2ef/go.mod h1:b69ybA4Q36TViXy7n9MGIs1f6Uc+lOFJJcHTaAa++co=
+github.com/google/go-querystring v1.0.0 h1:Xkwi/a1rcvNg1PPYe5vI8GbeBY/jrVuDX5ASuANWTrk=
+github.com/google/go-querystring v1.0.0/go.mod h1:odCYkC5MyYFN7vkCjXpyrEuKhc/BUO6wN/zVPAxq5ck=
+github.com/levigross/grequests v0.0.0-20190130132859-37c80f76a0da h1:ixpx9UaTDElZrjbd9GeOVG4Deut0FFumoeel7PvVNm4=
+github.com/levigross/grequests v0.0.0-20190130132859-37c80f76a0da/go.mod h1:uCZIhROSrVmuF/BPYFPwDeiiQ6juSLp0kikFoEcNcEs=
+golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
+golang.org/x/net v0.0.0-20190509222800-a4d6f7feada5 h1:6M3SDHlHHDCx2PcQw3S4KsR170vGqDhJDOmpVd4Hjak=
+golang.org/x/net v0.0.0-20190509222800-a4d6f7feada5/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
+golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

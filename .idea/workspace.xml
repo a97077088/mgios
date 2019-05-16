@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#128#1038#0" />
+                <element signature="e#1053#1072#0" />
+                <element signature="e#1163#1182#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/func.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
+              <folding>
+                <element signature="n#!!block;n#PKCS7UnPadding#0" />
+                <element signature="n#!!block;n#PKCS7Padding#0" />
+                <element signature="n#!!block;n#gorsa_decode#0" />
+                <element signature="n#!!block;n#PKCS5Padding#0" />
+                <element signature="n#!!block;n#gorsasha256_with_private#0" />
+                <element signature="n#!!block;n#goaes128_with_byte#0" />
+                <element signature="n#!!block;n#goaes128decode_with_base64#0" />
+                <element signature="n#!!block;n#gomd5#0" />
+                <element signature="n#!!block;n#gorsaenc_with_publickey#0" />
+                <element signature="n#!!block;n#gorsaenc_with_private#0" />
+                <element signature="n#!!block;n#gorsaenc_with_privatekey_data_imp#0" />
+                <element signature="n#!!block;n#getMiguSign#0" />
+                <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+                <element signature="n#!!block;n#gohmac_sha256#0" />
+                <element signature="n#!!block;n#gosha256#0" />
+                <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+                <element signature="e#6456#6477#0" />
+                <element signature="e#6580#6601#0" />
+                <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+                <element signature="n#!!block;n#cli_with_cli#0" />
+                <element signature="e#13113#13134#0" />
+                <element signature="e#13163#13538#0" />
+                <element signature="e#14360#14529#0" />
+                <element signature="e#14681#14796#0" />
+                <element signature="n#!!block;n#client_authRequest#0" />
+                <element signature="n#!!block;n#init#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>up no</find>
+      <find>_user</find>
+      <find>hmac</find>
+      <find>mac</find>
+      <find>ca</find>
+      <find>ks</find>
+      <find>409aa4c2742567bec43fd476357dddca</find>
+      <find>migu-token-version3.0</find>
+      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d444d344e545a474d4463794d5441774d6b5930516b564300183733333738333037323437383135000e3230333030350006</find>
+      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d444d344e545a474d4463794d5441774d6b5930516b564300183733333738333037323437383135000e32303330303500063430396161346332373432353637626563343366643437363335376464646361</find>
+      <find>_uuid</find>
+      <find>0500</find>
+      <find>ff00</find>
+      <find>clientid</find>
+      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d</find>
+      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d7a52474e545533516a6732526a45304d546b3152455132001832393833313736383534363231000d3230333030350006</find>
+      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d7a52474e545533516a6732526a45304d546b3152455132001832393833313736383534363231000d32303330303500066433356665333433383865623739653233663230633530653639633733646631</find>
+      <find>8484010001330200584D7A52474E545533516A6732526A45304D546B315245513240687474703A2F2F70617373706F72742E6D6967752E636E2F6E303030312F403336633063666438316163643737643665343264626333316565633336663865030004045BD07</find>
+      <find>8484010001330200584D7A52474E545533516A6732526A45304D546B315245513240687474703A2F2F70617373706F72742E6D6967752E636E2F6E303030312F403336633063666438316163643737643665343264626333316565633336663865030004045BD07F0400063230333030350500204438373644303239374542303436373841364541433045453044314630464344FF00202240A206DE1DFCF4050C67DBEF37F23E1C1C538007DFF1F41F3F91DAF16F7DF8</find>
+      <find>fmt.Println(hex.EncodeToString(bf.Bytes()))</find>
+      <find>D0297EB04678A6EAC0EE0D1F0FCD</find>
+      <find>sqn</find>
+      <find>203005</find>
+      <find>timespamp</find>
+      <find>enccnonce</find>
+      <find>reqtime</find>
+      <find>1557918216D876D0297EB04678A6EAC0EE0D1F0FCD</find>
+      <find>D876D0297EB04678A6EAC0EE0D1F0FCD</find>
+      <find>$clientProvinceCode</find>
+      <find>7,2</find>
+    </findStrings>
+  </component>
+  <component name="GOROOT" path="C:/msys64/mingw64/lib/go" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main_test.go" />
+        <option value="$PROJECT_DIR$/err.go" />
+        <option value="D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/request.go" />
+        <option value="$PROJECT_DIR$/go.mod" />
+        <option value="$PROJECT_DIR$/t.key" />
+        <option value="$PROJECT_DIR$/type.go" />
+        <option value="$PROJECT_DIR$/user.go" />
+        <option value="$PROJECT_DIR$/func.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="510" />
+    <option name="width" value="1652" />
+    <option name="height" value="1102" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mgios" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mgios" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="ts.external.directory.path" value="C:\Users\fbi\AppData\Local\JetBrains\Toolbox\apps\Goland\ch-0\191.6707.68\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Build.go build mgios">
+    <configuration name="go build mgios" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="mgios" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <envs>
+        <env name="HTTPS_PROXY" value="http://127.0.0.1:8888" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="mgios" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_getMiguSign in mgios" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="mgios" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="mgios" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_getMiguSign$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build mgios" />
+      <item itemvalue="Go Test.Test_getMiguSign in mgios" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build mgios" />
+        <item itemvalue="Go Test.Test_getMiguSign in mgios" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 51m 34s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 51m 54s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 53m 39s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 53m 51s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 54m 31s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 54m 37s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 55m 23s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 00s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 02s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 11s.xml">
+      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19001086" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32338902" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="TypeScript" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.25536993" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>direct</proxy>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://D:/../../go/pkg/mod/github.com/brianvoe/gofakeit@v3.17.0+incompatible/number.go" />
+    <entry file="file://$PROJECT_DIR$/err.go" />
+    <entry file="file://$PROJECT_DIR$/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/textproto/header.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/textproto/reader.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/http/request.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/http/response.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/response.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/request.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/session.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/http/header.go" />
+    <entry file="file://$PROJECT_DIR$/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go.sum">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsdebug/agent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1499" column="31" selection-start-line="1499" selection-start-column="31" selection-end-line="1499" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/../../go/pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/response.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/session.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/base.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/net/http/client.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/time/format.go" />
+    <entry file="file://D:/../../go/pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/request.go" />
+    <entry file="file://D:/../../../../mingw64/lib/go/src/crypto/rsa/rsa.go" />
+    <entry file="file://$PROJECT_DIR$/t.key" />
+    <entry file="file://C:/msys64/mingw64/lib/go/src/encoding/hex/hex.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-311">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/msys64/mingw64/lib/go/src/bytes/buffer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding>
+            <element signature="e#543#699#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/func.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#PKCS7UnPadding#0" />
+            <element signature="n#!!block;n#PKCS7Padding#0" />
+            <element signature="n#!!block;n#gorsa_decode#0" />
+            <element signature="n#!!block;n#PKCS5Padding#0" />
+            <element signature="n#!!block;n#gorsasha256_with_private#0" />
+            <element signature="n#!!block;n#goaes128_with_byte#0" />
+            <element signature="n#!!block;n#goaes128decode_with_base64#0" />
+            <element signature="n#!!block;n#gomd5#0" />
+            <element signature="n#!!block;n#gorsaenc_with_publickey#0" />
+            <element signature="n#!!block;n#gorsaenc_with_private#0" />
+            <element signature="n#!!block;n#gorsaenc_with_privatekey_data_imp#0" />
+            <element signature="n#!!block;n#getMiguSign#0" />
+            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+            <element signature="n#!!block;n#gohmac_sha256#0" />
+            <element signature="n#!!block;n#gosha256#0" />
+            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+            <element signature="e#6456#6477#0" />
+            <element signature="e#6580#6601#0" />
+            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+            <element signature="n#!!block;n#cli_with_cli#0" />
+            <element signature="e#13113#13134#0" />
+            <element signature="e#13163#13538#0" />
+            <element signature="e#14360#14529#0" />
+            <element signature="e#14681#14796#0" />
+            <element signature="n#!!block;n#client_authRequest#0" />
+            <element signature="n#!!block;n#init#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#128#1038#0" />
+            <element signature="e#1053#1072#0" />
+            <element signature="e#1163#1182#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
