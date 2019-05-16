@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-    </list>
+    <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +14,7 @@
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="94">
-              <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-              <folding>
-                <element signature="e#14#31#0" expanded="true" />
-              </folding>
+              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -48,30 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/func.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9447">
+            <state relative-caret-position="24252">
               <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
-              <folding>
-                <element signature="n#!!block;n#PKCS7UnPadding#0" />
-                <element signature="n#!!block;n#PKCS7Padding#0" />
-                <element signature="n#!!block;n#gorsa_decode#0" />
-                <element signature="n#!!block;n#PKCS5Padding#0" />
-                <element signature="n#!!block;n#gorsasha256_with_private#0" />
-                <element signature="n#!!block;n#goaes128_with_byte#0" />
-                <element signature="n#!!block;n#goaes128decode_with_base64#0" />
-                <element signature="n#!!block;n#gomd5#0" />
-                <element signature="n#!!block;n#gorsaenc_with_publickey#0" />
-                <element signature="n#!!block;n#gorsaenc_with_private#0" />
-                <element signature="n#!!block;n#gorsaenc_with_privatekey_data_imp#0" />
-                <element signature="n#!!block;n#getMiguSign#0" />
-                <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
-                <element signature="n#!!block;n#gohmac_sha256#0" />
-                <element signature="n#!!block;n#gosha256#0" />
-                <element signature="n#!!block;n#get_ks_with_auth_user#0" />
-                <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
-                <element signature="n#!!block;n#cli_with_cli#0" />
-                <element signature="n#!!block;n#client_authRequest#0" />
-                <element signature="n#!!block;n#init#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -158,10 +128,6 @@
               <item name="mgios" type="b2602c69:ProjectViewProjectNode" />
               <item name="mgios" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mgios" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -218,16 +184,20 @@
       <pattern value="^Test_getMiguSign$" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Go Build.go build mgios" />
-      <item itemvalue="Go Test.Test_getMiguSign in mgios" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build mgios" />
-        <item itemvalue="Go Test.Test_getMiguSign in mgios" />
-      </list>
-    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="" />
+      <created>1558019415933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558019415933</updated>
+      <workItem from="1558019419410" duration="4000" />
+    </task>
+    <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 51m 34s.xml">
@@ -261,6 +231,9 @@
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4000" />
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -272,9 +245,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.20521173" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.21498372" />
       <window_info id="Structure" order="1" sideWeight="0.50089765" side_tool="true" weight="0.20141152" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -294,6 +266,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Nativescript Palette" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,22 +336,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main - 副本.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/main - 副本.go" />
     <entry file="file://$PROJECT_DIR$/FormLogin.gfm" />
     <entry file="file://$PROJECT_DIR$/FormLoginImpl.go" />
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
-          <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-          <folding>
-            <element signature="e#14#31#0" expanded="true" />
-          </folding>
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -398,30 +362,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/func.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9447">
+        <state relative-caret-position="24252">
           <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!block;n#PKCS7UnPadding#0" />
-            <element signature="n#!!block;n#PKCS7Padding#0" />
-            <element signature="n#!!block;n#gorsa_decode#0" />
-            <element signature="n#!!block;n#PKCS5Padding#0" />
-            <element signature="n#!!block;n#gorsasha256_with_private#0" />
-            <element signature="n#!!block;n#goaes128_with_byte#0" />
-            <element signature="n#!!block;n#goaes128decode_with_base64#0" />
-            <element signature="n#!!block;n#gomd5#0" />
-            <element signature="n#!!block;n#gorsaenc_with_publickey#0" />
-            <element signature="n#!!block;n#gorsaenc_with_private#0" />
-            <element signature="n#!!block;n#gorsaenc_with_privatekey_data_imp#0" />
-            <element signature="n#!!block;n#getMiguSign#0" />
-            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
-            <element signature="n#!!block;n#gohmac_sha256#0" />
-            <element signature="n#!!block;n#gosha256#0" />
-            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
-            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
-            <element signature="n#!!block;n#cli_with_cli#0" />
-            <element signature="n#!!block;n#client_authRequest#0" />
-            <element signature="n#!!block;n#init#0" />
-          </folding>
         </state>
       </provider>
     </entry>

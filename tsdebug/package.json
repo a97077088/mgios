@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "dependencies": {
-    "frida-gum-types": "^4.1.0",
-    "frida-lib": "^1.1.12"
+    "frida-gum-types1": "^1.0.4",
+    "frida-lib": "^1.1.21"
   },
   "devDependencies": {},
   "scripts": {

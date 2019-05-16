@@ -1,310 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-"use strict";
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-  result["default"] = mod;
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var ios = __importStar(require("frida-lib/ios")); // @ts-ignore
-
-
-var NSUbiquitousKeyValueStore = ObjC.classes.NSUbiquitousKeyValueStore;
-var UIDevice = ObjC.classes.UIDevice;
-
-function strToHexCharCode(str) {
-  if (str === "") return "";
-  var hexCharCode = [];
-  hexCharCode.push("0x");
-
-  for (var i = 0; i < str.length; i++) {
-    hexCharCode.push(str.charCodeAt(i).toString(16));
-  }
-
-  return hexCharCode.join("");
-}
-
-ios.fast.mainfunc(function () {
-  // @ts-ignore
-  // var idfa=UIDevice.currentDevice().currentUserSessionId()//
-  try {
-    // @ts-ignore
-    console.log(ObjC.classes.MGUser); // @ts-ignore
-
-    var setProvinceCode = ObjC.classes.MGUser["- setProvinceCode:"];
-    console.log(setProvinceCode);
-    Interceptor.attach(setProvinceCode.implementation, {
-      onEnter: function (args) {
-        console.log("setProvinceCode:" + new ObjC.Object(args[2]));
-        ios.fast.show_backtrace();
-      }
-    }); // var sha256=ios.libc.getExportFunction("CC_SHA256","void",["pointer","int","pointer"])
-    // Interceptor.attach(sha256,{
-    //     onEnter:function(args){
-    //         // @ts-ignore
-    //         console.log(`sha256:${hexdump(args[0],{length:Number(args[1]),header:false})}`)
-    //         console.log()
-    //     }
-    // })
-    //
-    // var argx:NativePointer=NULL
-    // var CCHMac=ios.libc.getExportFunction("CCHmac","void",["int","pointer","int","pointer","int","pointer"])
-    // Interceptor.attach(CCHMac,{
-    //     onEnter:function(args){
-    //         // @ts-ignore
-    //         console.log(`cchmac:${hexdump(args[1],{length:Number(args[2]),header:false})}`)
-    //         console.log(`cchmac:${hexdump(args[3],{length:Number(args[4]),header:false})}`)
-    //         console.log()
-    //         ios.fast.show_backtrace()
-    //         argx=args[5]
-    //     },
-    //     onLeave:function(r){
-    //         console.log(`cchmac r:${hexdump(argx,{length:32,header:false})}`)
-    //     }
-    // })
-    //
-    //
-    // var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
-    // Interceptor.attach(baseaddr.add(0x36998C),{
-    //     onEnter:function(args){
-    //         console.log(`0x3E1B820:${baseaddr.add(0x3E1B820).readU32()}`)
-    //         console.log(`0x3E1B818:${baseaddr.add(0x3E1B818).readPointer().readCString(baseaddr.add(0x3E1B820).readU32())}`)
-    //
-    //         console.log(`0x36998c :${hexdump(args[0],{header:false,length:16})}`)
-    //         console.log(`0x36998c :${args[1].readUtf8String()}`)
-    //         console.log(`0x36998c :${args[2].readCString()}`)
-    //         console.log(`0x36998c :${args[3].readCString()}`)
-    //         console.log(`0x36998c :${hexdump(args[4],{length:32,header:false})}`)
-    //         console.log(`0x36998c :${args[5]}`)
-    //     }
-    // })
-    //
-    //
-    // Interceptor.attach(baseaddr.add(0x369680),{
-    //     onEnter:function (args) {
-    //         console.log(`369680参数:${args[0].readCString()}`)
-    //         console.log(`369680参数:${args[1].readCString()}`)
-    //         console.log(`369680参数:${args[2].readCString()}`)
-    //         console.log(`369680参数:${args[3].readCString()}`)
-    //     }
-    // })
-    //
-    // Interceptor.attach(baseaddr.add(0x181E74),{//
-    //     onEnter:function (args) {
-    //         console.log(hexdump(args[2],{length:Number(args[3]),header:false}))
-    //         console.log(`248B28参数:${args[0].readCString()}`)
-    //         console.log(`248B28参数:${args[1]}`)
-    //         console.log(`248B28参数:${args[2].readUtf8String(Number(args[3]))}`)
-    //         console.log(`248B28参数:${args[3]}`)
-    //     },onLeave:function(r){
-    //         console.log(`248B28参数:${r.readCString()}`)
-    //     }
-    // })
-    //
-    // //@ts-ignore
-    // var getNativeMac=ObjC.classes.MGUASDKKDF["+ getNativeMac:data:"]
-    // Interceptor.attach(getNativeMac.implementation,{
-    //     onEnter:function(args){
-    //         ios.fast.show_backtrace()
-    //         console.log(`${ObjC.selectorAsString(args[1])} ${((args[2]).readCString(16))} , ${new ObjC.Object(args[3])}`)
-    //     },
-    //     onLeave:function(r){
-    //         console.log(`getNativeMac:${new ObjC.Object(r)}`)
-    //     }
-    // })
-    //
-    // //@ts-ignore
-    // var charToNSHex=ObjC.classes.MGUASDKFormatTransform["+ charToNSHex:length:"]
-    // Interceptor.attach(charToNSHex.implementation,{
-    //     onEnter:function(args){
-    //         console.log(`${ObjC.selectorAsString(args[1])} ${((args[2]).readCString())} , ${args[3]}`)
-    //     },
-    //     onLeave:function(r){
-    //         console.log(`charToNSHex:${new ObjC.Object(r)}`)
-    //     }
-    // })
-    // // // @ts-ignore//
-    // // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUASDKKDF)
-    // //@ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUnionAuthManager)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGSignInManager)////////////////
-    //
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPSafeKSMgmt)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPToken)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPParseParament)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUnionAuthManager)
-    // // @ts-ignore
-    // //ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUASDKFormatTransform)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPMD5)
-    // // @ts-ignore
-    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPUPMode)
-    // // @ts-ignore
-    // var charToNSHex=ObjC.classes.MGUASDKFormatTransform["+ charToNSHex:length:"]
-    // Interceptor.attach(charToNSHex.implementation,{
-    //     onEnter:function(args){
-    //         console.log(`${ObjC.selectorAsString(args[1])} ${(args[2]).readCString()} , ${args[3]}`)
-    //     },
-    //     onLeave:function(r){
-    //         console.log(`tonshex:${new ObjC.Object(r)}`)
-    //     }
-    // })
-    //
-    //
-    // // @ts-ignore
-    // var getMd5_32Bit_String=ObjC.classes.IDMPMD5["+ getMd5_32Bit_String:"]
-    // Interceptor.attach(getMd5_32Bit_String.implementation,{
-    //     onEnter:function(args){
-    //         console.log(`${ObjC.selectorAsString(args[1])} ${new ObjC.Object(args[2])}`)
-    //     },
-    //     onLeave:function(r){
-    //         console.log(`md5r:${new ObjC.Object(r)}`)
-    //     }
-    // })
-    // @ts-ignore
-    // var setobjforkey=ObjC.classes.NSMutableDictionary["- hookSetObject:forKey:"]
-    // Interceptor.attach(setobjforkey.implementation,{
-    //     onEnter:function(args){
-    //         var obj=new ObjC.Object(args[3])
-    //         if (obj.toString()=="KS"){
-    //             console.log(ObjC.selectorAsString(args[1]))
-    //             console.log(new ObjC.Object(args[2]))
-    //             console.log(new ObjC.Object(args[3]))
-    //             ios.fast.show_backtrace()
-    //         }
-    //     }
-    // })
-    // @ts-ignore
-    // var getTokenWithUserName=ObjC.classes.IDMPToken["+ getTokenWithUserName:appId:uuid:andUser:"]
-    // Interceptor.attach(getTokenWithUserName.implementation,{
-    //     onEnter:function(args){
-    //         console.log(ObjC.selectorAsString(args[1]))
-    //         console.log(new ObjC.Object(args[2]))
-    //         console.log(new ObjC.Object(args[3]))
-    //         console.log(new ObjC.Object(args[4]))
-    //         console.log(new ObjC.Object(args[5]))
-    //         ios.fast.show_backtrace()
-    //     }
-    // })
-    // @ts-ignore
-    // var mod=ObjC.classes.IDMPParseParament["+ parseParamentFrom:"]
-    // Interceptor.attach(mod.implementation,{
-    //     onEnter:(args => {
-    //         console.log(ObjC.selectorAsString(args[1]))
-    //         console.log(new ObjC.Object(args[2]))
-    //     }),
-    //     onLeave:function(r){
-    //         console.log(new ObjC.Object(r))
-    //     }
-    // })
-    // var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
-    // Interceptor.attach(baseaddr.add(0x1DE514),{
-    //     onEnter:function (args) {
-    //         console.log(`rsa1参数:${new ObjC.Object(args[0])}`)
-    //         console.log(`rsa1参数:${new ObjC.Object(args[1])}`)
-    //         ios.fast.show_backtrace()
-    //     }
-    // })
-    // @ts-ignore
-    // var mod=ObjC.classes.MGUnionAuthManager["- getAccessTokenByConditionWithLoginType:username:content:countryCode:successBlock:failBlock:"]
-    // Interceptor.attach(mod.implementation,{
-    //     onEnter:function(args){
-    //         console.log(new ObjC.Object(args[5]))
-    //         ios.fast.show_backtrace()
-    //     }
-    // })
-    //
-    // setTimeout(function(){
-    //     send({"done":true})
-    // },1000)
-    //
-    //     // // @ts-ignore
-    // console.log(ObjC.classes.MGSignInManager["- handleSDKLoginSuccessWithParam:"])
-    // // @ts-ignore
-    // ios.fast.hookoc(ObjC.classes.MGSignInManager["- handleSDKLoginSuccessWithParam:"],function(oldfn,self,sel,a1,){
-    //
-    //     console.log(`arg1:${new ObjC.Object(a1)}`)
-    //     var r=oldfn(self,sel,a1,)
-    //     console.log(`返回:${new ObjC.Object(r)}`)
-    //     //return r;
-    // })
-    //
-    //
-    //     // // @ts-ignore
-    //     // ios.fast.hookoc(ObjC.classes.IDMPAES128["+ AESEncryptWithKey:andData:"],function(oldfn,self,sel,arg1,arg2){
-    //     //     console.log(new ObjC.Object(arg1))
-    //     //     console.log(new ObjC.Object(arg2))
-    //     //     var r=oldfn(self,sel,arg1,arg2)
-    //     //     return r;
-    //     // })
-    //
-    //     // @ts-ignore
-    //     // ios.fast.hookoc(ObjC.classes.IDMPAES128["+ base64EncodingWithData:"],function(oldfn,self,sel,arg1){
-    //     //     console.log(new ObjC.Object(arg1))
-    //     //     var tm:ObjC.classes.NSString=<any>NSString.alloc()
-    //     //     var ts=tm.initWithData_encoding_(<any>new ObjC.Object(arg1),4)
-    //     //     console.log(`base64参数:${ts}`)
-    //     //
-    //     //     var r=oldfn(self,sel,arg1)
-    //     //     console.log(`base64 r:${new ObjC.Object(r)}`)
-    //     //     return r;
-    //     // })
-    //
-    //     var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
-    //     // Interceptor.attach(baseaddr.add(0x23ED00),{
-    //     //     onEnter:function (args) {
-    //     //         console.log(`rsa参数:${new ObjC.Object(args[0])}`)
-    //     //     }
-    //     // })
-    //     // Interceptor.attach(baseaddr.add(0x313F70),{
-    //     //     onEnter:function(args){
-    //     //         console.log(`rsa参数:${new ObjC.Object(args[0])}`)
-    //     //     }
-    //     // })
-    //     // @ts-ignore
-    //     // ios.fast.hookoc(ObjC.classes.IDMPMD5["+ getMd5_32Bit_String:"],function(oldfn,self,sel,a1){
-    //     //     var r=oldfn(self,sel,a1)
-    //     //     console.log(`md5 参数:${new ObjC.Object(a1)}`)
-    //     //     console.log(`md5 返回:${new ObjC.Object(r)}`)
-    //     //     return r
-    //     // })
-    //
-    //     // // @ts-ignore
-    //     // ios.fast.hookoc(ObjC.classes.NSString["- md5String"],function(oldfn,self,sel){
-    //     //     var r=oldfn(self,sel)
-    //     //     console.log(`md5 参数:${new ObjC.Object(self)}`)
-    //     //     console.log(`md5 返回:${new ObjC.Object(r)}`)
-    //     //     return r
-    //     // })
-    // @ts-ignore
-    // ios.fast.hookoc(ObjC.classes.IDMPRSA_Encrypt_Decrypt["+ addPublicKey:"],function(oldfn,self,sel,a1){
-    //     var r=oldfn(self,sel,a1)
-    //     console.log(new ObjC.Object(a1))
-    //     console.log(r)
-    //     // ios.fast.show_backtrace()
-    //     return r
-    // })
-    //
-    //     // send({'done':true})
-  } catch (e) {
-    console.log(e);
-  } // send({"done":true})
-
-});
-
-},{"frida-lib/ios":7}],2:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -829,927 +523,7 @@ function functionBindPolyfill(context) {
   };
 }
 
-},{}],3:[function(require,module,exports){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var libc_1 = require("./libc");
-var dyld;
-(function (dyld) {
-    dyld.FAT_MAGIC = 0xcafebabe;
-    dyld.FAT_CIGAM = 0xbebafeca;
-    dyld.MH_MAGIC = 0xfeedface;
-    dyld.MH_CIGAM = 0xcefaedfe;
-    dyld.MH_MAGIC_64 = 0xfeedfacf;
-    dyld.MH_CIGAM_64 = 0xcffaedfe;
-    dyld.LC_SEGMENT = 0x1;
-    dyld.LC_SEGMENT_64 = 0x19;
-    dyld.LC_LOAD_DYLIB = 0xc;
-    dyld.LC_ENCRYPTION_INFO = 0x21;
-    dyld.LC_ENCRYPTION_INFO_64 = 0x2C;
-    dyld.LC_SYMTAB = 0x2;
-    dyld.LC_DYSYMTAB = 0xb;
-    dyld.SECTION_TYPE = 0x000000ff;
-    dyld.S_LAZY_SYMBOL_POINTERS = 0x7;
-    dyld.S_NON_LAZY_SYMBOL_POINTERS = 0x6;
-    dyld.S_SYMBOL_STUBS = 0x8;
-    dyld.S_MOD_INIT_FUNC_POINTERS = 0x9;
-    dyld.S_MOD_TERM_FUNC_POINTERS = 0xa;
-    dyld.S_COALESCED = 0xb;
-    dyld.S_GB_ZEROFILL = 0xc;
-    dyld.S_INTERPOSING = 0xd;
-    dyld.INDIRECT_SYMBOL_ABS = 0x40000000;
-    dyld.INDIRECT_SYMBOL_LOCAL = 0x80000000;
-    dyld.RTLD_LAZY = 0x1;
-    dyld.RTLD_NOW = 0x2;
-    dyld.RTLD_LOCAL = 0x4;
-    dyld.RTLD_GLOBAL = 0x8;
-    dyld.dlopen = libc_1.libc.getExportFunction("dlopen", "pointer", ['pointer', 'int']);
-    dyld.dlsym = libc_1.libc.getExportFunction("dlsym", "pointer", ['pointer', 'pointer']);
-    dyld.dlclose = libc_1.libc.getExportFunction("dlclose", "int", ['pointer']);
-    dyld.dlerror = libc_1.libc.getExportFunction("dlerror", "pointer", []);
-    dyld.exit = libc_1.libc.getExportFunction("exit", "void", ["int"]);
-    dyld._exit = libc_1.libc.getExportFunction("_exit", "void", ["int"]);
-    dyld.dladdr = libc_1.libc.getExportFunction("dladdr", "int", ["pointer", "pointer"]);
-    dyld._dyld_register_func_for_add_image = libc_1.libc.getExportFunction("_dyld_register_func_for_add_image", "void", ["pointer"]);
-    dyld._dyld_register_func_for_remove_image = libc_1.libc.getExportFunction("_dyld_register_func_for_remove_image", "void", ["pointer"]);
-    dyld._dyld_image_count = libc_1.libc.getExportFunction("_dyld_image_count", "uint", []);
-    dyld._dyld_get_image_header = libc_1.libc.getExportFunction("_dyld_get_image_header", "pointer", ["uint"]);
-    dyld._dyld_get_image_vmaddr_slide = libc_1.libc.getExportFunction("_dyld_get_image_vmaddr_slide", "long", ["uint"]);
-    dyld._dyld_get_image_name = libc_1.libc.getExportFunction("_dyld_get_image_name", "pointer", ["uint"]);
-})(dyld = exports.dyld || (exports.dyld = {}));
-
-},{"./libc":8}],4:[function(require,module,exports){
-"use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var struct = __importStar(require("./struct"));
-var dyld_1 = require("./dyld");
-var ios = __importStar(require("frida-lib/ios/index"));
-var fast;
-(function (fast) {
-    var UIAlertView = ObjC.classes.UIAlertView;
-    var NSString = ObjC.classes.NSString;
-    var UIApplication = ObjC.classes.UIApplication;
-    var UITabBarController = ObjC.classes.UITabBarController;
-    var UINavigationController = ObjC.classes.UINavigationController;
-    var UIStoryboard = ObjC.classes.UIStoryboard;
-    var NSThread = ObjC.classes.NSThread;
-    function show_backtrace() {
-        var traces = new ObjC.Object(NSThread.callStackSymbols());
-        for (var i = 0; i < traces.count(); i++) {
-            console.log(traces.objectAtIndex_(i));
-        }
-        // // @ts-ignore
-        // var traces=Thread.backtrace()
-        // for(var addrtrace of traces){
-        //     var trace=DebugSymbol.fromAddress(<NativePointer><any>addrtrace)
-        //     console.log(trace)
-        // }
-    }
-    fast.show_backtrace = show_backtrace;
-    function curViewController() {
-        var vc;
-        vc = UIApplication.sharedApplication().keyWindow().rootViewController();
-        while (1) {
-            if (vc.isKindOfClass_(UITabBarController.class())) {
-                vc = vc.selectedViewController();
-            }
-            if (vc.isKindOfClass_(UINavigationController.class())) {
-                vc = vc.visibleViewController();
-            }
-            if (vc.presentedViewController()) {
-                vc = vc.presentedViewController();
-            }
-            else {
-                break;
-            }
-        }
-        return vc;
-    }
-    fast.curViewController = curViewController;
-    function simple_alert(_text, _title) {
-        var alertview = UIAlertView.alloc();
-        alertview.initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles_(jsocstr(_title), jsocstr(_text), NULL, jsocstr("OK"), NULL);
-        console.log(alertview);
-        alertview.show(); //////////
-    }
-    fast.simple_alert = simple_alert;
-    function hookoc(method, fn) {
-        var oldfunc = method.implementation;
-        method.implementation = ObjC.implement(method, function (self, selector) {
-            var args = [];
-            for (var _i = 2; _i < arguments.length; _i++) {
-                args[_i - 2] = arguments[_i];
-            }
-            return fn.apply(void 0, [oldfunc, self, selector].concat(args));
-        });
-    }
-    fast.hookoc = hookoc;
-    function hookoccls(cls, fn) {
-        var metnames = cls.$methods;
-        // @ts-ignore
-        var objnames = ObjC.classes.NSObject.$methods;
-        for (var _i = 0, metnames_1 = metnames; _i < metnames_1.length; _i++) {
-            var name = metnames_1[_i];
-            if (objnames.indexOf(name) == -1) {
-                // @ts-ignore
-                var method = cls[name];
-                hookoc(method, fn);
-                // Interceptor.attach(method.implementation,{
-                //     onEnter:fn,
-                // })
-            }
-        }
-    }
-    fast.hookoccls = hookoccls;
-    //直接显示所有调用，指定一个类
-    function showcallmethod_with_hookoccls(cls) {
-        ios.fast.hookoccls(cls, function (oldfn, _self, sel) {
-            var args = [];
-            for (var _i = 3; _i < arguments.length; _i++) {
-                args[_i - 3] = arguments[_i];
-            }
-            var self = new ObjC.Object(_self);
-            var selname = ObjC.selectorAsString(sel);
-            var r = oldfn.apply(void 0, [self, sel].concat(args));
-            // @ts-ignore
-            var methodsign = self.methodSignatureForSelector_(sel);
-            var sargs = [];
-            var argscount = methodsign.numberOfArguments() - 2; //解析参数个数
-            for (var i = 0; i < argscount; i++) {
-                var argtype = String(methodsign.getArgumentTypeAtIndex_(i + 2));
-                var arg = null;
-                if (argtype == "@" || argtype == "@?") {
-                    arg = new ObjC.Object(args[i]);
-                }
-                else {
-                    arg = args[i];
-                }
-                sargs.push(arg);
-            } //解析参数类型
-            var sret = null;
-            var srettype = String(methodsign.methodReturnType());
-            if (srettype == "@") {
-                sret = new ObjC.Object(r);
-            }
-            else {
-                sret = r;
-            }
-            var spselname = selname.split(":");
-            var newselname = "";
-            if (sargs.length == 0) {
-                newselname = spselname[0];
-            }
-            else {
-                var toargscount = argscount;
-                for (var i = 0; i < toargscount; i++) {
-                    newselname = newselname + " " + spselname[i] + ":" + sargs[i] + " ";
-                }
-            }
-            var xsret = "";
-            if (sret != null && sret != undefined && sret != "") {
-                xsret = sret + "<- ";
-            }
-            console.log("" + xsret + self.$className + " " + newselname);
-            console.log();
-            return r;
-        });
-    }
-    fast.showcallmethod_with_hookoccls = showcallmethod_with_hookoccls;
-    // settingsStoryboard
-    // settingsView
-    function storytoviewcontroller() {
-        var story = UIStoryboard.storyboardWithName_bundle_(jsocstr("settingsStoryboard"), NULL);
-        var vc = story.instantiateViewControllerWithIdentifier_(jsocstr("settingsView"));
-        return vc;
-    }
-    fast.storytoviewcontroller = storytoviewcontroller;
-    function hook_objc_msgSend(func) {
-        Interceptor.attach(Module.findExportByName('/usr/lib/libobjc.A.dylib', 'objc_msgSend'), {
-            onEnter: function (args) {
-                var m = cjsstr(args[1]);
-                if (m != 'length' && m != 'self' && m != 'retain' && m != "_mutate" && m != 'count' && m != 'hash' && !m.startsWith("dealloc") && !m.startsWith("__new:::") && !m.startsWith('release') && !m.startsWith('alloc') && !m.startsWith('_fastC')) {
-                    func(args);
-                }
-            }
-        });
-    }
-    fast.hook_objc_msgSend = hook_objc_msgSend;
-    function mainfunc(fn) {
-        ObjC.schedule(ObjC.mainQueue, fn);
-    }
-    fast.mainfunc = mainfunc;
-    function jsocstr(str) {
-        return NSString.stringWithUTF8String_(jscstr(str));
-    }
-    fast.jsocstr = jsocstr;
-    function ocjsstr(str) {
-        return str.UTF8String().readUtf8String();
-    }
-    fast.ocjsstr = ocjsstr;
-    function jscstr(str) {
-        return Memory.allocUtf8String(str);
-    }
-    fast.jscstr = jscstr;
-    function cjsstr(str) {
-        if (str == null) {
-            return "";
-        }
-        if (str == NULL) {
-            return "";
-        }
-        var r = str.readUtf8String();
-        if (r == null) {
-            return "";
-        }
-        else {
-            return r;
-        }
-    }
-    fast.cjsstr = cjsstr;
-    function showinfo(obj) {
-        Object.keys(obj.$ivars).forEach(function (v) {
-            console.log('\t', v, '=', obj.$ivars[v]);
-        });
-    }
-    fast.showinfo = showinfo;
-    function observeClass(obj) {
-        var k = obj;
-        var name = obj.$className;
-        k.$ownMethods.forEach(function (m) {
-            var impl = k[m].implementation;
-            console.log('Observing ' + name + ' ' + m);
-            Interceptor.attach(impl, {
-                onEnter: function (a) {
-                    this.log = [];
-                    this.log.push('(' + a[0] + ',' + a[1].readUtf8String() + ') ' + name + ' ' + m);
-                    if (m.indexOf(':') !== -1) {
-                        var params = m.split(':');
-                        params[0] = params[0].split(' ')[1];
-                        for (var i = 0; i < params.length - 1; i++) {
-                            try {
-                                this.log.push(params[i] + ': ' + new ObjC.Object(a[2 + i]).toString());
-                            }
-                            catch (e) {
-                                this.log.push(params[i] + ': ' + a[2 + i].toString());
-                            }
-                        }
-                    }
-                    this.log.push(Thread.backtrace(this.context, Backtracer.ACCURATE)
-                        .map(DebugSymbol.fromAddress)
-                        .join('\n'));
-                },
-                onLeave: function (r) {
-                    try {
-                        this.log.push('RET: ' + new ObjC.Object(r).toString());
-                    }
-                    catch (e) {
-                        this.log.push('RET: ' + r.toString());
-                    }
-                    console.log(this.log.join('\n') + '\n');
-                }
-            });
-        });
-    }
-    fast.observeClass = observeClass;
-    function setExceptionHandle(fn) {
-        if (fn != null) {
-            Process.setExceptionHandler(fn);
-        }
-        else {
-            Process.setExceptionHandler(function (exception) {
-                var Dlinfo = new struct.Dl_info(null);
-                dyld_1.dyld.dladdr(exception.address, Dlinfo.ptr);
-                console.log("\u6700\u8FD1\u7684\u7B26\u53F7:" + Dlinfo.dli_sname());
-                console.log('异常堆栈:\n' + Thread.backtrace(exception.context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join('\n') + '\n');
-                console.log("\u6355\u83B7\u5230\u5F02\u5E38" + exception);
-                send({ "done": true });
-                Dlinfo.free();
-                return false;
-            });
-        }
-    }
-    fast.setExceptionHandle = setExceptionHandle;
-})(fast = exports.fast || (exports.fast = {}));
-
-},{"./dyld":3,"./struct":9,"frida-lib/ios/index":7}],5:[function(require,module,exports){
-"use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var struct = __importStar(require("./struct"));
-var dyld_1 = require("./dyld");
-var path_1 = __importDefault(require("path"));
-var fast_1 = require("./fast");
-var natcall = new NativeCallback(function () {
-    console.log("nav");
-}, "void", ["pointer", "pointer", "pointer"]);
-// let tzset=libc.getExportFunction("test","void",[])   //随便导出一个函数来屏蔽entry
-var fishhook;
-(function (fishhook) {
-    var bindclass = /** @class */ (function () {
-        function bindclass(_modename, _funcname, _newcalladdr) {
-            this.name = "";
-            this.oldaddr = NULL;
-            this.newcall = NULL;
-            this.modname = "";
-            this.modname = _modename;
-            this.name = _funcname;
-            this.newcall = _newcalladdr;
-        }
-        return bindclass;
-    }());
-    fishhook.bindclass = bindclass;
-    fishhook.bindclsvar = [];
-    var my_bind = new NativeCallback(function (mh, intptr_t) {
-        bind(mh, intptr_t);
-    }, "void", ["pointer", "pointer"]);
-    function isinbind_with_modname(_modfname) {
-        for (var _i = 0, bindclsvar_1 = fishhook.bindclsvar; _i < bindclsvar_1.length; _i++) {
-            var it = bindclsvar_1[_i];
-            var itname = it.modname.toLowerCase();
-            var itfname = it.name.toLocaleLowerCase();
-            var modfname = _modfname.toLowerCase();
-            if (itname == modfname || itname == "") {
-                return true;
-                // let callf = Module.findExportByName(modfname, itfname)
-                // if (callf != null) {
-                //     return true
-                // }
-            }
-        }
-        return false;
-    }
-    function perform_rebinding_with_section(_modpath, _section, _intptr_t, _symtab, _strtab, _indirect_symtab) {
-        var modfpath = _modpath;
-        var modfname = path_1.default.basename(modfpath);
-        if (modfname == "") {
-            return;
-        }
-        var section = new struct.section(_section);
-        var intptr_t = _intptr_t;
-        var symtab = _symtab;
-        var strtab = _strtab;
-        var indirect_symtab = _indirect_symtab;
-        var indirect_symbol_indices = indirect_symtab.add(section.reserved1().readU32() * 4);
-        var indirect_symbol_bindings = intptr_t.add(section.addr().readU64());
-        if (isinbind_with_modname(modfname) == false) {
-            return;
-        }
-        var ton = section.psize().readU64().toNumber() / Process.pointerSize;
-        var _loop_1 = function () {
-            var symtab_index = indirect_symbol_indices.add(i * 4).readU32();
-            if (symtab_index == dyld_1.dyld.INDIRECT_SYMBOL_ABS || symtab_index == dyld_1.dyld.INDIRECT_SYMBOL_LOCAL || symtab_index == ((dyld_1.dyld.INDIRECT_SYMBOL_LOCAL | dyld_1.dyld.INDIRECT_SYMBOL_ABS) >>> 0)) {
-                return "continue";
-            }
-            strtab_offset = symtab.add(symtab_index * 16).readU32();
-            var symbol_name = strtab.add(strtab_offset).readCString();
-            if (symbol_name.length < 1) {
-                return { value: void 0 };
-            }
-            symbol_name = symbol_name.slice(1);
-            fishhook.bindclsvar.forEach(function (it) {
-                if (it.name == symbol_name) {
-                    //console.log(`fname:${modfname} symbol_name: ${symbol_name}`)
-                    var fnptr = indirect_symbol_bindings.add(i * Process.pointerSize);
-                    if (it.name == symbol_name) {
-                        if (it.oldaddr == NULL) {
-                            it.oldaddr = fnptr.readPointer(); //保存第一个模块的符号，因为符号都是相同的
-                        }
-                        console.log("\u6210\u529FHook " + modfname + " " + symbol_name);
-                        fnptr.writePointer(it.newcall);
-                    }
-                }
-            });
-        };
-        var strtab_offset;
-        for (var i = 0; i < ton; i++) {
-            var state_1 = _loop_1();
-            if (typeof state_1 === "object")
-                return state_1.value;
-        }
-        // bindclsvar.forEach((it) => {
-        //     if ((it.modname != "" && it.modname != modfname) || it.modname == "#initfunc") {  //如果不是指定模块
-        //         return
-        //     } else {
-        //         //console.log(`name:${modfname} reserved1:${section.reserved1().readU32()} secsize:${section.psize().readU64()}  sectname: ${fast.cjsstr(section.sectname())}`)
-        //         return;
-        //         for (var i = 0; i < (section.psize().readU64().toNumber() / Process.pointerSize); i++) {
-        //             let symtab_index = indirect_symbol_indices.add(i * 4).readU32()
-        //             if (symtab_index == dyld.INDIRECT_SYMBOL_ABS || symtab_index == dyld.INDIRECT_SYMBOL_LOCAL || symtab_index == ((dyld.INDIRECT_SYMBOL_LOCAL | dyld.INDIRECT_SYMBOL_ABS) >>> 0)) {
-        //                 continue
-        //             }
-        //             var strtab_offset = symtab.add(symtab_index * 16).readU32();
-        //             let symbol_name = <string>strtab.add(strtab_offset).readCString()
-        //             if (symbol_name.length < 1) {
-        //                 return
-        //             }
-        //             symbol_name = symbol_name.slice(1)
-        //             let fnptr = indirect_symbol_bindings.add(i * Process.pointerSize)
-        //             bindclsvar.forEach((it) => {
-        //                 //console.log(`${section.sectname().readUtf8String()}:${symbol_name}`)
-        //                 if (it.name == symbol_name) {
-        //                     if (it.oldaddr == NULL) {
-        //                         it.oldaddr = fnptr.readPointer()  //保存第一个模块的符号，因为符号都是相同的
-        //                     }
-        //                     //console.log(`成功Hook ${modfname} ${symbol_name}`)
-        //                     fnptr.writePointer(it.newcall)
-        //                 }
-        //             })
-        //         }
-        //     }
-        // })
-    }
-    // function perform_rebindinginit_with_section(_modpath:string,_section: NativePointer, _intptr_t: NativePointer, _symtab: NativePointer, _strtab: NativePointer, _indirect_symtab: NativePointer) {
-    //     let modfpath = _modpath
-    //     let modfname = path.basename(modfpath)
-    //     if (modfname == "") {
-    //         return
-    //     }
-    //     let section = new struct.section(_section)
-    //     let intptr_t = _intptr_t
-    //     let symtab = _symtab
-    //     let strtab = _strtab
-    //     let indirect_symtab = _indirect_symtab
-    //     let indirect_symbol_bindings = intptr_t.add(section.addr().readU64())
-    //     bindclsvar.forEach((it) => {
-    //         if (it.modname != "" && it.modname != modfname) {  //如果不是指定模块
-    //             return
-    //         } else {
-    //             console.log(`name:${modfname} reserved1:${section.reserved1().readU32()} secsize:${section.psize().readU64()}  sectname: ${fast.cjsstr(section.sectname())}`)
-    //             for (var i = 0; i < (section.psize().readU64().toNumber() / Process.pointerSize); i++) {
-    //                 let fnptr = indirect_symbol_bindings.add(i * 8)
-    //                 bindclsvar.forEach((it) => {       
-    //                     fnptr.writePointer(tzset)
-    //                     console.log(`成功Hook ${modfname} init`)
-    //                 })
-    //             }
-    //         }
-    //     })
-    // }
-    function bind(mh, intptr_t) {
-        var dlinfo = new struct.Dl_info(null);
-        if (dyld_1.dyld.dladdr(mh, dlinfo.ptr) == 0) {
-            return;
-        }
-        var modpath = fast_1.fast.cjsstr(dlinfo.dli_fname());
-        dlinfo.free();
-        var linkedit_segment = new struct.segment_command(NULL);
-        var symtab_cmd = new struct.symtab_command(NULL);
-        var dysymtab_cmd = new struct.dysymtab_command(NULL);
-        var macho = new struct.mach_header(mh);
-        var pmh = mh.add(macho.size());
-        for (var i = 0; i < macho.ncmds().readU32(); i++) {
-            var lccommand = new struct.segment_command(pmh);
-            if (lccommand.cmd().readU32() == dyld_1.dyld.LC_SEGMENT_64) {
-                var segname = lccommand.segname().readUtf8String();
-                if (segname == "__LINKEDIT") {
-                    linkedit_segment.ptr = lccommand.ptr;
-                }
-            }
-            else if (lccommand.cmd().readU32() == dyld_1.dyld.LC_SYMTAB) {
-                symtab_cmd.ptr = lccommand.ptr;
-            }
-            else if (lccommand.cmd().readU32() == dyld_1.dyld.LC_DYSYMTAB) {
-                dysymtab_cmd.ptr = lccommand.ptr;
-            }
-            pmh = pmh.add(lccommand.cmdsize().readU32());
-        }
-        if (symtab_cmd.isnull() || dysymtab_cmd.isnull() || linkedit_segment.isnull()) {
-            console.log("遍历seg失败");
-            return;
-        }
-        var linkedit_base = intptr_t.add(linkedit_segment.vmaddr().readU64()).sub(linkedit_segment.fileoff().readU64());
-        var symtab = linkedit_base.add(symtab_cmd.symoff().readU32());
-        var strtab = linkedit_base.add(symtab_cmd.stroff().readU32());
-        var indirect_symtab = linkedit_base.add(dysymtab_cmd.indrectsymoff().readU32());
-        var cur = mh.add(macho.size());
-        for (var i = 0; i < macho.ncmds().readU32(); i++) {
-            var cur_seg_cmd = new struct.segment_command(cur);
-            if (cur_seg_cmd.cmd().readU32() == dyld_1.dyld.LC_SEGMENT_64) {
-                var segname = cur_seg_cmd.segname().readUtf8String();
-                if (segname != "__DATA" && segname != "__DATA_CONST") {
-                    cur = cur.add(cur_seg_cmd.cmdsize().readU32());
-                    continue;
-                }
-                for (var j = 0; j < cur_seg_cmd.nsects().readU64().toNumber(); j++) {
-                    var tmpsec = new struct.section(NULL);
-                    var sect = new struct.section(cur.add(cur_seg_cmd.size()).add(tmpsec.size() * j));
-                    if ((sect.flags().readU32() & dyld_1.dyld.SECTION_TYPE) == dyld_1.dyld.S_LAZY_SYMBOL_POINTERS) {
-                        perform_rebinding_with_section(modpath, sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
-                    }
-                    if ((sect.flags().readU32() & dyld_1.dyld.SECTION_TYPE) == dyld_1.dyld.S_NON_LAZY_SYMBOL_POINTERS) {
-                        perform_rebinding_with_section(modpath, sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
-                    }
-                    // if ((sect.flags().readU32() & dyld.SECTION_TYPE) == dyld.S_MOD_INIT_FUNC_POINTERS) {
-                    //     perform_rebindinginit_with_section(modpath,sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
-                    // }
-                }
-            }
-            cur = cur.add(cur_seg_cmd.cmdsize().readU32());
-        }
-    }
-    function startbind(bindcls) {
-        if (bindcls.name == "") {
-            return;
-        }
-        if (bindcls.newcall == NULL) {
-            return;
-        }
-        fishhook.bindclsvar.push(bindcls);
-        var ncount = dyld_1.dyld._dyld_image_count();
-        for (var i = 0; i < ncount; i++) {
-            var dyname = fast_1.fast.cjsstr(dyld_1.dyld._dyld_get_image_name(i));
-            var pheader = dyld_1.dyld._dyld_get_image_header(i);
-            var pslide = dyld_1.dyld._dyld_get_image_vmaddr_slide(i);
-            bind(pheader, new NativePointer(pslide));
-        }
-        dyld_1.dyld._dyld_register_func_for_add_image(my_bind);
-    }
-    fishhook.startbind = startbind;
-})(fishhook = exports.fishhook || (exports.fishhook = {}));
-
-},{"./dyld":3,"./fast":4,"./struct":9,"path":11}],6:[function(require,module,exports){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var libc_1 = require("./libc");
-function NSSearchPathForDirectoriesInDomains() {
-    return libc_1.libc.getExportFunction("NSSearchPathForDirectoriesInDomains", "pointer", ["int", "int", "int"]);
-}
-exports.NSSearchPathForDirectoriesInDomains = NSSearchPathForDirectoriesInDomains;
-function NSStringFromSelector(_sel) {
-    return new ObjC.Object((libc_1.libc.getExportFunction("NSStringFromSelector", "pointer", ["pointer",])(_sel)));
-}
-exports.NSStringFromSelector = NSStringFromSelector;
-
-},{"./libc":8}],7:[function(require,module,exports){
-"use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./dyld"));
-__export(require("./struct"));
-__export(require("./fishhook"));
-__export(require("./libc"));
-__export(require("./fast"));
-__export(require("./func"));
-
-},{"./dyld":3,"./fast":4,"./fishhook":5,"./func":6,"./libc":8,"./struct":9}],8:[function(require,module,exports){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var libc;
-(function (libc) {
-    libc.O_RDONLY = 0;
-    libc.O_WRONLY = 1;
-    libc.O_RDWR = 2;
-    libc.O_CREAT = 512;
-    libc.SEEK_SET = 0;
-    libc.SEEK_CUR = 1;
-    libc.SEEK_END = 2;
-    libc.read = getExportFunction("read", "int", ["int", "pointer", "int"]);
-    libc.write = getExportFunction("write", "int", ["int", "pointer", "int"]);
-    libc.lseek = getExportFunction("lseek", "int64", ["int", "int64", "int"]);
-    libc.close = getExportFunction("close", "int", ["int"]);
-    libc.remove = getExportFunction("remove", "int", ["pointer"]);
-    libc.access = getExportFunction("access", "int", ["pointer", "int"]);
-    libc.open = getExportFunction("open", "int", ["pointer", "int", "int"]);
-    libc.free = getExportFunction("free", "void", ["pointer"]);
-    libc.malloc = getExportFunction("malloc", "pointer", ["int"]);
-    libc.sleep = getExportFunction("sleep", "int", ["int"]);
-    libc.getenv = getExportFunction("getenv", "pointer", ['pointer']);
-    function getExportFunction(name, ret, args) {
-        var nptr;
-        nptr = Module.findExportByName(null, name);
-        if (nptr === null) {
-            console.log("cannot find " + name);
-            return null;
-        }
-        else {
-            var funclet = new NativeFunction(nptr, ret, args);
-            if (typeof funclet === "undefined") {
-                console.log("parse error " + name);
-                return null;
-            }
-            return funclet;
-        }
-    }
-    libc.getExportFunction = getExportFunction;
-})(libc = exports.libc || (exports.libc = {}));
-
-},{}],9:[function(require,module,exports){
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var libc_1 = require("./libc");
-var dyld_1 = require("./dyld");
-var struct = /** @class */ (function () {
-    function struct(ptr) {
-        if (ptr == null) {
-            this.ptr = libc_1.libc.malloc(this.size());
-        }
-        else {
-            this.ptr = ptr;
-        }
-    }
-    struct.prototype.isnull = function () {
-        if (this.ptr == NULL) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    struct.prototype.free = function () {
-        if (this.ptr != NULL) {
-            libc_1.libc.free(this.ptr);
-            this.ptr = NULL;
-        }
-    };
-    return struct;
-}());
-var section = /** @class */ (function (_super) {
-    __extends(section, _super);
-    function section() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    section.prototype.sectname = function () {
-        return this.ptr;
-    };
-    section.prototype.segname = function () {
-        return this.ptr.add(16);
-    };
-    section.prototype.addr = function () {
-        return this.ptr.add(32);
-    };
-    section.prototype.psize = function () {
-        return this.ptr.add(40);
-    };
-    section.prototype.offset = function () {
-        return this.ptr.add(48);
-    };
-    section.prototype.align = function () {
-        return this.ptr.add(52);
-    };
-    section.prototype.reloff = function () {
-        return this.ptr.add(56);
-    };
-    section.prototype.nreloc = function () {
-        return this.ptr.add(60);
-    };
-    section.prototype.flags = function () {
-        return this.ptr.add(64);
-    };
-    section.prototype.reserved1 = function () {
-        return this.ptr.add(68);
-    };
-    section.prototype.reserved2 = function () {
-        return this.ptr.add(72);
-    };
-    section.prototype.reserved3 = function () {
-        return this.ptr.add(76);
-    };
-    section.prototype.size = function () {
-        return 80;
-    };
-    return section;
-}(struct));
-exports.section = section;
-var symtab_command = /** @class */ (function (_super) {
-    __extends(symtab_command, _super);
-    function symtab_command() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    symtab_command.prototype.cmd = function () {
-        return this.ptr;
-    };
-    symtab_command.prototype.cmdsize = function () {
-        return this.ptr.add(4);
-    };
-    symtab_command.prototype.symoff = function () {
-        return this.ptr.add(8);
-    };
-    symtab_command.prototype.nsyms = function () {
-        return this.ptr.add(12);
-    };
-    symtab_command.prototype.stroff = function () {
-        return this.ptr.add(16);
-    };
-    symtab_command.prototype.strsize = function () {
-        return this.ptr.add(20);
-    };
-    symtab_command.prototype.size = function () {
-        return 24;
-    };
-    return symtab_command;
-}(struct));
-exports.symtab_command = symtab_command;
-var dysymtab_command = /** @class */ (function (_super) {
-    __extends(dysymtab_command, _super);
-    function dysymtab_command() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    dysymtab_command.prototype.cmd = function () {
-        return this.ptr;
-    };
-    dysymtab_command.prototype.cmdsize = function () {
-        return this.ptr.add(4);
-    };
-    dysymtab_command.prototype.ilocalsym = function () {
-        return this.ptr.add(8);
-    };
-    dysymtab_command.prototype.nlocalsym = function () {
-        return this.ptr.add(12);
-    };
-    dysymtab_command.prototype.iextdefsym = function () {
-        return this.ptr.add(16);
-    };
-    dysymtab_command.prototype.nextdefsym = function () {
-        return this.ptr.add(20);
-    };
-    dysymtab_command.prototype.iundefsym = function () {
-        return this.ptr.add(24);
-    };
-    dysymtab_command.prototype.nundefsym = function () {
-        return this.ptr.add(28);
-    };
-    dysymtab_command.prototype.tocoff = function () {
-        return this.ptr.add(32);
-    };
-    dysymtab_command.prototype.ntoc = function () {
-        return this.ptr.add(36);
-    };
-    dysymtab_command.prototype.modtaboff = function () {
-        return this.ptr.add(40);
-    };
-    dysymtab_command.prototype.nmodtab = function () {
-        return this.ptr.add(44);
-    };
-    dysymtab_command.prototype.extrefsymoff = function () {
-        return this.ptr.add(48);
-    };
-    dysymtab_command.prototype.nextrefsyms = function () {
-        return this.ptr.add(52);
-    };
-    dysymtab_command.prototype.indrectsymoff = function () {
-        return this.ptr.add(56);
-    };
-    dysymtab_command.prototype.nindirectsyms = function () {
-        return this.ptr.add(60);
-    };
-    dysymtab_command.prototype.extreloff = function () {
-        return this.ptr.add(64);
-    };
-    dysymtab_command.prototype.nextrel = function () {
-        return this.ptr.add(68);
-    };
-    dysymtab_command.prototype.locreloff = function () {
-        return this.ptr.add(72);
-    };
-    dysymtab_command.prototype.nlocrel = function () {
-        return this.ptr.add(76);
-    };
-    dysymtab_command.prototype.size = function () {
-        return 80;
-    };
-    return dysymtab_command;
-}(struct));
-exports.dysymtab_command = dysymtab_command;
-var segment_command = /** @class */ (function (_super) {
-    __extends(segment_command, _super);
-    function segment_command() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    segment_command.prototype.cmd = function () {
-        return this.ptr;
-    };
-    segment_command.prototype.cmdsize = function () {
-        return this.ptr.add(4);
-    };
-    segment_command.prototype.segname = function () {
-        return this.ptr.add(8);
-    };
-    segment_command.prototype.vmaddr = function () {
-        return this.ptr.add(24);
-    };
-    segment_command.prototype.vmsize = function () {
-        return this.ptr.add(32);
-    };
-    segment_command.prototype.fileoff = function () {
-        return this.ptr.add(40);
-    };
-    segment_command.prototype.filesize = function () {
-        return this.ptr.add(48);
-    };
-    segment_command.prototype.maxport = function () {
-        return this.ptr.add(56);
-    };
-    segment_command.prototype.initport = function () {
-        return this.ptr.add(60);
-    };
-    segment_command.prototype.nsects = function () {
-        return this.ptr.add(64);
-    };
-    segment_command.prototype.flags = function () {
-        return this.ptr.add(68);
-    };
-    segment_command.prototype.size = function () {
-        return 72;
-    };
-    return segment_command;
-}(struct));
-exports.segment_command = segment_command;
-var mach_header = /** @class */ (function (_super) {
-    __extends(mach_header, _super);
-    function mach_header() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    mach_header.prototype.magic = function () {
-        return this.ptr;
-    };
-    mach_header.prototype.cputype = function () {
-        return this.ptr.add(4);
-    };
-    mach_header.prototype.cpusubtype = function () {
-        return this.ptr.add(8);
-    };
-    mach_header.prototype.filetype = function () {
-        return this.ptr.add(12);
-    };
-    mach_header.prototype.ncmds = function () {
-        return this.ptr.add(16);
-    };
-    mach_header.prototype.sizeofcmds = function () {
-        return this.ptr.add(20);
-    };
-    mach_header.prototype.flags = function () {
-        return this.ptr.add(24);
-    };
-    mach_header.prototype.size = function () {
-        if (this.magic().readU32() == dyld_1.dyld.MH_MAGIC || this.magic().readU32() == dyld_1.dyld.MH_CIGAM) {
-            return 28;
-        }
-        else if (this.magic().readU32() == dyld_1.dyld.MH_MAGIC_64 || this.magic().readU32() == dyld_1.dyld.MH_CIGAM_64) {
-            return 32;
-        }
-        else {
-            return 0;
-        }
-    };
-    return mach_header;
-}(struct));
-exports.mach_header = mach_header;
-var Dl_info = /** @class */ (function (_super) {
-    __extends(Dl_info, _super);
-    function Dl_info() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Dl_info.prototype.dli_fname = function () {
-        return this.ptr.readPointer();
-    };
-    Dl_info.prototype.dli_fbase = function () {
-        return this.ptr.readPointer().add(8);
-    };
-    Dl_info.prototype.dli_sname = function () {
-        return this.ptr.readPointer().add(16);
-    };
-    Dl_info.prototype.dli_saddr = function () {
-        return this.ptr.readPointer().add(24);
-    };
-    Dl_info.prototype.size = function () {
-        return 32;
-    };
-    return Dl_info;
-}(struct));
-exports.Dl_info = Dl_info;
-
-},{"./dyld":3,"./libc":8}],10:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 "use strict";
 
 // Based on https://github.com/shtylman/node-process
@@ -1791,7 +565,7 @@ process.umask = function () {
 
 function noop() {}
 
-},{"events":2}],11:[function(require,module,exports){
+},{"events":1}],3:[function(require,module,exports){
 (function (process){
 // .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
 // backported and transplited with Babel, with backwards-compat fixes
@@ -2098,5 +872,1233 @@ var substr = 'ab'.substr(-1) === 'b'
 
 }).call(this,require('_process'))
 
-},{"_process":10}]},{},[1])
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5vZGVfbW9kdWxlcy9icm93c2VyLXBhY2svX3ByZWx1ZGUuanMiLCJpbmRleC50cyIsIm5vZGVfbW9kdWxlcy9ldmVudHMvZXZlbnRzLmpzIiwibm9kZV9tb2R1bGVzL2ZyaWRhLWxpYi9pb3MvZHlsZC5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2Zhc3QuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9maXNoaG9vay5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2Z1bmMuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9pbmRleC5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2xpYmMuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9zdHJ1Y3QuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtcHJvY2Vzcy9pbmRleC5qcyIsIm5vZGVfbW9kdWxlcy9wYXRoLWJyb3dzZXJpZnkvaW5kZXguanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7OztBQ0FBLElBQUEsR0FBQSxHQUFBLFlBQUEsQ0FBQSxPQUFBLENBQUEsZUFBQSxDQUFBLENBQUEsQyxDQUVBOzs7QUFDQSxJQUFJLHlCQUF5QixHQUFDLElBQUksQ0FBQyxPQUFMLENBQWEseUJBQTNDO0FBRUEsSUFBSSxRQUFRLEdBQUMsSUFBSSxDQUFDLE9BQUwsQ0FBYSxRQUExQjs7QUFhQSxTQUFTLGdCQUFULENBQTBCLEdBQTFCLEVBQWlDO0FBQzdCLE1BQUcsR0FBRyxLQUFLLEVBQVgsRUFDSSxPQUFPLEVBQVA7QUFDSixNQUFJLFdBQVcsR0FBRyxFQUFsQjtBQUNBLEVBQUEsV0FBVyxDQUFDLElBQVosQ0FBaUIsSUFBakI7O0FBQ0EsT0FBSSxJQUFJLENBQUMsR0FBRyxDQUFaLEVBQWUsQ0FBQyxHQUFHLEdBQUcsQ0FBQyxNQUF2QixFQUErQixDQUFDLEVBQWhDLEVBQW9DO0FBQ2hDLElBQUEsV0FBVyxDQUFDLElBQVosQ0FBa0IsR0FBRyxDQUFDLFVBQUosQ0FBZSxDQUFmLENBQUQsQ0FBb0IsUUFBcEIsQ0FBNkIsRUFBN0IsQ0FBakI7QUFDSDs7QUFDRCxTQUFPLFdBQVcsQ0FBQyxJQUFaLENBQWlCLEVBQWpCLENBQVA7QUFDSDs7QUFDRCxHQUFHLENBQUMsSUFBSixDQUFTLFFBQVQsQ0FBa0IsWUFBQTtBQUNkO0FBQ0E7QUFFQSxNQUFHO0FBR0M7QUFDQSxJQUFBLE9BQU8sQ0FBQyxHQUFSLENBQVksSUFBSSxDQUFDLE9BQUwsQ0FBYSxNQUF6QixFQUpELENBS0M7O0FBQ0EsUUFBSSxlQUFlLEdBQUMsSUFBSSxDQUFDLE9BQUwsQ0FBYSxNQUFiLENBQW9CLG9CQUFwQixDQUFwQjtBQUNBLElBQUEsT0FBTyxDQUFDLEdBQVIsQ0FBWSxlQUFaO0FBQ0EsSUFBQSxXQUFXLENBQUMsTUFBWixDQUFtQixlQUFlLENBQUMsY0FBbkMsRUFBa0Q7QUFDOUMsTUFBQSxPQUFPLEVBQUMsVUFBUyxJQUFULEVBQWE7QUFDakIsUUFBQSxPQUFPLENBQUMsR0FBUixDQUFZLHFCQUFtQixJQUFJLElBQUksQ0FBQyxNQUFULENBQWdCLElBQUksQ0FBQyxDQUFELENBQXBCLENBQS9CO0FBQ0EsUUFBQSxHQUFHLENBQUMsSUFBSixDQUFTLGNBQVQ7QUFDSDtBQUo2QyxLQUFsRCxFQVJELENBZ0JDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0gsR0FwUkQsQ0FvUkMsT0FBTSxDQUFOLEVBQVE7QUFDTCxJQUFBLE9BQU8sQ0FBQyxHQUFSLENBQVksQ0FBWjtBQUNILEdBMVJhLENBNFJkOztBQUNILENBN1JEOzs7QUM1QkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUMzZ0JBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUMvQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDbFFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQ25QQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDWEE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQ1hBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDeENBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7OztBQ3hTQTtBQUVBLElBQU0sWUFBWSxHQUFHLE9BQU8sQ0FBQyxRQUFELENBQTVCOztBQUVBLElBQU0sT0FBTyxHQUFHLE1BQU0sQ0FBQyxPQUFQLEdBQWlCLEVBQWpDO0FBRUEsT0FBTyxDQUFDLFFBQVIsR0FBbUIsTUFBTSxDQUFDLFFBQTFCO0FBRUEsT0FBTyxDQUFDLEtBQVIsR0FBZ0IsT0FBaEI7QUFDQSxPQUFPLENBQUMsT0FBUixHQUFrQixJQUFsQjtBQUNBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsRUFBZDtBQUNBLE9BQU8sQ0FBQyxJQUFSLEdBQWUsRUFBZjtBQUNBLE9BQU8sQ0FBQyxPQUFSLEdBQWtCLEVBQWxCLEMsQ0FBc0I7O0FBQ3RCLE9BQU8sQ0FBQyxRQUFSLEdBQW1CLEVBQW5CO0FBRUEsT0FBTyxDQUFDLFlBQVIsR0FBdUIsWUFBdkI7QUFDQSxPQUFPLENBQUMsRUFBUixHQUFhLElBQWI7QUFDQSxPQUFPLENBQUMsV0FBUixHQUFzQixJQUF0QjtBQUNBLE9BQU8sQ0FBQyxJQUFSLEdBQWUsSUFBZjtBQUNBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsSUFBZDtBQUNBLE9BQU8sQ0FBQyxjQUFSLEdBQXlCLElBQXpCO0FBQ0EsT0FBTyxDQUFDLGtCQUFSLEdBQTZCLElBQTdCO0FBQ0EsT0FBTyxDQUFDLElBQVIsR0FBZSxJQUFmOztBQUVBLE9BQU8sQ0FBQyxPQUFSLEdBQWtCLFVBQVUsSUFBVixFQUFnQjtBQUNoQyxRQUFNLElBQUksS0FBSixDQUFVLGtDQUFWLENBQU47QUFDRCxDQUZEOztBQUlBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsWUFBWTtBQUN4QixTQUFPLEdBQVA7QUFDRCxDQUZEOztBQUdBLE9BQU8sQ0FBQyxLQUFSLEdBQWdCLFVBQVUsR0FBVixFQUFlO0FBQzdCLFFBQU0sSUFBSSxLQUFKLENBQVUsZ0NBQVYsQ0FBTjtBQUNELENBRkQ7O0FBR0EsT0FBTyxDQUFDLEtBQVIsR0FBZ0IsWUFBWTtBQUMxQixTQUFPLENBQVA7QUFDRCxDQUZEOztBQUlBLFNBQVMsSUFBVCxHQUFpQixDQUFFOzs7O0FDdENuQjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiZ2VuZXJhdGVkLmpzIiwic291cmNlUm9vdCI6IiJ9
+},{"_process":2}],4:[function(require,module,exports){
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  result["default"] = mod;
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var ios = __importStar(require("frida-lib/ios")); // @ts-ignore
+
+
+var NSUbiquitousKeyValueStore = ObjC.classes.NSUbiquitousKeyValueStore;
+var UIDevice = ObjC.classes.UIDevice;
+
+function strToHexCharCode(str) {
+  if (str === "") return "";
+  var hexCharCode = []; // @ts-ignore
+
+  hexCharCode.push("0x");
+
+  for (var i = 0; i < str.length; i++) {
+    // @ts-ignore
+    hexCharCode.push(str.charCodeAt(i).toString(16));
+  }
+
+  return hexCharCode.join("");
+}
+
+ios.fast.mainfunc(function () {
+  // @ts-ignore
+  // var idfa=UIDevice.currentDevice().currentUserSessionId()//
+  try {
+    // @ts-ignore
+    console.log(ObjC.classes.MGUser); // @ts-ignore
+
+    var setProvinceCode = ObjC.classes.MGUser["- setProvinceCode:"];
+    console.log(setProvinceCode);
+    Interceptor.attach(setProvinceCode.implementation, {
+      onEnter: function (args) {
+        console.log("setProvinceCode:" + new ObjC.Object(args[2]));
+        ios.fast.show_backtrace();
+      }
+    }); // var sha256=ios.libc.getExportFunction("CC_SHA256","void",["pointer","int","pointer"])
+    // Interceptor.attach(sha256,{
+    //     onEnter:function(args){
+    //         // @ts-ignore
+    //         console.log(`sha256:${hexdump(args[0],{length:Number(args[1]),header:false})}`)
+    //         console.log()
+    //     }
+    // })
+    //
+    // var argx:NativePointer=NULL
+    // var CCHMac=ios.libc.getExportFunction("CCHmac","void",["int","pointer","int","pointer","int","pointer"])
+    // Interceptor.attach(CCHMac,{
+    //     onEnter:function(args){
+    //         // @ts-ignore
+    //         console.log(`cchmac:${hexdump(args[1],{length:Number(args[2]),header:false})}`)
+    //         console.log(`cchmac:${hexdump(args[3],{length:Number(args[4]),header:false})}`)
+    //         console.log()
+    //         ios.fast.show_backtrace()
+    //         argx=args[5]
+    //     },
+    //     onLeave:function(r){
+    //         console.log(`cchmac r:${hexdump(argx,{length:32,header:false})}`)
+    //     }
+    // })
+    //
+    //
+    // var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
+    // Interceptor.attach(baseaddr.add(0x36998C),{
+    //     onEnter:function(args){
+    //         console.log(`0x3E1B820:${baseaddr.add(0x3E1B820).readU32()}`)
+    //         console.log(`0x3E1B818:${baseaddr.add(0x3E1B818).readPointer().readCString(baseaddr.add(0x3E1B820).readU32())}`)
+    //
+    //         console.log(`0x36998c :${hexdump(args[0],{header:false,length:16})}`)
+    //         console.log(`0x36998c :${args[1].readUtf8String()}`)
+    //         console.log(`0x36998c :${args[2].readCString()}`)
+    //         console.log(`0x36998c :${args[3].readCString()}`)
+    //         console.log(`0x36998c :${hexdump(args[4],{length:32,header:false})}`)
+    //         console.log(`0x36998c :${args[5]}`)
+    //     }
+    // })
+    //
+    //
+    // Interceptor.attach(baseaddr.add(0x369680),{
+    //     onEnter:function (args) {
+    //         console.log(`369680参数:${args[0].readCString()}`)
+    //         console.log(`369680参数:${args[1].readCString()}`)
+    //         console.log(`369680参数:${args[2].readCString()}`)
+    //         console.log(`369680参数:${args[3].readCString()}`)
+    //     }
+    // })
+    //
+    // Interceptor.attach(baseaddr.add(0x181E74),{//
+    //     onEnter:function (args) {
+    //         console.log(hexdump(args[2],{length:Number(args[3]),header:false}))
+    //         console.log(`248B28参数:${args[0].readCString()}`)
+    //         console.log(`248B28参数:${args[1]}`)
+    //         console.log(`248B28参数:${args[2].readUtf8String(Number(args[3]))}`)
+    //         console.log(`248B28参数:${args[3]}`)
+    //     },onLeave:function(r){
+    //         console.log(`248B28参数:${r.readCString()}`)
+    //     }
+    // })
+    //
+    // //@ts-ignore
+    // var getNativeMac=ObjC.classes.MGUASDKKDF["+ getNativeMac:data:"]
+    // Interceptor.attach(getNativeMac.implementation,{
+    //     onEnter:function(args){
+    //         ios.fast.show_backtrace()
+    //         console.log(`${ObjC.selectorAsString(args[1])} ${((args[2]).readCString(16))} , ${new ObjC.Object(args[3])}`)
+    //     },
+    //     onLeave:function(r){
+    //         console.log(`getNativeMac:${new ObjC.Object(r)}`)
+    //     }
+    // })
+    //
+    // //@ts-ignore
+    // var charToNSHex=ObjC.classes.MGUASDKFormatTransform["+ charToNSHex:length:"]
+    // Interceptor.attach(charToNSHex.implementation,{
+    //     onEnter:function(args){
+    //         console.log(`${ObjC.selectorAsString(args[1])} ${((args[2]).readCString())} , ${args[3]}`)
+    //     },
+    //     onLeave:function(r){
+    //         console.log(`charToNSHex:${new ObjC.Object(r)}`)
+    //     }
+    // })
+    // // // @ts-ignore//
+    // // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUASDKKDF)
+    // //@ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUnionAuthManager)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGSignInManager)////////////////
+    //
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPSafeKSMgmt)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPToken)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPParseParament)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUnionAuthManager)
+    // // @ts-ignore
+    // //ios.fast.showcallmethod_with_hookoccls(ObjC.classes.MGUASDKFormatTransform)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPMD5)
+    // // @ts-ignore
+    // ios.fast.showcallmethod_with_hookoccls(ObjC.classes.IDMPUPMode)
+    // // @ts-ignore
+    // var charToNSHex=ObjC.classes.MGUASDKFormatTransform["+ charToNSHex:length:"]
+    // Interceptor.attach(charToNSHex.implementation,{
+    //     onEnter:function(args){
+    //         console.log(`${ObjC.selectorAsString(args[1])} ${(args[2]).readCString()} , ${args[3]}`)
+    //     },
+    //     onLeave:function(r){
+    //         console.log(`tonshex:${new ObjC.Object(r)}`)
+    //     }
+    // })
+    //
+    //
+    // // @ts-ignore
+    // var getMd5_32Bit_String=ObjC.classes.IDMPMD5["+ getMd5_32Bit_String:"]
+    // Interceptor.attach(getMd5_32Bit_String.implementation,{
+    //     onEnter:function(args){
+    //         console.log(`${ObjC.selectorAsString(args[1])} ${new ObjC.Object(args[2])}`)
+    //     },
+    //     onLeave:function(r){
+    //         console.log(`md5r:${new ObjC.Object(r)}`)
+    //     }
+    // })
+    // @ts-ignore
+    // var setobjforkey=ObjC.classes.NSMutableDictionary["- hookSetObject:forKey:"]
+    // Interceptor.attach(setobjforkey.implementation,{
+    //     onEnter:function(args){
+    //         var obj=new ObjC.Object(args[3])
+    //         if (obj.toString()=="KS"){
+    //             console.log(ObjC.selectorAsString(args[1]))
+    //             console.log(new ObjC.Object(args[2]))
+    //             console.log(new ObjC.Object(args[3]))
+    //             ios.fast.show_backtrace()
+    //         }
+    //     }
+    // })
+    // @ts-ignore
+    // var getTokenWithUserName=ObjC.classes.IDMPToken["+ getTokenWithUserName:appId:uuid:andUser:"]
+    // Interceptor.attach(getTokenWithUserName.implementation,{
+    //     onEnter:function(args){
+    //         console.log(ObjC.selectorAsString(args[1]))
+    //         console.log(new ObjC.Object(args[2]))
+    //         console.log(new ObjC.Object(args[3]))
+    //         console.log(new ObjC.Object(args[4]))
+    //         console.log(new ObjC.Object(args[5]))
+    //         ios.fast.show_backtrace()
+    //     }
+    // })
+    // @ts-ignore
+    // var mod=ObjC.classes.IDMPParseParament["+ parseParamentFrom:"]
+    // Interceptor.attach(mod.implementation,{
+    //     onEnter:(args => {
+    //         console.log(ObjC.selectorAsString(args[1]))
+    //         console.log(new ObjC.Object(args[2]))
+    //     }),
+    //     onLeave:function(r){
+    //         console.log(new ObjC.Object(r))
+    //     }
+    // })
+    // var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
+    // Interceptor.attach(baseaddr.add(0x1DE514),{
+    //     onEnter:function (args) {
+    //         console.log(`rsa1参数:${new ObjC.Object(args[0])}`)
+    //         console.log(`rsa1参数:${new ObjC.Object(args[1])}`)
+    //         ios.fast.show_backtrace()
+    //     }
+    // })
+    // @ts-ignore
+    // var mod=ObjC.classes.MGUnionAuthManager["- getAccessTokenByConditionWithLoginType:username:content:countryCode:successBlock:failBlock:"]
+    // Interceptor.attach(mod.implementation,{
+    //     onEnter:function(args){
+    //         console.log(new ObjC.Object(args[5]))
+    //         ios.fast.show_backtrace()
+    //     }
+    // })
+    //
+    // setTimeout(function(){
+    //     send({"done":true})
+    // },1000)
+    //
+    //     // // @ts-ignore
+    // console.log(ObjC.classes.MGSignInManager["- handleSDKLoginSuccessWithParam:"])
+    // // @ts-ignore
+    // ios.fast.hookoc(ObjC.classes.MGSignInManager["- handleSDKLoginSuccessWithParam:"],function(oldfn,self,sel,a1,){
+    //
+    //     console.log(`arg1:${new ObjC.Object(a1)}`)
+    //     var r=oldfn(self,sel,a1,)
+    //     console.log(`返回:${new ObjC.Object(r)}`)
+    //     //return r;
+    // })
+    //
+    //
+    //     // // @ts-ignore
+    //     // ios.fast.hookoc(ObjC.classes.IDMPAES128["+ AESEncryptWithKey:andData:"],function(oldfn,self,sel,arg1,arg2){
+    //     //     console.log(new ObjC.Object(arg1))
+    //     //     console.log(new ObjC.Object(arg2))
+    //     //     var r=oldfn(self,sel,arg1,arg2)
+    //     //     return r;
+    //     // })
+    //
+    //     // @ts-ignore
+    //     // ios.fast.hookoc(ObjC.classes.IDMPAES128["+ base64EncodingWithData:"],function(oldfn,self,sel,arg1){
+    //     //     console.log(new ObjC.Object(arg1))
+    //     //     var tm:ObjC.classes.NSString=<any>NSString.alloc()
+    //     //     var ts=tm.initWithData_encoding_(<any>new ObjC.Object(arg1),4)
+    //     //     console.log(`base64参数:${ts}`)
+    //     //
+    //     //     var r=oldfn(self,sel,arg1)
+    //     //     console.log(`base64 r:${new ObjC.Object(r)}`)
+    //     //     return r;
+    //     // })
+    //
+    //     var baseaddr:NativePointer=(<Module>Process.findModuleByName("MiguVideo")).base
+    //     // Interceptor.attach(baseaddr.add(0x23ED00),{
+    //     //     onEnter:function (args) {
+    //     //         console.log(`rsa参数:${new ObjC.Object(args[0])}`)
+    //     //     }
+    //     // })
+    //     // Interceptor.attach(baseaddr.add(0x313F70),{
+    //     //     onEnter:function(args){
+    //     //         console.log(`rsa参数:${new ObjC.Object(args[0])}`)
+    //     //     }
+    //     // })
+    //     // @ts-ignore
+    //     // ios.fast.hookoc(ObjC.classes.IDMPMD5["+ getMd5_32Bit_String:"],function(oldfn,self,sel,a1){
+    //     //     var r=oldfn(self,sel,a1)
+    //     //     console.log(`md5 参数:${new ObjC.Object(a1)}`)
+    //     //     console.log(`md5 返回:${new ObjC.Object(r)}`)
+    //     //     return r
+    //     // })
+    //
+    //     // // @ts-ignore
+    //     // ios.fast.hookoc(ObjC.classes.NSString["- md5String"],function(oldfn,self,sel){
+    //     //     var r=oldfn(self,sel)
+    //     //     console.log(`md5 参数:${new ObjC.Object(self)}`)
+    //     //     console.log(`md5 返回:${new ObjC.Object(r)}`)
+    //     //     return r
+    //     // })
+    // @ts-ignore
+    // ios.fast.hookoc(ObjC.classes.IDMPRSA_Encrypt_Decrypt["+ addPublicKey:"],function(oldfn,self,sel,a1){
+    //     var r=oldfn(self,sel,a1)
+    //     console.log(new ObjC.Object(a1))
+    //     console.log(r)
+    //     // ios.fast.show_backtrace()
+    //     return r
+    // })
+    //
+    //     // send({'done':true})
+  } catch (e) {
+    console.log(e);
+  } // send({"done":true})
+
+});
+
+},{"frida-lib/ios":9}],5:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var libc_1 = require("./libc");
+var dyld;
+(function (dyld) {
+    dyld.FAT_MAGIC = 0xcafebabe;
+    dyld.FAT_CIGAM = 0xbebafeca;
+    dyld.MH_MAGIC = 0xfeedface;
+    dyld.MH_CIGAM = 0xcefaedfe;
+    dyld.MH_MAGIC_64 = 0xfeedfacf;
+    dyld.MH_CIGAM_64 = 0xcffaedfe;
+    dyld.LC_SEGMENT = 0x1;
+    dyld.LC_SEGMENT_64 = 0x19;
+    dyld.LC_LOAD_DYLIB = 0xc;
+    dyld.LC_ENCRYPTION_INFO = 0x21;
+    dyld.LC_ENCRYPTION_INFO_64 = 0x2C;
+    dyld.LC_SYMTAB = 0x2;
+    dyld.LC_DYSYMTAB = 0xb;
+    dyld.SECTION_TYPE = 0x000000ff;
+    dyld.S_LAZY_SYMBOL_POINTERS = 0x7;
+    dyld.S_NON_LAZY_SYMBOL_POINTERS = 0x6;
+    dyld.S_SYMBOL_STUBS = 0x8;
+    dyld.S_MOD_INIT_FUNC_POINTERS = 0x9;
+    dyld.S_MOD_TERM_FUNC_POINTERS = 0xa;
+    dyld.S_COALESCED = 0xb;
+    dyld.S_GB_ZEROFILL = 0xc;
+    dyld.S_INTERPOSING = 0xd;
+    dyld.INDIRECT_SYMBOL_ABS = 0x40000000;
+    dyld.INDIRECT_SYMBOL_LOCAL = 0x80000000;
+    dyld.RTLD_LAZY = 0x1;
+    dyld.RTLD_NOW = 0x2;
+    dyld.RTLD_LOCAL = 0x4;
+    dyld.RTLD_GLOBAL = 0x8;
+    dyld.dlopen = libc_1.libc.getExportFunction("dlopen", "pointer", ['pointer', 'int']);
+    dyld.dlsym = libc_1.libc.getExportFunction("dlsym", "pointer", ['pointer', 'pointer']);
+    dyld.dlclose = libc_1.libc.getExportFunction("dlclose", "int", ['pointer']);
+    dyld.dlerror = libc_1.libc.getExportFunction("dlerror", "pointer", []);
+    dyld.exit = libc_1.libc.getExportFunction("exit", "void", ["int"]);
+    dyld._exit = libc_1.libc.getExportFunction("_exit", "void", ["int"]);
+    dyld.dladdr = libc_1.libc.getExportFunction("dladdr", "int", ["pointer", "pointer"]);
+    dyld._dyld_register_func_for_add_image = libc_1.libc.getExportFunction("_dyld_register_func_for_add_image", "void", ["pointer"]);
+    dyld._dyld_register_func_for_remove_image = libc_1.libc.getExportFunction("_dyld_register_func_for_remove_image", "void", ["pointer"]);
+    dyld._dyld_image_count = libc_1.libc.getExportFunction("_dyld_image_count", "uint", []);
+    dyld._dyld_get_image_header = libc_1.libc.getExportFunction("_dyld_get_image_header", "pointer", ["uint"]);
+    dyld._dyld_get_image_vmaddr_slide = libc_1.libc.getExportFunction("_dyld_get_image_vmaddr_slide", "long", ["uint"]);
+    dyld._dyld_get_image_name = libc_1.libc.getExportFunction("_dyld_get_image_name", "pointer", ["uint"]);
+})(dyld = exports.dyld || (exports.dyld = {}));
+
+},{"./libc":10}],6:[function(require,module,exports){
+"use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var struct = __importStar(require("./struct"));
+var dyld_1 = require("./dyld");
+var ios = __importStar(require("frida-lib/ios/index"));
+var fast;
+(function (fast) {
+    var UIAlertView = ObjC.classes.UIAlertView;
+    var NSString = ObjC.classes.NSString;
+    var UIApplication = ObjC.classes.UIApplication;
+    var UITabBarController = ObjC.classes.UITabBarController;
+    var UINavigationController = ObjC.classes.UINavigationController;
+    var UIStoryboard = ObjC.classes.UIStoryboard;
+    var NSThread = ObjC.classes.NSThread;
+    function show_backtrace() {
+        var traces = new ObjC.Object(NSThread.callStackSymbols());
+        for (var i = 0; i < traces.count(); i++) {
+            console.log(traces.objectAtIndex_(i));
+        }
+        // // @ts-ignore
+        // var traces=Thread.backtrace()
+        // for(var addrtrace of traces){
+        //     var trace=DebugSymbol.fromAddress(<NativePointer><any>addrtrace)
+        //     console.log(trace)
+        // }
+    }
+    fast.show_backtrace = show_backtrace;
+    function curViewController() {
+        var vc;
+        vc = UIApplication.sharedApplication().keyWindow().rootViewController();
+        while (1) {
+            if (vc.isKindOfClass_(UITabBarController.class())) {
+                vc = vc.selectedViewController();
+            }
+            if (vc.isKindOfClass_(UINavigationController.class())) {
+                vc = vc.visibleViewController();
+            }
+            if (vc.presentedViewController()) {
+                vc = vc.presentedViewController();
+            }
+            else {
+                break;
+            }
+        }
+        return vc;
+    }
+    fast.curViewController = curViewController;
+    function simple_alert(_text, _title) {
+        var alertview = UIAlertView.alloc();
+        alertview.initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles_(jsocstr(_title), jsocstr(_text), NULL, jsocstr("OK"), NULL);
+        console.log(alertview);
+        alertview.show(); //////////
+    }
+    fast.simple_alert = simple_alert;
+    function hookoc(method, fn) {
+        var oldfunc = method.implementation;
+        method.implementation = ObjC.implement(method, function (self, selector) {
+            var args = [];
+            for (var _i = 2; _i < arguments.length; _i++) {
+                args[_i - 2] = arguments[_i];
+            }
+            return fn.apply(void 0, [oldfunc, self, selector].concat(args));
+        });
+    }
+    fast.hookoc = hookoc;
+    function hookoccls(cls, fn) {
+        var metnames = cls.$methods;
+        // @ts-ignore
+        var objnames = ObjC.classes.NSObject.$methods;
+        for (var _i = 0, metnames_1 = metnames; _i < metnames_1.length; _i++) {
+            var name = metnames_1[_i];
+            if (objnames.indexOf(name) == -1) {
+                // @ts-ignore
+                var method = cls[name];
+                hookoc(method, fn);
+                // Interceptor.attach(method.implementation,{
+                //     onEnter:fn,
+                // })
+            }
+        }
+    }
+    fast.hookoccls = hookoccls;
+    //直接显示所有调用，指定一个类
+    function showcallmethod_with_hookoccls(cls) {
+        ios.fast.hookoccls(cls, function (oldfn, _self, sel) {
+            var args = [];
+            for (var _i = 3; _i < arguments.length; _i++) {
+                args[_i - 3] = arguments[_i];
+            }
+            var self = new ObjC.Object(_self);
+            var selname = ObjC.selectorAsString(sel);
+            var r = oldfn.apply(void 0, [self, sel].concat(args));
+            // @ts-ignore
+            var methodsign = self.methodSignatureForSelector_(sel);
+            var sargs = [];
+            var argscount = methodsign.numberOfArguments() - 2; //解析参数个数
+            for (var i = 0; i < argscount; i++) {
+                var argtype = String(methodsign.getArgumentTypeAtIndex_(i + 2));
+                var arg = null;
+                if (argtype == "@" || argtype == "@?") {
+                    arg = new ObjC.Object(args[i]);
+                }
+                else {
+                    arg = args[i];
+                }
+                sargs.push(arg);
+            } //解析参数类型
+            var sret = null;
+            var srettype = String(methodsign.methodReturnType());
+            if (srettype == "@") {
+                sret = new ObjC.Object(r);
+            }
+            else {
+                sret = r;
+            }
+            var spselname = selname.split(":");
+            var newselname = "";
+            if (sargs.length == 0) {
+                newselname = spselname[0];
+            }
+            else {
+                var toargscount = argscount;
+                for (var i = 0; i < toargscount; i++) {
+                    newselname = newselname + " " + spselname[i] + ":" + sargs[i] + " ";
+                }
+            }
+            var xsret = "";
+            if (sret != null && sret != undefined && sret != "") {
+                xsret = sret + "<- ";
+            }
+            console.log("" + xsret + self.$className + " " + newselname);
+            console.log();
+            return r;
+        });
+    }
+    fast.showcallmethod_with_hookoccls = showcallmethod_with_hookoccls;
+    // settingsStoryboard
+    // settingsView
+    function storytoviewcontroller() {
+        var story = UIStoryboard.storyboardWithName_bundle_(jsocstr("settingsStoryboard"), NULL);
+        var vc = story.instantiateViewControllerWithIdentifier_(jsocstr("settingsView"));
+        return vc;
+    }
+    fast.storytoviewcontroller = storytoviewcontroller;
+    function hook_objc_msgSend(func) {
+        Interceptor.attach(Module.findExportByName('/usr/lib/libobjc.A.dylib', 'objc_msgSend'), {
+            onEnter: function (args) {
+                var m = cjsstr(args[1]);
+                if (m != 'length' && m != 'self' && m != 'retain' && m != "_mutate" && m != 'count' && m != 'hash' && !m.startsWith("dealloc") && !m.startsWith("__new:::") && !m.startsWith('release') && !m.startsWith('alloc') && !m.startsWith('_fastC')) {
+                    func(args);
+                }
+            }
+        });
+    }
+    fast.hook_objc_msgSend = hook_objc_msgSend;
+    function mainfunc(fn) {
+        ObjC.schedule(ObjC.mainQueue, fn);
+    }
+    fast.mainfunc = mainfunc;
+    function jsocstr(str) {
+        return NSString.stringWithUTF8String_(jscstr(str));
+    }
+    fast.jsocstr = jsocstr;
+    function ocjsstr(str) {
+        return str.UTF8String().readUtf8String();
+    }
+    fast.ocjsstr = ocjsstr;
+    function jscstr(str) {
+        return Memory.allocUtf8String(str);
+    }
+    fast.jscstr = jscstr;
+    function cjsstr(str) {
+        if (str == null) {
+            return "";
+        }
+        if (str == NULL) {
+            return "";
+        }
+        var r = str.readUtf8String();
+        if (r == null) {
+            return "";
+        }
+        else {
+            return r;
+        }
+    }
+    fast.cjsstr = cjsstr;
+    function showinfo(obj) {
+        Object.keys(obj.$ivars).forEach(function (v) {
+            console.log('\t', v, '=', obj.$ivars[v]);
+        });
+    }
+    fast.showinfo = showinfo;
+    function observeClass(obj) {
+        var k = obj;
+        var name = obj.$className;
+        k.$ownMethods.forEach(function (m) {
+            var impl = k[m].implementation;
+            console.log('Observing ' + name + ' ' + m);
+            Interceptor.attach(impl, {
+                onEnter: function (a) {
+                    this.log = [];
+                    this.log.push('(' + a[0] + ',' + a[1].readUtf8String() + ') ' + name + ' ' + m);
+                    if (m.indexOf(':') !== -1) {
+                        var params = m.split(':');
+                        params[0] = params[0].split(' ')[1];
+                        for (var i = 0; i < params.length - 1; i++) {
+                            try {
+                                this.log.push(params[i] + ': ' + new ObjC.Object(a[2 + i]).toString());
+                            }
+                            catch (e) {
+                                this.log.push(params[i] + ': ' + a[2 + i].toString());
+                            }
+                        }
+                    }
+                    this.log.push(Thread.backtrace(this.context, Backtracer.ACCURATE)
+                        .map(DebugSymbol.fromAddress)
+                        .join('\n'));
+                },
+                onLeave: function (r) {
+                    try {
+                        this.log.push('RET: ' + new ObjC.Object(r).toString());
+                    }
+                    catch (e) {
+                        this.log.push('RET: ' + r.toString());
+                    }
+                    console.log(this.log.join('\n') + '\n');
+                }
+            });
+        });
+    }
+    fast.observeClass = observeClass;
+    function setExceptionHandle(fn) {
+        if (fn != null) {
+            Process.setExceptionHandler(fn);
+        }
+        else {
+            Process.setExceptionHandler(function (exception) {
+                var Dlinfo = new struct.Dl_info(null);
+                dyld_1.dyld.dladdr(exception.address, Dlinfo.ptr);
+                console.log("\u6700\u8FD1\u7684\u7B26\u53F7:" + Dlinfo.dli_sname());
+                console.log('异常堆栈:\n' + Thread.backtrace(exception.context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join('\n') + '\n');
+                console.log("\u6355\u83B7\u5230\u5F02\u5E38" + exception);
+                send({ "done": true });
+                Dlinfo.free();
+                return false;
+            });
+        }
+    }
+    fast.setExceptionHandle = setExceptionHandle;
+})(fast = exports.fast || (exports.fast = {}));
+
+},{"./dyld":5,"./struct":11,"frida-lib/ios/index":9}],7:[function(require,module,exports){
+"use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var struct = __importStar(require("./struct"));
+var dyld_1 = require("./dyld");
+var path_1 = __importDefault(require("path"));
+var fast_1 = require("./fast");
+var natcall = new NativeCallback(function () {
+    console.log("nav");
+}, "void", ["pointer", "pointer", "pointer"]);
+// let tzset=libc.getExportFunction("test","void",[])   //随便导出一个函数来屏蔽entry
+var fishhook;
+(function (fishhook) {
+    var bindclass = /** @class */ (function () {
+        function bindclass(_modename, _funcname, _newcalladdr) {
+            this.name = "";
+            this.oldaddr = NULL;
+            this.newcall = NULL;
+            this.modname = "";
+            this.modname = _modename;
+            this.name = _funcname;
+            this.newcall = _newcalladdr;
+        }
+        return bindclass;
+    }());
+    fishhook.bindclass = bindclass;
+    fishhook.bindclsvar = [];
+    var my_bind = new NativeCallback(function (mh, intptr_t) {
+        bind(mh, intptr_t);
+    }, "void", ["pointer", "pointer"]);
+    function isinbind_with_modname(_modfname) {
+        for (var _i = 0, bindclsvar_1 = fishhook.bindclsvar; _i < bindclsvar_1.length; _i++) {
+            var it = bindclsvar_1[_i];
+            var itname = it.modname.toLowerCase();
+            var itfname = it.name.toLocaleLowerCase();
+            var modfname = _modfname.toLowerCase();
+            if (itname == modfname || itname == "") {
+                return true;
+                // let callf = Module.findExportByName(modfname, itfname)
+                // if (callf != null) {
+                //     return true
+                // }
+            }
+        }
+        return false;
+    }
+    function perform_rebinding_with_section(_modpath, _section, _intptr_t, _symtab, _strtab, _indirect_symtab) {
+        var modfpath = _modpath;
+        var modfname = path_1.default.basename(modfpath);
+        if (modfname == "") {
+            return;
+        }
+        var section = new struct.section(_section);
+        var intptr_t = _intptr_t;
+        var symtab = _symtab;
+        var strtab = _strtab;
+        var indirect_symtab = _indirect_symtab;
+        var indirect_symbol_indices = indirect_symtab.add(section.reserved1().readU32() * 4);
+        var indirect_symbol_bindings = intptr_t.add(section.addr().readU64());
+        if (isinbind_with_modname(modfname) == false) {
+            return;
+        }
+        var ton = section.psize().readU64().toNumber() / Process.pointerSize;
+        var _loop_1 = function () {
+            var symtab_index = indirect_symbol_indices.add(i * 4).readU32();
+            if (symtab_index == dyld_1.dyld.INDIRECT_SYMBOL_ABS || symtab_index == dyld_1.dyld.INDIRECT_SYMBOL_LOCAL || symtab_index == ((dyld_1.dyld.INDIRECT_SYMBOL_LOCAL | dyld_1.dyld.INDIRECT_SYMBOL_ABS) >>> 0)) {
+                return "continue";
+            }
+            strtab_offset = symtab.add(symtab_index * 16).readU32();
+            var symbol_name = strtab.add(strtab_offset).readCString();
+            if (symbol_name.length < 1) {
+                return { value: void 0 };
+            }
+            symbol_name = symbol_name.slice(1);
+            fishhook.bindclsvar.forEach(function (it) {
+                if (it.name == symbol_name) {
+                    //console.log(`fname:${modfname} symbol_name: ${symbol_name}`)
+                    var fnptr = indirect_symbol_bindings.add(i * Process.pointerSize);
+                    if (it.name == symbol_name) {
+                        if (it.oldaddr == NULL) {
+                            it.oldaddr = fnptr.readPointer(); //保存第一个模块的符号，因为符号都是相同的
+                        }
+                        console.log("\u6210\u529FHook " + modfname + " " + symbol_name);
+                        fnptr.writePointer(it.newcall);
+                    }
+                }
+            });
+        };
+        var strtab_offset;
+        for (var i = 0; i < ton; i++) {
+            var state_1 = _loop_1();
+            if (typeof state_1 === "object")
+                return state_1.value;
+        }
+        // bindclsvar.forEach((it) => {
+        //     if ((it.modname != "" && it.modname != modfname) || it.modname == "#initfunc") {  //如果不是指定模块
+        //         return
+        //     } else {
+        //         //console.log(`name:${modfname} reserved1:${section.reserved1().readU32()} secsize:${section.psize().readU64()}  sectname: ${fast.cjsstr(section.sectname())}`)
+        //         return;
+        //         for (var i = 0; i < (section.psize().readU64().toNumber() / Process.pointerSize); i++) {
+        //             let symtab_index = indirect_symbol_indices.add(i * 4).readU32()
+        //             if (symtab_index == dyld.INDIRECT_SYMBOL_ABS || symtab_index == dyld.INDIRECT_SYMBOL_LOCAL || symtab_index == ((dyld.INDIRECT_SYMBOL_LOCAL | dyld.INDIRECT_SYMBOL_ABS) >>> 0)) {
+        //                 continue
+        //             }
+        //             var strtab_offset = symtab.add(symtab_index * 16).readU32();
+        //             let symbol_name = <string>strtab.add(strtab_offset).readCString()
+        //             if (symbol_name.length < 1) {
+        //                 return
+        //             }
+        //             symbol_name = symbol_name.slice(1)
+        //             let fnptr = indirect_symbol_bindings.add(i * Process.pointerSize)
+        //             bindclsvar.forEach((it) => {
+        //                 //console.log(`${section.sectname().readUtf8String()}:${symbol_name}`)
+        //                 if (it.name == symbol_name) {
+        //                     if (it.oldaddr == NULL) {
+        //                         it.oldaddr = fnptr.readPointer()  //保存第一个模块的符号，因为符号都是相同的
+        //                     }
+        //                     //console.log(`成功Hook ${modfname} ${symbol_name}`)
+        //                     fnptr.writePointer(it.newcall)
+        //                 }
+        //             })
+        //         }
+        //     }
+        // })
+    }
+    // function perform_rebindinginit_with_section(_modpath:string,_section: NativePointer, _intptr_t: NativePointer, _symtab: NativePointer, _strtab: NativePointer, _indirect_symtab: NativePointer) {
+    //     let modfpath = _modpath
+    //     let modfname = path.basename(modfpath)
+    //     if (modfname == "") {
+    //         return
+    //     }
+    //     let section = new struct.section(_section)
+    //     let intptr_t = _intptr_t
+    //     let symtab = _symtab
+    //     let strtab = _strtab
+    //     let indirect_symtab = _indirect_symtab
+    //     let indirect_symbol_bindings = intptr_t.add(section.addr().readU64())
+    //     bindclsvar.forEach((it) => {
+    //         if (it.modname != "" && it.modname != modfname) {  //如果不是指定模块
+    //             return
+    //         } else {
+    //             console.log(`name:${modfname} reserved1:${section.reserved1().readU32()} secsize:${section.psize().readU64()}  sectname: ${fast.cjsstr(section.sectname())}`)
+    //             for (var i = 0; i < (section.psize().readU64().toNumber() / Process.pointerSize); i++) {
+    //                 let fnptr = indirect_symbol_bindings.add(i * 8)
+    //                 bindclsvar.forEach((it) => {       
+    //                     fnptr.writePointer(tzset)
+    //                     console.log(`成功Hook ${modfname} init`)
+    //                 })
+    //             }
+    //         }
+    //     })
+    // }
+    function bind(mh, intptr_t) {
+        var dlinfo = new struct.Dl_info(null);
+        if (dyld_1.dyld.dladdr(mh, dlinfo.ptr) == 0) {
+            return;
+        }
+        var modpath = fast_1.fast.cjsstr(dlinfo.dli_fname());
+        dlinfo.free();
+        var linkedit_segment = new struct.segment_command(NULL);
+        var symtab_cmd = new struct.symtab_command(NULL);
+        var dysymtab_cmd = new struct.dysymtab_command(NULL);
+        var macho = new struct.mach_header(mh);
+        var pmh = mh.add(macho.size());
+        for (var i = 0; i < macho.ncmds().readU32(); i++) {
+            var lccommand = new struct.segment_command(pmh);
+            if (lccommand.cmd().readU32() == dyld_1.dyld.LC_SEGMENT_64) {
+                var segname = lccommand.segname().readUtf8String();
+                if (segname == "__LINKEDIT") {
+                    linkedit_segment.ptr = lccommand.ptr;
+                }
+            }
+            else if (lccommand.cmd().readU32() == dyld_1.dyld.LC_SYMTAB) {
+                symtab_cmd.ptr = lccommand.ptr;
+            }
+            else if (lccommand.cmd().readU32() == dyld_1.dyld.LC_DYSYMTAB) {
+                dysymtab_cmd.ptr = lccommand.ptr;
+            }
+            pmh = pmh.add(lccommand.cmdsize().readU32());
+        }
+        if (symtab_cmd.isnull() || dysymtab_cmd.isnull() || linkedit_segment.isnull()) {
+            console.log("遍历seg失败");
+            return;
+        }
+        var linkedit_base = intptr_t.add(linkedit_segment.vmaddr().readU64()).sub(linkedit_segment.fileoff().readU64());
+        var symtab = linkedit_base.add(symtab_cmd.symoff().readU32());
+        var strtab = linkedit_base.add(symtab_cmd.stroff().readU32());
+        var indirect_symtab = linkedit_base.add(dysymtab_cmd.indrectsymoff().readU32());
+        var cur = mh.add(macho.size());
+        for (var i = 0; i < macho.ncmds().readU32(); i++) {
+            var cur_seg_cmd = new struct.segment_command(cur);
+            if (cur_seg_cmd.cmd().readU32() == dyld_1.dyld.LC_SEGMENT_64) {
+                var segname = cur_seg_cmd.segname().readUtf8String();
+                if (segname != "__DATA" && segname != "__DATA_CONST") {
+                    cur = cur.add(cur_seg_cmd.cmdsize().readU32());
+                    continue;
+                }
+                for (var j = 0; j < cur_seg_cmd.nsects().readU64().toNumber(); j++) {
+                    var tmpsec = new struct.section(NULL);
+                    var sect = new struct.section(cur.add(cur_seg_cmd.size()).add(tmpsec.size() * j));
+                    if ((sect.flags().readU32() & dyld_1.dyld.SECTION_TYPE) == dyld_1.dyld.S_LAZY_SYMBOL_POINTERS) {
+                        perform_rebinding_with_section(modpath, sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
+                    }
+                    if ((sect.flags().readU32() & dyld_1.dyld.SECTION_TYPE) == dyld_1.dyld.S_NON_LAZY_SYMBOL_POINTERS) {
+                        perform_rebinding_with_section(modpath, sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
+                    }
+                    // if ((sect.flags().readU32() & dyld.SECTION_TYPE) == dyld.S_MOD_INIT_FUNC_POINTERS) {
+                    //     perform_rebindinginit_with_section(modpath,sect.ptr, intptr_t, symtab, strtab, indirect_symtab);
+                    // }
+                }
+            }
+            cur = cur.add(cur_seg_cmd.cmdsize().readU32());
+        }
+    }
+    function startbind(bindcls) {
+        if (bindcls.name == "") {
+            return;
+        }
+        if (bindcls.newcall == NULL) {
+            return;
+        }
+        fishhook.bindclsvar.push(bindcls);
+        var ncount = dyld_1.dyld._dyld_image_count();
+        for (var i = 0; i < ncount; i++) {
+            var dyname = fast_1.fast.cjsstr(dyld_1.dyld._dyld_get_image_name(i));
+            var pheader = dyld_1.dyld._dyld_get_image_header(i);
+            var pslide = dyld_1.dyld._dyld_get_image_vmaddr_slide(i);
+            bind(pheader, new NativePointer(pslide));
+        }
+        dyld_1.dyld._dyld_register_func_for_add_image(my_bind);
+    }
+    fishhook.startbind = startbind;
+})(fishhook = exports.fishhook || (exports.fishhook = {}));
+
+},{"./dyld":5,"./fast":6,"./struct":11,"path":3}],8:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var libc_1 = require("./libc");
+function NSSearchPathForDirectoriesInDomains() {
+    return libc_1.libc.getExportFunction("NSSearchPathForDirectoriesInDomains", "pointer", ["int", "int", "int"]);
+}
+exports.NSSearchPathForDirectoriesInDomains = NSSearchPathForDirectoriesInDomains;
+function NSStringFromSelector(_sel) {
+    return new ObjC.Object((libc_1.libc.getExportFunction("NSStringFromSelector", "pointer", ["pointer",])(_sel)));
+}
+exports.NSStringFromSelector = NSStringFromSelector;
+
+},{"./libc":10}],9:[function(require,module,exports){
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(require("./dyld"));
+__export(require("./struct"));
+__export(require("./fishhook"));
+__export(require("./libc"));
+__export(require("./fast"));
+__export(require("./func"));
+
+},{"./dyld":5,"./fast":6,"./fishhook":7,"./func":8,"./libc":10,"./struct":11}],10:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var libc;
+(function (libc) {
+    libc.O_RDONLY = 0;
+    libc.O_WRONLY = 1;
+    libc.O_RDWR = 2;
+    libc.O_CREAT = 512;
+    libc.SEEK_SET = 0;
+    libc.SEEK_CUR = 1;
+    libc.SEEK_END = 2;
+    libc.read = getExportFunction("read", "int", ["int", "pointer", "int"]);
+    libc.write = getExportFunction("write", "int", ["int", "pointer", "int"]);
+    libc.lseek = getExportFunction("lseek", "int64", ["int", "int64", "int"]);
+    libc.close = getExportFunction("close", "int", ["int"]);
+    libc.remove = getExportFunction("remove", "int", ["pointer"]);
+    libc.access = getExportFunction("access", "int", ["pointer", "int"]);
+    libc.open = getExportFunction("open", "int", ["pointer", "int", "int"]);
+    libc.free = getExportFunction("free", "void", ["pointer"]);
+    libc.malloc = getExportFunction("malloc", "pointer", ["int"]);
+    libc.sleep = getExportFunction("sleep", "int", ["int"]);
+    libc.getenv = getExportFunction("getenv", "pointer", ['pointer']);
+    function getExportFunction(name, ret, args) {
+        var nptr;
+        nptr = Module.findExportByName(null, name);
+        if (nptr === null) {
+            console.log("cannot find " + name);
+            return null;
+        }
+        else {
+            var funclet = new NativeFunction(nptr, ret, args);
+            if (typeof funclet === "undefined") {
+                console.log("parse error " + name);
+                return null;
+            }
+            return funclet;
+        }
+    }
+    libc.getExportFunction = getExportFunction;
+})(libc = exports.libc || (exports.libc = {}));
+
+},{}],11:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var libc_1 = require("./libc");
+var dyld_1 = require("./dyld");
+var struct = /** @class */ (function () {
+    function struct(ptr) {
+        if (ptr == null) {
+            this.ptr = libc_1.libc.malloc(this.size());
+        }
+        else {
+            this.ptr = ptr;
+        }
+    }
+    struct.prototype.isnull = function () {
+        if (this.ptr == NULL) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    struct.prototype.free = function () {
+        if (this.ptr != NULL) {
+            libc_1.libc.free(this.ptr);
+            this.ptr = NULL;
+        }
+    };
+    return struct;
+}());
+var section = /** @class */ (function (_super) {
+    __extends(section, _super);
+    function section() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    section.prototype.sectname = function () {
+        return this.ptr;
+    };
+    section.prototype.segname = function () {
+        return this.ptr.add(16);
+    };
+    section.prototype.addr = function () {
+        return this.ptr.add(32);
+    };
+    section.prototype.psize = function () {
+        return this.ptr.add(40);
+    };
+    section.prototype.offset = function () {
+        return this.ptr.add(48);
+    };
+    section.prototype.align = function () {
+        return this.ptr.add(52);
+    };
+    section.prototype.reloff = function () {
+        return this.ptr.add(56);
+    };
+    section.prototype.nreloc = function () {
+        return this.ptr.add(60);
+    };
+    section.prototype.flags = function () {
+        return this.ptr.add(64);
+    };
+    section.prototype.reserved1 = function () {
+        return this.ptr.add(68);
+    };
+    section.prototype.reserved2 = function () {
+        return this.ptr.add(72);
+    };
+    section.prototype.reserved3 = function () {
+        return this.ptr.add(76);
+    };
+    section.prototype.size = function () {
+        return 80;
+    };
+    return section;
+}(struct));
+exports.section = section;
+var symtab_command = /** @class */ (function (_super) {
+    __extends(symtab_command, _super);
+    function symtab_command() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    symtab_command.prototype.cmd = function () {
+        return this.ptr;
+    };
+    symtab_command.prototype.cmdsize = function () {
+        return this.ptr.add(4);
+    };
+    symtab_command.prototype.symoff = function () {
+        return this.ptr.add(8);
+    };
+    symtab_command.prototype.nsyms = function () {
+        return this.ptr.add(12);
+    };
+    symtab_command.prototype.stroff = function () {
+        return this.ptr.add(16);
+    };
+    symtab_command.prototype.strsize = function () {
+        return this.ptr.add(20);
+    };
+    symtab_command.prototype.size = function () {
+        return 24;
+    };
+    return symtab_command;
+}(struct));
+exports.symtab_command = symtab_command;
+var dysymtab_command = /** @class */ (function (_super) {
+    __extends(dysymtab_command, _super);
+    function dysymtab_command() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    dysymtab_command.prototype.cmd = function () {
+        return this.ptr;
+    };
+    dysymtab_command.prototype.cmdsize = function () {
+        return this.ptr.add(4);
+    };
+    dysymtab_command.prototype.ilocalsym = function () {
+        return this.ptr.add(8);
+    };
+    dysymtab_command.prototype.nlocalsym = function () {
+        return this.ptr.add(12);
+    };
+    dysymtab_command.prototype.iextdefsym = function () {
+        return this.ptr.add(16);
+    };
+    dysymtab_command.prototype.nextdefsym = function () {
+        return this.ptr.add(20);
+    };
+    dysymtab_command.prototype.iundefsym = function () {
+        return this.ptr.add(24);
+    };
+    dysymtab_command.prototype.nundefsym = function () {
+        return this.ptr.add(28);
+    };
+    dysymtab_command.prototype.tocoff = function () {
+        return this.ptr.add(32);
+    };
+    dysymtab_command.prototype.ntoc = function () {
+        return this.ptr.add(36);
+    };
+    dysymtab_command.prototype.modtaboff = function () {
+        return this.ptr.add(40);
+    };
+    dysymtab_command.prototype.nmodtab = function () {
+        return this.ptr.add(44);
+    };
+    dysymtab_command.prototype.extrefsymoff = function () {
+        return this.ptr.add(48);
+    };
+    dysymtab_command.prototype.nextrefsyms = function () {
+        return this.ptr.add(52);
+    };
+    dysymtab_command.prototype.indrectsymoff = function () {
+        return this.ptr.add(56);
+    };
+    dysymtab_command.prototype.nindirectsyms = function () {
+        return this.ptr.add(60);
+    };
+    dysymtab_command.prototype.extreloff = function () {
+        return this.ptr.add(64);
+    };
+    dysymtab_command.prototype.nextrel = function () {
+        return this.ptr.add(68);
+    };
+    dysymtab_command.prototype.locreloff = function () {
+        return this.ptr.add(72);
+    };
+    dysymtab_command.prototype.nlocrel = function () {
+        return this.ptr.add(76);
+    };
+    dysymtab_command.prototype.size = function () {
+        return 80;
+    };
+    return dysymtab_command;
+}(struct));
+exports.dysymtab_command = dysymtab_command;
+var segment_command = /** @class */ (function (_super) {
+    __extends(segment_command, _super);
+    function segment_command() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    segment_command.prototype.cmd = function () {
+        return this.ptr;
+    };
+    segment_command.prototype.cmdsize = function () {
+        return this.ptr.add(4);
+    };
+    segment_command.prototype.segname = function () {
+        return this.ptr.add(8);
+    };
+    segment_command.prototype.vmaddr = function () {
+        return this.ptr.add(24);
+    };
+    segment_command.prototype.vmsize = function () {
+        return this.ptr.add(32);
+    };
+    segment_command.prototype.fileoff = function () {
+        return this.ptr.add(40);
+    };
+    segment_command.prototype.filesize = function () {
+        return this.ptr.add(48);
+    };
+    segment_command.prototype.maxport = function () {
+        return this.ptr.add(56);
+    };
+    segment_command.prototype.initport = function () {
+        return this.ptr.add(60);
+    };
+    segment_command.prototype.nsects = function () {
+        return this.ptr.add(64);
+    };
+    segment_command.prototype.flags = function () {
+        return this.ptr.add(68);
+    };
+    segment_command.prototype.size = function () {
+        return 72;
+    };
+    return segment_command;
+}(struct));
+exports.segment_command = segment_command;
+var mach_header = /** @class */ (function (_super) {
+    __extends(mach_header, _super);
+    function mach_header() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    mach_header.prototype.magic = function () {
+        return this.ptr;
+    };
+    mach_header.prototype.cputype = function () {
+        return this.ptr.add(4);
+    };
+    mach_header.prototype.cpusubtype = function () {
+        return this.ptr.add(8);
+    };
+    mach_header.prototype.filetype = function () {
+        return this.ptr.add(12);
+    };
+    mach_header.prototype.ncmds = function () {
+        return this.ptr.add(16);
+    };
+    mach_header.prototype.sizeofcmds = function () {
+        return this.ptr.add(20);
+    };
+    mach_header.prototype.flags = function () {
+        return this.ptr.add(24);
+    };
+    mach_header.prototype.size = function () {
+        if (this.magic().readU32() == dyld_1.dyld.MH_MAGIC || this.magic().readU32() == dyld_1.dyld.MH_CIGAM) {
+            return 28;
+        }
+        else if (this.magic().readU32() == dyld_1.dyld.MH_MAGIC_64 || this.magic().readU32() == dyld_1.dyld.MH_CIGAM_64) {
+            return 32;
+        }
+        else {
+            return 0;
+        }
+    };
+    return mach_header;
+}(struct));
+exports.mach_header = mach_header;
+var Dl_info = /** @class */ (function (_super) {
+    __extends(Dl_info, _super);
+    function Dl_info() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Dl_info.prototype.dli_fname = function () {
+        return this.ptr.readPointer();
+    };
+    Dl_info.prototype.dli_fbase = function () {
+        return this.ptr.readPointer().add(8);
+    };
+    Dl_info.prototype.dli_sname = function () {
+        return this.ptr.readPointer().add(16);
+    };
+    Dl_info.prototype.dli_saddr = function () {
+        return this.ptr.readPointer().add(24);
+    };
+    Dl_info.prototype.size = function () {
+        return 32;
+    };
+    return Dl_info;
+}(struct));
+exports.Dl_info = Dl_info;
+
+},{"./dyld":5,"./libc":10}]},{},[4])
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L1VzZXJzL2ZiaS9BcHBEYXRhL1JvYW1pbmcvbnBtL25vZGVfbW9kdWxlcy9mcmlkYS1jb21waWxlL25vZGVfbW9kdWxlcy9icm93c2VyLXBhY2svX3ByZWx1ZGUuanMiLCJDOi9Vc2Vycy9mYmkvQXBwRGF0YS9Sb2FtaW5nL25wbS9ub2RlX21vZHVsZXMvZnJpZGEtY29tcGlsZS9ub2RlX21vZHVsZXMvZXZlbnRzL2V2ZW50cy5qcyIsIkM6L1VzZXJzL2ZiaS9BcHBEYXRhL1JvYW1pbmcvbnBtL25vZGVfbW9kdWxlcy9mcmlkYS1jb21waWxlL25vZGVfbW9kdWxlcy9mcmlkYS1wcm9jZXNzL2luZGV4LmpzIiwiQzovVXNlcnMvZmJpL0FwcERhdGEvUm9hbWluZy9ucG0vbm9kZV9tb2R1bGVzL2ZyaWRhLWNvbXBpbGUvbm9kZV9tb2R1bGVzL3BhdGgtYnJvd3NlcmlmeS9pbmRleC5qcyIsImluZGV4LnRzIiwibm9kZV9tb2R1bGVzL2ZyaWRhLWxpYi9pb3MvZHlsZC5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2Zhc3QuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9maXNoaG9vay5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2Z1bmMuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9pbmRleC5qcyIsIm5vZGVfbW9kdWxlcy9mcmlkYS1saWIvaW9zL2xpYmMuanMiLCJub2RlX21vZHVsZXMvZnJpZGEtbGliL2lvcy9zdHJ1Y3QuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUNBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7O0FDM2dCQTtBQUVBLElBQU0sWUFBWSxHQUFHLE9BQU8sQ0FBQyxRQUFELENBQTVCOztBQUVBLElBQU0sT0FBTyxHQUFHLE1BQU0sQ0FBQyxPQUFQLEdBQWlCLEVBQWpDO0FBRUEsT0FBTyxDQUFDLFFBQVIsR0FBbUIsTUFBTSxDQUFDLFFBQTFCO0FBRUEsT0FBTyxDQUFDLEtBQVIsR0FBZ0IsT0FBaEI7QUFDQSxPQUFPLENBQUMsT0FBUixHQUFrQixJQUFsQjtBQUNBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsRUFBZDtBQUNBLE9BQU8sQ0FBQyxJQUFSLEdBQWUsRUFBZjtBQUNBLE9BQU8sQ0FBQyxPQUFSLEdBQWtCLEVBQWxCLEMsQ0FBc0I7O0FBQ3RCLE9BQU8sQ0FBQyxRQUFSLEdBQW1CLEVBQW5CO0FBRUEsT0FBTyxDQUFDLFlBQVIsR0FBdUIsWUFBdkI7QUFDQSxPQUFPLENBQUMsRUFBUixHQUFhLElBQWI7QUFDQSxPQUFPLENBQUMsV0FBUixHQUFzQixJQUF0QjtBQUNBLE9BQU8sQ0FBQyxJQUFSLEdBQWUsSUFBZjtBQUNBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsSUFBZDtBQUNBLE9BQU8sQ0FBQyxjQUFSLEdBQXlCLElBQXpCO0FBQ0EsT0FBTyxDQUFDLGtCQUFSLEdBQTZCLElBQTdCO0FBQ0EsT0FBTyxDQUFDLElBQVIsR0FBZSxJQUFmOztBQUVBLE9BQU8sQ0FBQyxPQUFSLEdBQWtCLFVBQVUsSUFBVixFQUFnQjtBQUNoQyxRQUFNLElBQUksS0FBSixDQUFVLGtDQUFWLENBQU47QUFDRCxDQUZEOztBQUlBLE9BQU8sQ0FBQyxHQUFSLEdBQWMsWUFBWTtBQUN4QixTQUFPLEdBQVA7QUFDRCxDQUZEOztBQUdBLE9BQU8sQ0FBQyxLQUFSLEdBQWdCLFVBQVUsR0FBVixFQUFlO0FBQzdCLFFBQU0sSUFBSSxLQUFKLENBQVUsZ0NBQVYsQ0FBTjtBQUNELENBRkQ7O0FBR0EsT0FBTyxDQUFDLEtBQVIsR0FBZ0IsWUFBWTtBQUMxQixTQUFPLENBQVA7QUFDRCxDQUZEOztBQUlBLFNBQVMsSUFBVCxHQUFpQixDQUFFOzs7O0FDdENuQjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQzlTQSxJQUFBLEdBQUEsR0FBQSxZQUFBLENBQUEsT0FBQSxDQUFBLGVBQUEsQ0FBQSxDQUFBLEMsQ0FHQTs7O0FBQ0EsSUFBSSx5QkFBeUIsR0FBQyxJQUFJLENBQUMsT0FBTCxDQUFhLHlCQUEzQztBQUVBLElBQUksUUFBUSxHQUFDLElBQUksQ0FBQyxPQUFMLENBQWEsUUFBMUI7O0FBY0EsU0FBUyxnQkFBVCxDQUEwQixHQUExQixFQUFpQztBQUM3QixNQUFHLEdBQUcsS0FBSyxFQUFYLEVBQ0ksT0FBTyxFQUFQO0FBQ0osTUFBSSxXQUFXLEdBQUcsRUFBbEIsQ0FINkIsQ0FJN0I7O0FBQ0EsRUFBQSxXQUFXLENBQUMsSUFBWixDQUFpQixJQUFqQjs7QUFDQSxPQUFJLElBQUksQ0FBQyxHQUFHLENBQVosRUFBZSxDQUFDLEdBQUcsR0FBRyxDQUFDLE1BQXZCLEVBQStCLENBQUMsRUFBaEMsRUFBb0M7QUFFaEM7QUFDQSxJQUFBLFdBQVcsQ0FBQyxJQUFaLENBQWtCLEdBQUcsQ0FBQyxVQUFKLENBQWUsQ0FBZixDQUFELENBQW9CLFFBQXBCLENBQTZCLEVBQTdCLENBQWpCO0FBQ0g7O0FBQ0QsU0FBTyxXQUFXLENBQUMsSUFBWixDQUFpQixFQUFqQixDQUFQO0FBQ0g7O0FBQ0QsR0FBRyxDQUFDLElBQUosQ0FBUyxRQUFULENBQWtCLFlBQUE7QUFDZDtBQUNBO0FBRUEsTUFBRztBQUdDO0FBQ0EsSUFBQSxPQUFPLENBQUMsR0FBUixDQUFZLElBQUksQ0FBQyxPQUFMLENBQWEsTUFBekIsRUFKRCxDQUtDOztBQUNBLFFBQUksZUFBZSxHQUFDLElBQUksQ0FBQyxPQUFMLENBQWEsTUFBYixDQUFvQixvQkFBcEIsQ0FBcEI7QUFDQSxJQUFBLE9BQU8sQ0FBQyxHQUFSLENBQVksZUFBWjtBQUNBLElBQUEsV0FBVyxDQUFDLE1BQVosQ0FBbUIsZUFBZSxDQUFDLGNBQW5DLEVBQWtEO0FBQzlDLE1BQUEsT0FBTyxFQUFDLFVBQVMsSUFBVCxFQUFhO0FBQ2pCLFFBQUEsT0FBTyxDQUFDLEdBQVIsQ0FBWSxxQkFBbUIsSUFBSSxJQUFJLENBQUMsTUFBVCxDQUFnQixJQUFJLENBQUMsQ0FBRCxDQUFwQixDQUEvQjtBQUNBLFFBQUEsR0FBRyxDQUFDLElBQUosQ0FBUyxjQUFUO0FBQ0g7QUFKNkMsS0FBbEQsRUFSRCxDQWdCQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNILEdBcFJELENBb1JDLE9BQU0sQ0FBTixFQUFRO0FBQ0wsSUFBQSxPQUFPLENBQUMsR0FBUixDQUFZLENBQVo7QUFDSCxHQTFSYSxDQTRSZDs7QUFDSCxDQTdSRDs7O0FDakNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUMvQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDbFFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQ25QQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDWEE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQ1hBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDeENBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiJnZW5lcmF0ZWQuanMiLCJzb3VyY2VSb290IjoiIn0=
