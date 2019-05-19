@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/配置文件.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/配置文件.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,17 +19,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-975">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="229">
+              <caret line="173" selection-start-line="173" selection-end-line="173" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
                 <element signature="n#ASIdentifierManager#0" expanded="true" />
                 <element signature="n#!!block;n#strToHexCharCode#0" />
-                <element signature="e#891#903#0" />
-                <element signature="e#1250#1428#0" />
-                <element signature="e#1560#1777#0" />
-                <element signature="e#1963#2477#0" />
-                <element signature="e#2619#3313#0" />
               </folding>
             </state>
           </provider>
@@ -91,16 +81,16 @@
         <option value="$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/objc/NSObject.d.ts" />
         <option value="$PROJECT_DIR$/node_modules/frida-lib/tsconfig.json" />
         <option value="$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/frida-gum.d.ts" />
-        <option value="$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
         <option value="$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSDictionary.d.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/node_modules/frida-gum-types1/package.json" />
         <option value="$PROJECT_DIR$/node_modules/frida-lib/package.json" />
         <option value="$PROJECT_DIR$/index.ts" />
+        <option value="$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="556" />
     <option name="width" value="1938" />
     <option name="height" value="1032" />
@@ -111,7 +101,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,21 +108,11 @@
               <item name="tsdebug" type="b2602c69:ProjectViewProjectNode" />
               <item name="tsdebug" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tsdebug" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tsdebug" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tsdebug" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tsdebug" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="frida-lib" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,11 +236,13 @@
       <workItem from="1558025527745" duration="172000" />
       <workItem from="1558025701762" duration="198000" />
       <workItem from="1558025901365" duration="73000" />
+      <workItem from="1558026039577" duration="4160000" />
+      <workItem from="1558070265418" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106432000" />
+    <option name="totallyTimeSpent" value="110602000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,12 +258,12 @@
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.2266521" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.12506826" />
       <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.30704898" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.06332139" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -291,7 +272,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32735962" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5122884" side_tool="true" weight="0.2935561" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.48771164" visible="true" weight="0.2520908" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48771164" weight="0.4982079" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -327,7 +308,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ql" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-compile/bin/compile.js" />
     <entry file="file://$PROJECT_DIR$/调试_bak.ql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -393,7 +373,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/package.json" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/tsconfig.json" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/index.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -436,19 +415,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/获取密钥.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/版本.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="87" column="25" lean-forward="true" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-975">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="229">
+          <caret line="173" selection-start-line="173" selection-end-line="173" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
             <element signature="n#ASIdentifierManager#0" expanded="true" />
             <element signature="n#!!block;n#strToHexCharCode#0" />
-            <element signature="e#891#903#0" />
-            <element signature="e#1250#1428#0" />
-            <element signature="e#1560#1777#0" />
-            <element signature="e#1963#2477#0" />
-            <element signature="e#2619#3313#0" />
           </folding>
         </state>
       </provider>
