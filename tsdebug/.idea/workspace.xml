@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="385">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -83,8 +83,8 @@
         <option value="$PROJECT_DIR$/node_modules/frida-lib/package.json" />
         <option value="$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/index.ts" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/index.ts" />
       </list>
     </option>
   </component>
@@ -99,6 +99,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -110,7 +111,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -127,6 +127,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
     <property name="ts.external.directory.path" value="M:\ide\WebStorm 2019.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -253,12 +254,13 @@
       <workItem from="1558451264909" duration="580000" />
       <workItem from="1558451966795" duration="58000" />
       <workItem from="1558452029682" duration="559000" />
-      <workItem from="1558452894823" duration="86000" />
+      <workItem from="1558452894823" duration="675000" />
+      <workItem from="1558453572220" duration="1295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112278000" />
+    <option name="totallyTimeSpent" value="114162000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,12 +276,12 @@
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.22064446" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.2266521" />
       <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.3930705" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.3930705" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -288,7 +290,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32735962" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5122884" side_tool="true" weight="0.2935561" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48771164" weight="0.3711217" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48771164" weight="0.37037036" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -362,7 +364,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/UIKit/UIFocusDebugger.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSString.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/index.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/func.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/frida-gum.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types/package.json" />
@@ -410,13 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts.bak">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -443,10 +437,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/func.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="385">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

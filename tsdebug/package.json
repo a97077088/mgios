@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^12.0.2",
+    "frida-gum-types1": "^1.0.4",
     "frida-lib": "^1.1.27"
   },
   "scripts": {
