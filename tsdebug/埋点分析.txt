@@ -1,0 +1,14 @@
+//发包请求来自MGStatic testContent:keyValue:appSign:
+POST /aquireToken?sign=MHJRiJSFBOHZilmFCaca7tjvWwARktL92MnFM%2FFuu4AL97eRcI3Tb2c%2FzkLX9WsDU7j3eohbRkUxTjC0ghna9iwJYUjekcIVLIy3R76xy85yrx8D6riFThdcbtN7lE1UnDSXFOx7fFQ0if3pUGiv72NpJlZA3v2dh3jiU%2B3Abs4%3D HTTP/1.1
+Host: crystal.miguvideo.com
+Content-Type: application/json
+Connection: keep-alive
+Accept: */*
+User-Agent: %E5%92%AA%E5%92%95%E8%A7%86%E9%A2%91/5.6.0.5.6 CFNetwork/808.0.2 Darwin/16.0.0
+Accept-Language: zh-cn
+Accept-Encoding: gzip, deflate
+Content-Length: 115
+
+{"appKey":"534B9120BEDF3C2A7713EF40B9D99530","info":"6190f274c5f5ff8338107aec4fba6143","timestamp":"1558436302808"}
+
+appKey

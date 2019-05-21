@@ -2,15 +2,15 @@
   "name": "tsdebug",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "dependencies": {
-    "frida-gum-types1": "^1.0.4",
-    "frida-lib": "^1.1.21"
+  "main": "index.ts.bak",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "frida-lib": "^1.1.27"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "frida-compile ./index.ts -o agent.js -w"
+    "watch": "frida-compile index.ts.bak -o agent.js -w"
   },
   "author": "",
   "license": "ISC"
