@@ -72,7 +72,13 @@ type Api_userInfo struct {
 	UserNum     string
 	UserToken   string
 }
-
 type Playurl_v1_play_url_r struct {
 	R
+}
+type Crystal_aqutokenireToken_o struct {
+	Token string
+}
+type Crystal_aquireToken_r struct {
+	Api_R
+	Crystal_aqutokenireToken_o
 }

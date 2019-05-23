@@ -11,4 +11,9 @@ Content-Length: 115
 
 {"appKey":"534B9120BEDF3C2A7713EF40B9D99530","info":"6190f274c5f5ff8338107aec4fba6143","timestamp":"1558436302808"}
 
-appKey
+
+//MGStatic setApiKey:
+appKey //应该是固定的
+info->md5("com.wondertek.hecmccmobile,iOS")=6190f274c5f5ff8338107aec4fba6143
+
+

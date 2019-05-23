@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="updatego">
+    <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/fbi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crypto.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsdebug/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/埋点分析.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/type.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +25,80 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state relative-caret-position="141">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="n#!!block;n#cli_with_cli#0" />
+                <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
+                <element signature="n#!!block;n#login_migutokenforall#0" />
+                <element signature="n#!!block;n#Crystal_aquireToken#0" />
+                <element signature="n#!!block;n#Common_flow_service_province_code#0" />
+                <element signature="n#!!block;n#playurl_v1_play_url#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crypto.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="377" column="45" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="45" />
+              <folding>
+                <element signature="n#!!block;n#PKCS7UnPadding#0" />
+                <element signature="n#!!block;n#PKCS7Padding#0" />
+                <element signature="n#!!block;n#PKCS5Padding#0" />
+                <element signature="n#!!block;n#Hmac_sha256_with_in#0" />
+                <element signature="n#!!block;n#Sha256_with_in#0" />
+                <element signature="n#!!block;n#Rsa_with_in_privatekey_in#0" />
+                <element signature="e#876#986#1" />
+                <element signature="e#1142#1176#0" />
+                <element signature="e#1242#1261#0" />
+                <element signature="n#!!block;n#Must_Rsa_with_in_privatekey#0" />
+                <element signature="n#!!block;n#Rsa_with_in_publickey#0" />
+                <element signature="n#!!block;n#Rsa_decode_with_in_privatekey#0" />
+                <element signature="n#!!block;n#Rsa_sign_md5_with_in_privatekey#0" />
+                <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#0" />
+                <element signature="n#!!block;n#Rsa_sign_sha256_with_in_privatekey#0" />
+                <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#1" />
+                <element signature="n#!!block;n#Must_Md5_with_in#0" />
+                <element signature="n#!!block;n#Aes128_with_in_key#0" />
+                <element signature="e#4747#4749#0" />
+                <element signature="n#!!block;n#Must_Aes128_with_in_key#0" />
+                <element signature="n#!!block;n#Aes128_decode_with_in_key#0" />
+                <element signature="e#5844#6765#1" />
+                <element signature="e#6803#10605#0" />
+                <element signature="e#10618#10891#1" />
+                <element signature="e#10916#11804#1" />
+                <element signature="e#11847#12725#1" />
+                <element signature="e#12769#13657#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/func.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#14#358#0" expanded="true" />
+                <element signature="n#!!block;n#getMiguSign#0" />
+                <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+                <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+                <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+                <element signature="e#24033#24045#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -37,11 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>0500</find>
-      <find>ff00</find>
-      <find>clientid</find>
-      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d</find>
-      <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d7a52474e545533516a6732526a45304d546b3152455132001832393833313736383534363231000d3230333030350006</find>
       <find>016d6967752d746f6b656e2d76657273696f6e332e3000154d7a52474e545533516a6732526a45304d546b3152455132001832393833313736383534363231000d32303330303500066433356665333433383865623739653233663230633530653639633733646631</find>
       <find>8484010001330200584D7A52474E545533516A6732526A45304D546B315245513240687474703A2F2F70617373706F72742E6D6967752E636E2F6E303030312F403336633063666438316163643737643665343264626333316565633336663865030004045BD07</find>
       <find>8484010001330200584D7A52474E545533516A6732526A45304D546B315245513240687474703A2F2F70617373706F72742E6D6967752E636E2F6E303030312F403336633063666438316163643737643665343264626333316565633336663865030004045BD07F0400063230333030350500204438373644303239374542303436373841364541433045453044314630464344FF00202240A206DE1DFCF4050C67DBEF37F23E1C1C538007DFF1F41F3F91DAF16F7DF8</find>
@@ -67,6 +140,11 @@
       <find>25040600-</find>
       <find>SDKCEId</find>
       <find>cityId</find>
+      <find>sa</find>
+      <find>rsa</find>
+      <find>sign</find>
+      <find>\r</find>
+      <find>%E5%92%AA%E5%92%95%E8%A7%86%E9%A2%91</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="M:\Go" />
@@ -76,25 +154,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main_test.go" />
         <option value="$PROJECT_DIR$/err.go" />
         <option value="D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/request.go" />
         <option value="$PROJECT_DIR$/go.mod" />
         <option value="$PROJECT_DIR$/t.key" />
         <option value="$PROJECT_DIR$/user.go" />
         <option value="$PROJECT_DIR$/main - 副本.go" />
-        <option value="$PROJECT_DIR$/type.go" />
-        <option value="$PROJECT_DIR$/api.go" />
-        <option value="$PROJECT_DIR$/func.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/tsdebug/获取密钥.py" />
         <option value="$PROJECT_DIR$/tsdebug/埋点分析.txt" />
+        <option value="$PROJECT_DIR$/type.go" />
+        <option value="$PROJECT_DIR$/main_test.go" />
+        <option value="$PROJECT_DIR$/crypto.go" />
+        <option value="$PROJECT_DIR$/func.go" />
+        <option value="$PROJECT_DIR$/api.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="536" />
-    <option name="y" value="46" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1652" />
     <option name="height" value="1102" />
   </component>
@@ -104,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,6 +194,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -151,9 +230,6 @@
     <configuration name="go build mgios" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="mgios" />
       <working_directory value="$PROJECT_DIR$/" />
-      <envs>
-        <env name="HTTP_PROXY" value="http://127.0.0.1:8888" />
-      </envs>
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="mgios" />
@@ -178,6 +254,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build mgios" />
+        <item itemvalue="Go Test.Test_getMiguSign in mgios" />
       </list>
     </recent_temporary>
   </component>
@@ -196,34 +273,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 51m 34s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 03m 54s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 51m 54s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 04m 01s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 53m 39s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 03s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 53m 51s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 18s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 54m 31s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 32s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 54m 37s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 06m 49s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 12h 55m 23s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 06m 56s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 00s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 08s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 02s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 17s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.11 at 13h 03m 11s.xml">
+    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 24s.xml">
       <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
@@ -243,12 +320,12 @@
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.2567861" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.20846905" />
       <window_info id="Structure" order="1" sideWeight="0.50089765" side_tool="true" weight="0.20141152" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49945712" weight="0.40860215" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945712" visible="true" weight="0.43727598" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,13 +416,6 @@
     <entry file="file://$PROJECT_DIR$/t.key" />
     <entry file="file://C:/msys64/mingw64/lib/go/src/encoding/hex/hex.go" />
     <entry file="file://C:/msys64/mingw64/lib/go/src/bytes/buffer.go" />
-    <entry file="file://$PROJECT_DIR$/main_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main - 副本.go" />
     <entry file="file://$PROJECT_DIR$/FormLogin.gfm" />
     <entry file="file://$PROJECT_DIR$/FormLoginImpl.go" />
@@ -360,34 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/request.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5320">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/type.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
-          <folding>
-            <element signature="e#42#59#0" />
-            <element signature="n#!!block;n#New_neterr_with_error#0" />
-            <element signature="n#!!block;n#New_neterr_with_s#0" />
-            <element signature="e#354#454#0" />
-            <element signature="e#484#525#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/func.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="558" column="42" lean-forward="true" selection-start-line="558" selection-start-column="42" selection-end-line="558" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -410,13 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsdebug/agent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -431,10 +466,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api.go">
+    <entry file="file://M:/go/src/crypto/rsa/pkcs1v15.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <caret line="231" column="66" lean-forward="true" selection-start-line="231" selection-start-column="66" selection-end-line="231" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://M:/go/src/crypto/crypto.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pkg/mod/github.com/a97077088/grequests@v0.0.0-20190512104714-727b37e1c875/request.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4281">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#New_neterr_with_error#0" />
+            <element signature="n#!!block;n#New_neterr_with_s#0" />
+            <element signature="e#508#619#0" />
+            <element signature="e#649#691#0" />
+            <element signature="e#733#784#0" />
+            <element signature="e#826#898#0" />
+            <element signature="e#917#978#0" />
+            <element signature="e#997#1187#0" />
+            <element signature="e#1216#1229#0" />
+            <element signature="e#1259#1275#0" />
+            <element signature="e#1254#1270#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="e#150#784#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crypto.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="377" column="45" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!block;n#PKCS7UnPadding#0" />
+            <element signature="n#!!block;n#PKCS7Padding#0" />
+            <element signature="n#!!block;n#PKCS5Padding#0" />
+            <element signature="n#!!block;n#Hmac_sha256_with_in#0" />
+            <element signature="n#!!block;n#Sha256_with_in#0" />
+            <element signature="n#!!block;n#Rsa_with_in_privatekey_in#0" />
+            <element signature="e#876#986#1" />
+            <element signature="e#1142#1176#0" />
+            <element signature="e#1242#1261#0" />
+            <element signature="n#!!block;n#Must_Rsa_with_in_privatekey#0" />
+            <element signature="n#!!block;n#Rsa_with_in_publickey#0" />
+            <element signature="n#!!block;n#Rsa_decode_with_in_privatekey#0" />
+            <element signature="n#!!block;n#Rsa_sign_md5_with_in_privatekey#0" />
+            <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#0" />
+            <element signature="n#!!block;n#Rsa_sign_sha256_with_in_privatekey#0" />
+            <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#1" />
+            <element signature="n#!!block;n#Must_Md5_with_in#0" />
+            <element signature="n#!!block;n#Aes128_with_in_key#0" />
+            <element signature="e#4747#4749#0" />
+            <element signature="n#!!block;n#Must_Aes128_with_in_key#0" />
+            <element signature="n#!!block;n#Aes128_decode_with_in_key#0" />
+            <element signature="e#5844#6765#1" />
+            <element signature="e#6803#10605#0" />
+            <element signature="e#10618#10891#1" />
+            <element signature="e#10916#11804#1" />
+            <element signature="e#11847#12725#1" />
+            <element signature="e#12769#13657#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/func.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#14#358#0" expanded="true" />
+            <element signature="n#!!block;n#getMiguSign#0" />
+            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+            <element signature="e#24033#24045#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="n#!!block;n#cli_with_cli#0" />
+            <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
+            <element signature="n#!!block;n#login_migutokenforall#0" />
+            <element signature="n#!!block;n#Crystal_aquireToken#0" />
+            <element signature="n#!!block;n#Common_flow_service_province_code#0" />
+            <element signature="n#!!block;n#playurl_v1_play_url#0" />
+          </folding>
         </state>
       </provider>
     </entry>

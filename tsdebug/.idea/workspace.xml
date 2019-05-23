@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/dictionaries/fbi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crypto.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../func.go" beforeDir="false" afterPath="$PROJECT_DIR$/../func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../main_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/埋点分析.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +27,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="215">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#39#70#0" />
+                <element signature="e#78#100#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,7 +62,19 @@
       <find>esModuleInterop</find>
       <find>typeRoots</find>
       <find>export {classes}</find>
+      <find>migu</find>
+      <find>show</find>
+      <find>key</find>
+      <find>system</find>
+      <find>CbuSk2i71uTYrSyV52vPVmgFVpfXNag3zXLIDtqoS2l+Z4yu</find>
+      <find>CbuSk2i71uTYrSyV52vPV</find>
+      <find>CbuSk2i71uTYrSyV52vPVmgFVpfXNag3zXLIDtq</find>
       <find>classes</find>
+      <find>MG</find>
+      <find>mg</find>
+      <find>534B9120BEDF3C2A7713EF40B9D99530</find>
+      <find>49b8490b8d944411950668298d4603a4</find>
+      <find>CbuSk2i71uTYrSyV52vPVmgFVpfXNa</find>
     </findStrings>
     <replaceStrings>
       <replace>export {ObjC}</replace>
@@ -88,8 +109,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="556" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-9" />
     <option name="width" value="1938" />
     <option name="height" value="1032" />
   </component>
@@ -99,7 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -111,6 +131,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -152,7 +173,7 @@
     <configuration default="true" type="NodeJSConfigurationType" path-to-node="M:/bin/fridadebug" node-parameters="-pk fbi.n -scpath" path-to-js-file="$PROJECT_DIR$/agent.js">
       <method v="2" />
     </configuration>
-    <configuration name="agent.js" type="NodeJSConfigurationType" temporary="true" path-to-node="M:/bin/fridadebug" nameIsGenerated="true" node-parameters="-pk com.wondertek.hecmccmobile -scpath" path-to-js-file="agent.js" working-dir="$PROJECT_DIR$">
+    <configuration name="agent.js" type="NodeJSConfigurationType" temporary="true" path-to-node="M:/bin/fridadebug" nameIsGenerated="true" node-parameters="-pk com.wondertek.hecmccmobile -mode 1 -scpath" path-to-js-file="agent.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -256,11 +277,12 @@
       <workItem from="1558452029682" duration="559000" />
       <workItem from="1558452894823" duration="675000" />
       <workItem from="1558453572220" duration="1295000" />
+      <workItem from="1558525080872" duration="23206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114162000" />
+    <option name="totallyTimeSpent" value="137368000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,16 +294,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="0" width="1938" height="1032" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.2266521" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.23265974" />
       <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.3930705" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.30525032" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -326,9 +348,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ql" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/调试.ql" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSUserDefaults.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/@types/node/globals.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSString.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSDictionary.d.ts" />
@@ -358,14 +377,12 @@
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/dyld.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/example_fishhook.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fishhook.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/objc/NSObject.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/struct.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/macho.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/UIKit/UIFocusDebugger.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSString.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/index.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/index.d.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/frida-gum.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types/package.json" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/package.json" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/tsconfig.json" />
@@ -404,13 +421,6 @@
     <entry file="file://$PROJECT_DIR$/版本.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="87" column="25" lean-forward="true" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts.bak">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -430,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -451,10 +454,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#show_backtrace#0;n#fast#0" />
+            <element signature="n#!!block;n#curViewController#0;n#fast#0" />
+            <element signature="n#!!block;n#simple_alert#0;n#fast#0" />
+            <element signature="n#!!block;n#hookoc#0;n#fast#0" />
+            <element signature="n#!!block;n#hookoccls#0;n#fast#0" />
+            <element signature="n#!!block;n#showcallmethod_with_hookoccls#0;n#fast#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-280">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSFileCoordinator.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/objc/NSObject.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/frida-gum.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="3830" column="14" selection-start-line="3830" selection-start-column="14" selection-end-line="3830" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSThread.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="215">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#39#70#0" />
+            <element signature="e#78#100#0" />
+          </folding>
         </state>
       </provider>
     </entry>
