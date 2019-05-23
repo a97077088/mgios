@@ -324,7 +324,7 @@ func Common_flow_service_province_code(_areaName string, _user IUser, _cli *Sess
 /*
 播放接口
 */
-func playurl_v1_play_url(_contId string, _rateType int, _serialNo string, _clientProvinceCode string, _user IUser, _cli *Session) (*Playurl_v1_play_url_r, error) {
+func Playurl_v1_play_url(_contId string, _rateType int, _serialNo string, _clientProvinceCode string, _user IUser, _cli *Session) (*Playurl_v1_play_url_r, error) {
 	strtime := fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
 	m5sign, salt := getMiguSign(_contId, appversion, strtime)
 	cli := cli_with_cli(_cli)
