@@ -8,6 +8,7 @@ import (
 	"github.com/brianvoe/gofakeit"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var appversion = "25040600"                                   //固定写死在app中
@@ -172,7 +173,34 @@ func getTokenWithUserName_appId_uuid_andUser_(_username string, _appid string, _
 	return rs.Bytes(), nil
 }
 
-//初始化密钥,定位特征
-//ApiHandler requestPlayURLWithParams:success:failure:
-//MGTEncryptWrapper getEncryptWithTimestamp:
-//进两层off_指向
+func DeviceInfoJson_with_user(_user IUser) (map[string]interface{}, error) {
+	rjson := map[string]interface{}{
+		"imei":           _user.Value_for_key("$FCUUID"),
+		"udid":           _user.Value_for_key("$FCUUID"),
+		"installationID": _user.Value_for_key("$FCUUID"),
+		"phoneMode":      "$deviceModelName",
+		"phoneBrand":     "apple",
+		"idfa":           _user.Value_for_key("$idfa"),
+		"idfv":           _user.Value_for_key("$idfv"),
+		"appVersion":     _user.Value_for_key("$APP-VERSION-CODE"),
+		"networkType":    _user.Value_for_key("WIFI"),
+		"promotion":      "",
+		"accountType":    "",
+		"sessionId":      "",
+	}
+	return rjson, nil
+}
+func Getsessionid_with_user(_user IUser) string {
+	fcuuid := _user.Value_for_key("$FCUUID")
+	vts := _user.Env_for_key("sessionts")
+	var ts = int64(0)
+	if vts != nil {
+		ts = vts.(int64)
+	}
+	if time.Since(time.Unix(ts/1000, 0)).Seconds() >= 1 {
+		//session过期是300秒
+		ts = time.Now().UnixNano() / 1e6
+		_user.Set_env_value("sessionts", ts)
+	}
+	return fmt.Sprintf("%s%d", fcuuid, ts)
+}

@@ -7,7 +7,7 @@ import MGAnalitics = ObjC.classes.MGAnalitics;
 import SessionAppInfo = ObjC.classes.SessionAppInfo;
 
 // @ts-ignore
-import HBRSAHandler=ObjC.classes.HBRSAHandler
+import SessionSDK=ObjC.classes.SessionSDK
 
 try{
     // ios.fast.setExceptionHandle(null)
@@ -20,11 +20,7 @@ try{
 }
 
 function main(){
-
-
-    Interceptor.attach(HBRSAHandler["- signMD5String:"].implementation,{
-        onEnter:function(args){
-            console.log(new ObjC.Object(args[2]))
-        }
-    })
+    ios.fast.showcallmethod_with_hookoccls(SessionSDK)
+    ios.fast.showcallmethod_with_hookoccls(MGStatic)
+    // ios.fast.showcallmethod_with_hookoccls(SessionAppInfo)
 }

@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/fbi.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crypto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataCollectionService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataEventService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataExposureService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto.go" beforeDir="false" afterPath="$PROJECT_DIR$/crypto.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/func.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/埋点分析.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/user.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,56 +24,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="1504">
+              <caret line="326" column="162" selection-start-line="326" selection-start-column="162" selection-end-line="326" selection-end-column="162" />
               <folding>
                 <element signature="n#!!block;n#cli_with_cli#0" />
                 <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
-                <element signature="n#!!block;n#login_migutokenforall#0" />
+                <element signature="n#!!block;n#Client_authRequest#0" />
+                <element signature="n#!!block;n#Login_migutokenforall#0" />
                 <element signature="n#!!block;n#Crystal_aquireToken#0" />
                 <element signature="n#!!block;n#Common_flow_service_province_code#0" />
-                <element signature="n#!!block;n#playurl_v1_play_url#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crypto.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="377" column="45" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="45" />
-              <folding>
-                <element signature="n#!!block;n#PKCS7UnPadding#0" />
-                <element signature="n#!!block;n#PKCS7Padding#0" />
-                <element signature="n#!!block;n#PKCS5Padding#0" />
-                <element signature="n#!!block;n#Hmac_sha256_with_in#0" />
-                <element signature="n#!!block;n#Sha256_with_in#0" />
-                <element signature="n#!!block;n#Rsa_with_in_privatekey_in#0" />
-                <element signature="e#876#986#1" />
-                <element signature="e#1142#1176#0" />
-                <element signature="e#1242#1261#0" />
-                <element signature="n#!!block;n#Must_Rsa_with_in_privatekey#0" />
-                <element signature="n#!!block;n#Rsa_with_in_publickey#0" />
-                <element signature="n#!!block;n#Rsa_decode_with_in_privatekey#0" />
-                <element signature="n#!!block;n#Rsa_sign_md5_with_in_privatekey#0" />
-                <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#0" />
-                <element signature="n#!!block;n#Rsa_sign_sha256_with_in_privatekey#0" />
-                <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#1" />
-                <element signature="n#!!block;n#Must_Md5_with_in#0" />
-                <element signature="n#!!block;n#Aes128_with_in_key#0" />
-                <element signature="e#4747#4749#0" />
-                <element signature="n#!!block;n#Must_Aes128_with_in_key#0" />
-                <element signature="n#!!block;n#Aes128_decode_with_in_key#0" />
-                <element signature="e#5844#6765#1" />
-                <element signature="e#6803#10605#0" />
-                <element signature="e#10618#10891#1" />
-                <element signature="e#10916#11804#1" />
-                <element signature="e#11847#12725#1" />
-                <element signature="e#12769#13657#1" />
+                <element signature="n#!!block;n#Playurl_v1_play_url#0" />
               </folding>
             </state>
           </provider>
@@ -80,25 +45,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/func.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="235">
+              <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
               <folding>
-                <element signature="e#14#358#0" expanded="true" />
                 <element signature="n#!!block;n#getMiguSign#0" />
                 <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
                 <element signature="n#!!block;n#get_ks_with_auth_user#0" />
                 <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
-                <element signature="e#24033#24045#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#14#31#0" expanded="true" />
+                <element signature="e#189#823#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
+        <entry file="file://$PROJECT_DIR$/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="98">
+              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+              <folding>
+                <element signature="n#!!block;n#Value_for_key#0" />
+                <element signature="n#!!block;n#Set_key_value#0" />
+                <element signature="n#!!block;n#Env_for_key#0" />
+                <element signature="n#!!block;n#Set_env_value#0" />
+                <element signature="n#!!block;n#Data_with_map#0" />
+                <element signature="n#!!block;n#Data_with_s#0" />
+                <element signature="e#1028#1048#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,22 +143,25 @@
         <option value="D:/../../go/pkg/mod/github.com/levigross/grequests@v0.0.0-20190130132859-37c80f76a0da/request.go" />
         <option value="$PROJECT_DIR$/go.mod" />
         <option value="$PROJECT_DIR$/t.key" />
-        <option value="$PROJECT_DIR$/user.go" />
         <option value="$PROJECT_DIR$/main - 副本.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/tsdebug/获取密钥.py" />
         <option value="$PROJECT_DIR$/tsdebug/埋点分析.txt" />
-        <option value="$PROJECT_DIR$/type.go" />
         <option value="$PROJECT_DIR$/main_test.go" />
+        <option value="$PROJECT_DIR$/api.go" />
+        <option value="$PROJECT_DIR$/type.go" />
+        <option value="$PROJECT_DIR$/DataExposureService.go" />
+        <option value="$PROJECT_DIR$/DataEventService.go" />
+        <option value="$PROJECT_DIR$/DataCollectionService.go" />
         <option value="$PROJECT_DIR$/crypto.go" />
         <option value="$PROJECT_DIR$/func.go" />
-        <option value="$PROJECT_DIR$/api.go" />
+        <option value="$PROJECT_DIR$/user.go" />
+        <option value="$PROJECT_DIR$/main.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="438" />
+    <option name="y" value="26" />
     <option name="width" value="1652" />
     <option name="height" value="1102" />
   </component>
@@ -325,7 +313,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945712" visible="true" weight="0.43727598" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945712" visible="true" weight="0.41577062" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -386,7 +374,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updatego" />
-    <option name="LAST_COMMIT_MESSAGE" value="updatego" />
+    <MESSAGE value="调整所有算法位置，清晰结构，以及功能添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整所有算法位置，清晰结构，以及功能添加" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -423,13 +412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -487,26 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/type.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!block;n#New_neterr_with_error#0" />
-            <element signature="n#!!block;n#New_neterr_with_s#0" />
-            <element signature="e#508#619#0" />
-            <element signature="e#649#691#0" />
-            <element signature="e#733#784#0" />
-            <element signature="e#826#898#0" />
-            <element signature="e#917#978#0" />
-            <element signature="e#997#1187#0" />
-            <element signature="e#1216#1229#0" />
-            <element signature="e#1259#1275#0" />
-            <element signature="e#1254#1270#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
@@ -517,75 +479,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/DataCollectionService.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="329">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataEventService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataExposureService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding>
+            <element signature="e#43#60#0" />
+            <element signature="n#!!block;n#New_neterr_with_error#0" />
+            <element signature="n#!!block;n#New_neterr_with_s#0" />
+            <element signature="e#206#282#0" />
+            <element signature="e#295#343#0" />
+            <element signature="e#371#413#0" />
+            <element signature="e#439#478#0" />
+            <element signature="e#508#619#0" />
+            <element signature="e#649#691#0" />
+            <element signature="e#733#784#0" />
+            <element signature="e#826#898#0" />
+            <element signature="e#917#978#0" />
+            <element signature="e#997#1187#0" />
+            <element signature="e#1215#1228#0" />
+            <element signature="e#1261#1285#0" />
+            <element signature="e#1313#1358#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crypto.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="377" column="45" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="45" />
+        <state relative-caret-position="230">
+          <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
           <folding>
-            <element signature="n#!!block;n#PKCS7UnPadding#0" />
-            <element signature="n#!!block;n#PKCS7Padding#0" />
-            <element signature="n#!!block;n#PKCS5Padding#0" />
-            <element signature="n#!!block;n#Hmac_sha256_with_in#0" />
-            <element signature="n#!!block;n#Sha256_with_in#0" />
-            <element signature="n#!!block;n#Rsa_with_in_privatekey_in#0" />
-            <element signature="e#876#986#1" />
-            <element signature="e#1142#1176#0" />
-            <element signature="e#1242#1261#0" />
-            <element signature="n#!!block;n#Must_Rsa_with_in_privatekey#0" />
-            <element signature="n#!!block;n#Rsa_with_in_publickey#0" />
-            <element signature="n#!!block;n#Rsa_decode_with_in_privatekey#0" />
-            <element signature="n#!!block;n#Rsa_sign_md5_with_in_privatekey#0" />
-            <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#0" />
-            <element signature="n#!!block;n#Rsa_sign_sha256_with_in_privatekey#0" />
-            <element signature="n#!!block;n#Must_Rsa_sign_md5_with_in_privatekey#1" />
-            <element signature="n#!!block;n#Must_Md5_with_in#0" />
-            <element signature="n#!!block;n#Aes128_with_in_key#0" />
-            <element signature="e#4747#4749#0" />
-            <element signature="n#!!block;n#Must_Aes128_with_in_key#0" />
-            <element signature="n#!!block;n#Aes128_decode_with_in_key#0" />
-            <element signature="e#5844#6765#1" />
-            <element signature="e#6803#10605#0" />
-            <element signature="e#10618#10891#1" />
-            <element signature="e#10916#11804#1" />
-            <element signature="e#11847#12725#1" />
-            <element signature="e#12769#13657#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/func.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#14#358#0" expanded="true" />
-            <element signature="n#!!block;n#getMiguSign#0" />
-            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
-            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
-            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
-            <element signature="e#24033#24045#0" />
+            <element signature="e#5892#13753#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="1504">
+          <caret line="326" column="162" selection-start-line="326" selection-start-column="162" selection-end-line="326" selection-end-column="162" />
           <folding>
             <element signature="n#!!block;n#cli_with_cli#0" />
             <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
-            <element signature="n#!!block;n#login_migutokenforall#0" />
+            <element signature="n#!!block;n#Client_authRequest#0" />
+            <element signature="n#!!block;n#Login_migutokenforall#0" />
             <element signature="n#!!block;n#Crystal_aquireToken#0" />
             <element signature="n#!!block;n#Common_flow_service_province_code#0" />
-            <element signature="n#!!block;n#playurl_v1_play_url#0" />
+            <element signature="n#!!block;n#Playurl_v1_play_url#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/func.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#getMiguSign#0" />
+            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://M:/go/src/sync/map.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!block;n#Value_for_key#0" />
+            <element signature="n#!!block;n#Set_key_value#0" />
+            <element signature="n#!!block;n#Env_for_key#0" />
+            <element signature="n#!!block;n#Set_env_value#0" />
+            <element signature="n#!!block;n#Data_with_map#0" />
+            <element signature="n#!!block;n#Data_with_s#0" />
+            <element signature="e#1028#1048#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+            <element signature="e#189#823#0" />
           </folding>
         </state>
       </provider>

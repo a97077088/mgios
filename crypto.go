@@ -242,6 +242,10 @@ yNnA5Vo91FQ129dixqHDESEO33EcOVADH6WJXS2yEj9P9nvrbQLBAkBvZTOsP6WG
 T9UMv4bSrL0n/mvC2S/xfruTIY3RJ4pKWhnKYH4SiQErfv9fE9WA13r1idLhk90a
 5JIcxTJO8TQo
 -----END RSA PRIVATE KEY-----`
+	//初始化密钥,定位特征
+	//ApiHandler requestPlayURLWithParams:success:failure:
+	//MGTEncryptWrapper getEncryptWithTimestamp:
+	//进两层off_指向
 	GetMiguSign_arrindex = []string{
 		"57e7f108bfe849d1b7cdfe8ee09d253c",
 		"e20c2f9c8007461b823b568f7e2f1df8",

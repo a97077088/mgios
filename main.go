@@ -26,13 +26,14 @@ func main() {
 		if err != nil {
 			return err
 		}
+
 		err = Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
 		if err != nil {
 			return err
 		}
 
 		fmt.Printf("登录成功 用户:%s 地区:%s_%s token:%s\n", mguser.Value_for_key("mobile"), mguser.Value_for_key("ProvinceCode"), mguser.Value_for_key("cityId"), mguser.Value_for_key("userToken"))
-		r, err := playurl_v1_play_url("654961181", 4, "656373955", "27", mguser, nil)
+		r, err := Playurl_v1_play_url("654961181", 4, "656373955", "27", mguser, nil)
 		if err != nil {
 			return err
 		}

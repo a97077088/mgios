@@ -34,6 +34,7 @@ type R1 struct {
 	Code    int
 	Message string
 }
+
 type Login_Migutokenforall_o struct {
 	LoginId   string
 	LoginType string
