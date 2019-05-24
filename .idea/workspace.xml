@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataCollectionService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataEventService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataExposureService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crypto.go" beforeDir="false" afterPath="$PROJECT_DIR$/crypto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/func.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/agent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/埋点分析.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/user.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/func.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+            <state relative-caret-position="188">
+              <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
               <folding>
                 <element signature="n#!!block;n#getMiguSign#0" />
                 <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
@@ -60,11 +50,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="69">
+              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="e#14#31#0" expanded="true" />
-                <element signature="e#189#823#0" />
+                <element signature="e#166#800#0" />
               </folding>
             </state>
           </provider>
@@ -73,16 +63,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+            <state relative-caret-position="204">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
               <folding>
-                <element signature="n#!!block;n#Value_for_key#0" />
-                <element signature="n#!!block;n#Set_key_value#0" />
-                <element signature="n#!!block;n#Env_for_key#0" />
-                <element signature="n#!!block;n#Set_env_value#0" />
                 <element signature="n#!!block;n#Data_with_map#0" />
                 <element signature="n#!!block;n#Data_with_s#0" />
-                <element signature="e#1028#1048#0" />
+                <element signature="e#1161#1181#0" />
+                <element signature="n#!!block;n#New_mguser_with_map#0" />
+                <element signature="n#!!block;n#New_mguser#0" />
               </folding>
             </state>
           </provider>
@@ -375,7 +363,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updatego" />
     <MESSAGE value="调整所有算法位置，清晰结构，以及功能添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整所有算法位置，清晰结构，以及功能添加" />
+    <MESSAGE value="更换syncmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="更换syncmap" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -553,8 +542,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/func.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+        <state relative-caret-position="188">
+          <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
           <folding>
             <element signature="n#!!block;n#getMiguSign#0" />
             <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
@@ -573,27 +562,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        <state relative-caret-position="204">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
           <folding>
-            <element signature="n#!!block;n#Value_for_key#0" />
-            <element signature="n#!!block;n#Set_key_value#0" />
-            <element signature="n#!!block;n#Env_for_key#0" />
-            <element signature="n#!!block;n#Set_env_value#0" />
             <element signature="n#!!block;n#Data_with_map#0" />
             <element signature="n#!!block;n#Data_with_s#0" />
-            <element signature="e#1028#1048#0" />
+            <element signature="e#1161#1181#0" />
+            <element signature="n#!!block;n#New_mguser_with_map#0" />
+            <element signature="n#!!block;n#New_mguser#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="69">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="e#14#31#0" expanded="true" />
-            <element signature="e#189#823#0" />
+            <element signature="e#166#800#0" />
           </folding>
         </state>
       </provider>

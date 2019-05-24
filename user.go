@@ -37,11 +37,10 @@ func (this *BaseUser) Set_env_value(_key string, _value interface{}) {
 	this.env.Store(_key, _value)
 }
 
-func (this *BaseUser) Data_with_map(_map map[string]string) error {
+func (this *BaseUser) Data_with_map(_map map[string]string) {
 	for k, v := range _map {
 		this.data.Store(k, v)
 	}
-	return nil
 }
 func (this *BaseUser) Data_with_s(_s string) error {
 	mp := map[string]string{}
@@ -49,10 +48,7 @@ func (this *BaseUser) Data_with_s(_s string) error {
 	if err != nil {
 		return err
 	}
-	err = this.Data_with_map(mp)
-	if err != nil {
-		return err
-	}
+	this.Data_with_map(mp)
 	return nil
 }
 
@@ -60,6 +56,13 @@ type MGUser struct {
 	BaseUser
 }
 
+func New_mguser_with_map(_mp map[string]string) *MGUser {
+	mguser := &MGUser{
+		BaseUser{sync.Map{}, sync.Map{}},
+	}
+	mguser.Data_with_map(_mp)
+	return mguser
+}
 func New_mguser() *MGUser {
 	return &MGUser{BaseUser{sync.Map{}, sync.Map{}}}
 }

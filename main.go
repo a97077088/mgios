@@ -9,8 +9,7 @@ func main() {
 	err := func() error {
 		_user := "15771786564"
 		_pwd := "pp786564"
-		mguser := New_mguser()
-		err := mguser.Data_with_map(map[string]string{
+		mguser := New_mguser_with_map(map[string]string{
 			"$loc_info":         "113.05,35.07",
 			"$MGSDK_UUID":       "D876D0297EB04678A6EAC0EE0D1F0FCD",
 			"$open_udid":        "9A73ADCA-A513-4AC1-B2FF-A8C62F188453",
@@ -23,11 +22,8 @@ func main() {
 			"$idfv":             "BA61AD69-F048-41CD-A15C-996935A993D3", //gofakeit.UUID(),
 			"$APP-VERSION-CODE": "5.6.3",
 		})
-		if err != nil {
-			return err
-		}
 
-		err = Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
+		err := Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
 		if err != nil {
 			return err
 		}
