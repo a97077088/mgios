@@ -14,6 +14,7 @@ func New_neterr_with_s(_s string) NetErr {
 }
 
 const (
+	API_SUCCESS       = "SUCCESS"
 	API_LOGIN_SUCCESS = "LOGIN_SUCCESS"
 	API_FAILED        = "FAILED"
 )

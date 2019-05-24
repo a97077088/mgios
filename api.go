@@ -283,6 +283,7 @@ func Crystal_aquireToken(_user IUser, _cli *Session) (*Crystal_aqutokenireToken_
 	if rs.ResultCode != "SUCCESS" {
 		return nil, errors.New(rs.ResultDesc)
 	}
+	_user.Set_key_value("crystal_token", rs.Token)
 	return &rs.Crystal_aqutokenireToken_o, nil
 }
 

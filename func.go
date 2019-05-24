@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+var sdkversion = "MGSDK3.2.5"
 var appversion = "25040600"                                   //固定写死在app中
 var SDKCEId = "7a9582bd-8660-4f1a-9d0f-8451f688c67b"          ///固定
 var X_UP_CLIENT_CHANNEL_ID = "25040600-99000-200300020100001" //-[MGGlobalKey CHANNELID]   固定值正常取值 25040600-99000-200300020100001 还有一个可能是低版本25050506-99000-200300020100001
@@ -173,22 +174,60 @@ func getTokenWithUserName_appId_uuid_andUser_(_username string, _appid string, _
 	return rs.Bytes(), nil
 }
 
-func DeviceInfoJson_with_user(_user IUser) (map[string]interface{}, error) {
+func SessionStart_with_user(_user IUser) map[string]interface{} {
+	ts := time.Now().UnixNano() / 1e6
+	rjson := map[string]interface{}{
+		"os":                    "iOS",
+		"imei":                  _user.Value_for_key("$FCUUID"),
+		"imsi":                  "",
+		"appPackageName":        "com.wondertek.hecmccmobile",
+		"idfa":                  _user.Value_for_key("$idfa"),
+		"idfv":                  _user.Value_for_key("$idfv"),
+		"currentAppVersionCode": _user.Value_for_key("$APP-VERSION-CODE"),
+		"currentOSVersion":      _user.Value_for_key("$systemVersion"),
+		"currentAppVersionName": "咪咕视频",
+		"phoneNumber":           "(null)",
+		"sessionId":             Getsessionid_with_user(_user),
+		"udid":                  _user.Value_for_key("$FCUUID"),
+		"userId":                "",
+		"account":               "",
+		"startTs":               fmt.Sprintf("%d", ts),
+		"clientId":              _user.Value_for_key("$FCUUID"),
+	}
+	return rjson
+}
+func DeviceInfoJson_with_user(_user IUser) map[string]interface{} {
+	ts := time.Now().UnixNano() / 1e6
 	rjson := map[string]interface{}{
 		"imei":           _user.Value_for_key("$FCUUID"),
 		"udid":           _user.Value_for_key("$FCUUID"),
 		"installationID": _user.Value_for_key("$FCUUID"),
-		"phoneMode":      "$deviceModelName",
+		"phoneMode":      _user.Value_for_key("$deviceModelName"),
 		"phoneBrand":     "apple",
 		"idfa":           _user.Value_for_key("$idfa"),
 		"idfv":           _user.Value_for_key("$idfv"),
 		"appVersion":     _user.Value_for_key("$APP-VERSION-CODE"),
-		"networkType":    _user.Value_for_key("WIFI"),
-		"promotion":      "",
-		"accountType":    "",
-		"sessionId":      "",
+		"apppkg":         "com.wondertek.hecmccmobile",
+		"os":             "iOS",
+		"appchannel":     X_UP_CLIENT_CHANNEL_ID,
+		"userId":         "",
+		"osversion":      _user.Value_for_key("$systemVersion"),
+		"sdkversion":     sdkversion,
+		"uploadTs":       ts,
 	}
-	return rjson, nil
+	return rjson
+}
+func SdkSessionInfo_with_user(_user IUser) map[string]interface{} {
+	rjson := DeviceInfoJson_with_user(_user)
+	rjson["networkType"] = "WIFI"
+	rjson["promotion"] = ""
+	rjson["accountType"] = ""
+	rjson["sessionId"] = Getsessionid_with_user(_user)
+	rjson["clientId"] = _user.Value_for_key("$FCUUID")
+	rjson["account"] = ""
+	rjson["MG_SCORE_TIME"] = fmt.Sprintf("%d", rjson["uploadTs"].(int64))
+	rjson["sdkpkg"] = ""
+	return rjson
 }
 func Getsessionid_with_user(_user IUser) string {
 	fcuuid := _user.Value_for_key("$FCUUID")
@@ -203,4 +242,7 @@ func Getsessionid_with_user(_user IUser) string {
 		_user.Set_env_value("sessionts", ts)
 	}
 	return fmt.Sprintf("%s%d", fcuuid, ts)
+}
+func Get_crystal_token_with_user(_user IUser) string {
+	return _user.Value_for_key("crystal_token")
 }

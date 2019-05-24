@@ -23,7 +23,14 @@ func main() {
 			"$APP-VERSION-CODE": "5.6.3",
 		})
 
-		err := Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
+		_, err := Crystal_aquireToken(mguser, nil)
+		if err != nil {
+			return err
+		}
+		datas := New_DataCollectionService_with_user_deviceinfo_exception_custominfo_sessionstart_sessionend(mguser, DeviceInfoJson_with_user(mguser), nil, nil, SessionStart_with_user(mguser), nil)
+		fmt.Println(datas.Upload(nil))
+
+		err = Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
 		if err != nil {
 			return err
 		}

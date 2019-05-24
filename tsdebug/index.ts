@@ -20,7 +20,7 @@ try{
 }
 
 function main(){
-    ios.fast.showcallmethod_with_hookoccls(SessionSDK)
-    ios.fast.showcallmethod_with_hookoccls(MGStatic)
+    // ios.fast.showcallmethod_with_hookoccls(SessionSDK)
+    // ios.fast.showcallmethod_with_hookoccls(MGStatic)
     // ios.fast.showcallmethod_with_hookoccls(SessionAppInfo)
 }
