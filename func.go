@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"github.com/brianvoe/gofakeit"
 	"strconv"
@@ -171,4 +172,12 @@ func getTokenWithUserName_appId_uuid_andUser_(_username string, _appid string, _
 
 	//fmt.Printf("migutoken:%s\n",hex.EncodeToString(rs.Bytes()))
 	return rs.Bytes(), nil
+}
+
+func Must_Data_jsonstring(_e interface{}) string {
+	bt, err := json.Marshal(_e)
+	if err != nil {
+		panic(err)
+	}
+	return string(bt)
 }

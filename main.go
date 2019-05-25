@@ -29,8 +29,31 @@ func main() {
 			return err
 		}
 		c := New_Crystal_service_with_user_token(mguser)
-		fmt.Println(c.DataCollectionService_session_start())
+		e := c.DataCollectionService_Events([]map[string]interface{}{
+			map[string]interface{}{
+				"index":          "",
+				"timestamp":      "2019-05-21 18:58:23",
+				"jid":            "",
+				"contentType":    "",
+				"channelID":      "25040600-99000-200300020100001",
+				"type":           "80000000",
+				"title":          "",
+				"userId":         "",
+				"Result":         "0",
+				"MG_MSG_TIME":    "1558436303661",
+				"APP_PLAYER_KEY": "com.wondertek.hecmccmobile",
+				"clientID":       "04c43defac14467eba0a50c10809c76b",
+				"APP_NAME":       "咪咕视频",
+				"location":       "",
+				"account":        "04c43defac14467eba0a50c10809c76b",
+				"chipSet":        "iPhone 6",
+				"rateType":       "",
+			},
+		})
+		err = c.Upload_with_datacollectionservice_cli(e, nil)
+		fmt.Println(err)
 
+		return nil
 		err = Login_with_u_p_user_cli(_user, _pwd, "焦作市", mguser, nil)
 		if err != nil {
 			return err

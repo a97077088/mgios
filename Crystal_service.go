@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/base64"
-	"encoding/json"
 	"errors"
 	"fmt"
 	. "github.com/a97077088/grequests"
@@ -40,7 +39,7 @@ func (this *Crystal_service) Getsessionid() string {
 	}
 	return fmt.Sprintf("%s%d", fcuuid, ts)
 }
-func (this *Crystal_service) DeviceInfoJson() map[string]interface{} {
+func (this *Crystal_service) DeviceInfo() map[string]interface{} {
 	ts := time.Now().UnixNano() / 1e6
 	rjson := map[string]interface{}{
 		"imei":           this.user.Value_for_key("$FCUUID"),
@@ -62,7 +61,7 @@ func (this *Crystal_service) DeviceInfoJson() map[string]interface{} {
 	return rjson
 }
 func (this *Crystal_service) SdkSessionInfo() map[string]interface{} {
-	rjson := this.DeviceInfoJson()
+	rjson := this.DeviceInfo()
 	rjson["networkType"] = "WIFI"
 	rjson["promotion"] = ""
 	rjson["accountType"] = ""
@@ -73,17 +72,10 @@ func (this *Crystal_service) SdkSessionInfo() map[string]interface{} {
 	rjson["sdkpkg"] = ""
 	return rjson
 }
-func (this *Crystal_service) Data_tojsonstring(_e interface{}) string {
-	bt, err := json.Marshal(this)
-	if err != nil {
-		panic(err)
-	}
-	return string(bt)
-}
 
-func (this *Crystal_service) DataCollectionService_upload_with_datacollectionservice_cli(_d *DataCollectionService, _cli *Session) error {
+func (this *Crystal_service) Upload_with_datacollectionservice_cli(_d *DataCollectionService, _cli *Session) error {
 	cli := cli_with_cli(_cli)
-	s := this.Data_tojsonstring(_d)
+	s := Must_Data_jsonstring(_d)
 	strsign := url.QueryEscape(base64.StdEncoding.EncodeToString(Must_Rsa_sign_md5_with_in_privatekey(Must_Md5_with_in([]byte(s)), []byte(MGStatic_rsaString_privatekey))))
 	strurl := fmt.Sprintf("http://crystal.miguvideo.com/legacy/shm_video_interface/dataCollectionService?sign=%s", strsign)
 	r, err := cli.Post(strurl, &RequestOptions{
@@ -130,10 +122,20 @@ func (this *Crystal_service) DataCollectionService_session_start() *DataCollecti
 	}
 	d := New_DataCollectionService_with_sdksessioninfo_deviceinfo_exception_custominfo_sessionstart_sessionend(
 		this.SdkSessionInfo(),
-		this.DeviceInfoJson(),
+		this.DeviceInfo(),
 		nil,
 		nil,
 		rjson,
+		nil)
+	return d
+}
+func (this *Crystal_service) DataCollectionService_Events(_events []map[string]interface{}) *DataCollectionService {
+	d := New_DataCollectionService_with_sdksessioninfo_deviceinfo_exception_custominfo_sessionstart_sessionend(
+		this.SdkSessionInfo(),
+		nil,
+		nil,
+		_events,
+		nil,
 		nil)
 	return d
 }
