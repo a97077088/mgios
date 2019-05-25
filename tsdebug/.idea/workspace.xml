@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataCollectionService.go" beforeDir="false" afterPath="$PROJECT_DIR$/../DataCollectionService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../func.go" beforeDir="false" afterPath="$PROJECT_DIR$/../func.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../type.go" beforeDir="false" afterPath="$PROJECT_DIR$/../type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/埋点分析.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="140">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding>
                 <element signature="e#39#70#0" />
                 <element signature="e#78#100#0" />
@@ -106,7 +102,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="width" value="1938" />
     <option name="height" value="1032" />
@@ -274,12 +270,12 @@
       <workItem from="1558452029682" duration="559000" />
       <workItem from="1558452894823" duration="675000" />
       <workItem from="1558453572220" duration="1295000" />
-      <workItem from="1558525080872" duration="26863000" />
+      <workItem from="1558525080872" duration="27638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141025000" />
+    <option name="totallyTimeSpent" value="141800000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,7 +296,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.36996338" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.5689866" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -510,8 +506,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="140">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
             <element signature="e#39#70#0" />
             <element signature="e#78#100#0" />

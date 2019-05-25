@@ -8,7 +8,6 @@ import (
 	"github.com/brianvoe/gofakeit"
 	"strconv"
 	"strings"
-	"time"
 )
 
 var sdkversion = "MGSDK3.2.5"
@@ -172,77 +171,4 @@ func getTokenWithUserName_appId_uuid_andUser_(_username string, _appid string, _
 
 	//fmt.Printf("migutoken:%s\n",hex.EncodeToString(rs.Bytes()))
 	return rs.Bytes(), nil
-}
-
-func SessionStart_with_user(_user IUser) map[string]interface{} {
-	ts := time.Now().UnixNano() / 1e6
-	rjson := map[string]interface{}{
-		"os":                    "iOS",
-		"imei":                  _user.Value_for_key("$FCUUID"),
-		"imsi":                  "",
-		"appPackageName":        "com.wondertek.hecmccmobile",
-		"idfa":                  _user.Value_for_key("$idfa"),
-		"idfv":                  _user.Value_for_key("$idfv"),
-		"currentAppVersionCode": _user.Value_for_key("$APP-VERSION-CODE"),
-		"currentOSVersion":      _user.Value_for_key("$systemVersion"),
-		"currentAppVersionName": "咪咕视频",
-		"phoneNumber":           "(null)",
-		"sessionId":             Getsessionid_with_user(_user),
-		"udid":                  _user.Value_for_key("$FCUUID"),
-		"userId":                "",
-		"account":               "",
-		"startTs":               fmt.Sprintf("%d", ts),
-		"clientId":              _user.Value_for_key("$FCUUID"),
-	}
-	return rjson
-}
-func DeviceInfoJson_with_user(_user IUser) map[string]interface{} {
-	ts := time.Now().UnixNano() / 1e6
-	rjson := map[string]interface{}{
-		"imei":           _user.Value_for_key("$FCUUID"),
-		"udid":           _user.Value_for_key("$FCUUID"),
-		"installationID": _user.Value_for_key("$FCUUID"),
-		"phoneMode":      _user.Value_for_key("$deviceModelName"),
-		"phoneBrand":     "apple",
-		"idfa":           _user.Value_for_key("$idfa"),
-		"idfv":           _user.Value_for_key("$idfv"),
-		"appVersion":     _user.Value_for_key("$APP-VERSION-CODE"),
-		"apppkg":         "com.wondertek.hecmccmobile",
-		"os":             "iOS",
-		"appchannel":     X_UP_CLIENT_CHANNEL_ID,
-		"userId":         "",
-		"osversion":      _user.Value_for_key("$systemVersion"),
-		"sdkversion":     sdkversion,
-		"uploadTs":       ts,
-	}
-	return rjson
-}
-func SdkSessionInfo_with_user(_user IUser) map[string]interface{} {
-	rjson := DeviceInfoJson_with_user(_user)
-	rjson["networkType"] = "WIFI"
-	rjson["promotion"] = ""
-	rjson["accountType"] = ""
-	rjson["sessionId"] = Getsessionid_with_user(_user)
-	rjson["clientId"] = _user.Value_for_key("$FCUUID")
-	rjson["account"] = ""
-	rjson["MG_SCORE_TIME"] = fmt.Sprintf("%d", rjson["uploadTs"].(int64))
-	rjson["sdkpkg"] = ""
-	return rjson
-}
-func Getsessionid_with_user(_user IUser) string {
-	fcuuid := _user.Value_for_key("$FCUUID")
-	vts := _user.Env_for_key("sessionts")
-	var ts = int64(0)
-	if vts != nil {
-		ts = vts.(int64)
-	}
-	if time.Since(time.Unix(ts/1000, 0)).Seconds() >= 1 {
-		//session过期是300秒
-		ts = time.Now().UnixNano() / 1e6
-		_user.Set_env_value("sessionts", ts)
-	}
-	return fmt.Sprintf("%s%d", fcuuid, ts)
-}
-func Get_crystal_token_with_user(_user IUser) string {
-	return _user.Value_for_key("crystal_token")
 }

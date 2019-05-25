@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Crystal_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataCollectionService.go" beforeDir="false" afterPath="$PROJECT_DIR$/DataCollectionService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/func.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsdebug/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsdebug/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/埋点分析.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,42 +23,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="285" column="48" selection-start-line="285" selection-start-column="48" selection-end-line="285" selection-end-column="48" />
+            <state relative-caret-position="256">
+              <caret line="257" column="90" selection-start-line="257" selection-start-column="90" selection-end-line="257" selection-end-column="90" />
               <folding>
                 <element signature="n#!!block;n#cli_with_cli#0" />
                 <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
                 <element signature="n#!!block;n#Client_authRequest#0" />
                 <element signature="n#!!block;n#Login_migutokenforall#0" />
-                <element signature="n#!!block;n#Common_flow_service_province_code#0" />
+                <element signature="n#!!block;n#Crystal_aquireToken#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.go">
+        <entry file="file://$PROJECT_DIR$/Crystal_service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+            <state relative-caret-position="243">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
               <folding>
-                <element signature="e#14#31#0" expanded="true" />
-                <element signature="e#166#800#0" />
+                <element signature="e#14#26#0" expanded="true" />
+                <element signature="n#!!block;n#New_Crystal_service_with_user#0" />
+                <element signature="n#!!block;n#Get_crystal_token_with_user#0" />
+                <element signature="n#!!block;n#Getsessionid_with_user#0" />
+                <element signature="n#!!block;n#DeviceInfoJson_with_user#0" />
+                <element signature="n#!!block;n#SdkSessionInfo_with_user#0" />
+                <element signature="n#!!block;n#Data_tojsonstring#0" />
+                <element signature="n#!!block;n#DataCollectionService_upload#0" />
+                <element signature="n#!!block;n#DataCollectionService_session_start#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataCollectionService.go">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+            <state relative-caret-position="188">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
               <folding>
-                <element signature="n#!!block;n#To_jsonstring#0" />
-                <element signature="n#!!block;n#Upload#0" />
-                <element signature="e#992#1247#0" />
-                <element signature="n#!!block;n#New_DataCollectionService_with_user_deviceinfo_exception_custominfo_sessionstart_sessionend#0" />
+                <element signature="e#14#31#0" expanded="true" />
+                <element signature="n#!!block;n#main#1" />
+                <element signature="e#166#800#0" />
               </folding>
             </state>
           </provider>
@@ -122,15 +129,16 @@
         <option value="$PROJECT_DIR$/tsdebug/获取密钥.py" />
         <option value="$PROJECT_DIR$/tsdebug/埋点分析.txt" />
         <option value="$PROJECT_DIR$/main_test.go" />
-        <option value="$PROJECT_DIR$/DataExposureService.go" />
-        <option value="$PROJECT_DIR$/DataEventService.go" />
         <option value="$PROJECT_DIR$/crypto.go" />
         <option value="$PROJECT_DIR$/type.go" />
         <option value="$PROJECT_DIR$/user.go" />
         <option value="$PROJECT_DIR$/api.go" />
-        <option value="$PROJECT_DIR$/func.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/DataEventService.go" />
+        <option value="$PROJECT_DIR$/DataExposureService.go" />
         <option value="$PROJECT_DIR$/DataCollectionService.go" />
+        <option value="$PROJECT_DIR$/func.go" />
+        <option value="$PROJECT_DIR$/Crystal_service.go" />
       </list>
     </option>
   </component>
@@ -291,8 +299,8 @@
       <window_info id="Structure" order="1" sideWeight="0.50089765" side_tool="true" weight="0.20141152" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945712" visible="true" weight="0.37514934" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32855436" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945712" visible="true" weight="0.3464755" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,24 +460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataExposureService.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://M:/go/src/sync/map.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1113">
           <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataEventService.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -506,38 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/func.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="246" column="51" selection-start-line="246" selection-start-column="51" selection-end-line="246" selection-end-column="51" />
-          <folding>
-            <element signature="n#!!block;n#getMiguSign#0" />
-            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
-            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
-            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
-            <element signature="n#!!block;n#SessionStart_with_user#0" />
-            <element signature="n#!!block;n#DeviceInfoJson_with_user#0" />
-            <element signature="n#!!block;n#SdkSessionInfo_with_user#0" />
-            <element signature="n#!!block;n#Getsessionid_with_user#0" />
-            <element signature="n#!!block;n#Get_crystal_token_with_user#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="285" column="48" selection-start-line="285" selection-start-column="48" selection-end-line="285" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!block;n#cli_with_cli#0" />
-            <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
-            <element signature="n#!!block;n#Client_authRequest#0" />
-            <element signature="n#!!block;n#Login_migutokenforall#0" />
-            <element signature="n#!!block;n#Common_flow_service_province_code#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crypto.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-247">
@@ -545,26 +507,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataCollectionService.go">
+    <entry file="file://$PROJECT_DIR$/api.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state relative-caret-position="256">
+          <caret line="257" column="90" selection-start-line="257" selection-start-column="90" selection-end-line="257" selection-end-column="90" />
           <folding>
-            <element signature="n#!!block;n#To_jsonstring#0" />
-            <element signature="n#!!block;n#Upload#0" />
-            <element signature="e#992#1247#0" />
-            <element signature="n#!!block;n#New_DataCollectionService_with_user_deviceinfo_exception_custominfo_sessionstart_sessionend#0" />
+            <element signature="n#!!block;n#cli_with_cli#0" />
+            <element signature="n#!!block;n#Login_with_u_p_user_cli#0" />
+            <element signature="n#!!block;n#Client_authRequest#0" />
+            <element signature="n#!!block;n#Login_migutokenforall#0" />
+            <element signature="n#!!block;n#Crystal_aquireToken#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataExposureService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataEventService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state relative-caret-position="188">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
             <element signature="e#14#31#0" expanded="true" />
+            <element signature="n#!!block;n#main#1" />
             <element signature="e#166#800#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataCollectionService.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/func.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+            <element signature="n#!!block;n#getMiguSign#0" />
+            <element signature="n#!!block;n#decodeauthfield_with_hexs_privatekey#0" />
+            <element signature="n#!!block;n#get_ks_with_auth_user#0" />
+            <element signature="n#!!block;n#getTokenWithUserName_appId_uuid_andUser_#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crystal_service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="e#14#26#0" expanded="true" />
+            <element signature="n#!!block;n#New_Crystal_service_with_user#0" />
+            <element signature="n#!!block;n#Get_crystal_token_with_user#0" />
+            <element signature="n#!!block;n#Getsessionid_with_user#0" />
+            <element signature="n#!!block;n#DeviceInfoJson_with_user#0" />
+            <element signature="n#!!block;n#SdkSessionInfo_with_user#0" />
+            <element signature="n#!!block;n#Data_tojsonstring#0" />
+            <element signature="n#!!block;n#DataCollectionService_upload#0" />
+            <element signature="n#!!block;n#DataCollectionService_session_start#0" />
           </folding>
         </state>
       </provider>

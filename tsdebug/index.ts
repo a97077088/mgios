@@ -7,7 +7,7 @@ import MGAnalitics = ObjC.classes.MGAnalitics;
 import SessionAppInfo = ObjC.classes.SessionAppInfo;
 
 // @ts-ignore
-import SessionSDK=ObjC.classes.SessionSDK
+import MGPlayerInstance=ObjC.classes.MGPlayerInstance
 
 try{
     // ios.fast.setExceptionHandle(null)
@@ -20,6 +20,13 @@ try{
 }
 
 function main(){
+    Interceptor.attach(MGPlayerInstance["- handleSQMEvent:"].implementation,{
+        onEnter:function (args) {
+            var a2=new ObjC.Object(args[2])
+            console.log(a2.$className)
+        }
+    })
+    // ios.fast.showcallmethod_with_hookoccls(MGPlayerInstance)
     // ios.fast.showcallmethod_with_hookoccls(SessionSDK)
     // ios.fast.showcallmethod_with_hookoccls(MGStatic)
     // ios.fast.showcallmethod_with_hookoccls(SessionAppInfo)
