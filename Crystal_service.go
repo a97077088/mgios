@@ -139,3 +139,67 @@ func (this *Crystal_service) DataCollectionService_Events(_events []map[string]i
 		nil)
 	return d
 }
+
+func (this *Crystal_service) DataEventService_Events(_events []map[string]interface{}) *DataEventService {
+	d := New_DataEventService_with_customevent_sdksessioninfo(_events, this.SdkSessionInfo())
+	return d
+}
+func (this *Crystal_service) Upload_with_dataeventservice(_d *DataEventService, _cli *Session) error {
+	cli := cli_with_cli(_cli)
+	s := Must_Data_jsonstring(_d)
+	strsign := url.QueryEscape(base64.StdEncoding.EncodeToString(Must_Rsa_sign_md5_with_in_privatekey(Must_Md5_with_in([]byte(s)), []byte(MGStatic_rsaString_privatekey))))
+	strurl := fmt.Sprintf("http://crystal.miguvideo.com/legacy/shm_video_interface/dataEventService?sign=%s", strsign)
+	r, err := cli.Post(strurl, &RequestOptions{
+		RequestBody: strings.NewReader(s),
+		Headers: map[string]string{
+			"Content-Type": "application/json",
+			"token":        this.Get_crystal_token(),
+		},
+		UserAgent: fmt.Sprintf("MiguVideo/%s (iPhone; iOS %s; Scale/2.00)", this.user.Value_for_key("$APP-VERSION-CODE"), this.user.Value_for_key("$systemVersion")),
+	})
+	if err != nil {
+		return New_neterr_with_error(err)
+	}
+	defer r.Close()
+	var rs Api_R
+	err = r.JSON(&rs)
+	if err != nil {
+		return New_neterr_with_error(err)
+	}
+	if rs.ResultCode != API_SUCCESS {
+		return errors.New(rs.ResultDesc)
+	}
+	return nil
+}
+
+func (this *Crystal_service) DataExposureService_Events(_events []map[string]interface{}) *DataExposureService {
+	d := New_DataExposureService_with_customevent_sdksessioninfo(_events, this.SdkSessionInfo())
+	return d
+}
+func (this *Crystal_service) Upload_with_dataexposureservice(_d *DataExposureService, _cli *Session) error {
+	cli := cli_with_cli(_cli)
+	s := Must_Data_jsonstring(_d)
+	strsign := url.QueryEscape(base64.StdEncoding.EncodeToString(Must_Rsa_sign_md5_with_in_privatekey(Must_Md5_with_in([]byte(s)), []byte(MGStatic_rsaString_privatekey))))
+	strurl := fmt.Sprintf("http://crystal.miguvideo.com/legacy/shm_video_interface/dataEventService?sign=%s", strsign)
+	r, err := cli.Post(strurl, &RequestOptions{
+		RequestBody: strings.NewReader(s),
+		Headers: map[string]string{
+			"Content-Type": "application/json",
+			"token":        this.Get_crystal_token(),
+		},
+		UserAgent: fmt.Sprintf("MiguVideo/%s (iPhone; iOS %s; Scale/2.00)", this.user.Value_for_key("$APP-VERSION-CODE"), this.user.Value_for_key("$systemVersion")),
+	})
+	if err != nil {
+		return New_neterr_with_error(err)
+	}
+	defer r.Close()
+	var rs Api_R
+	err = r.JSON(&rs)
+	if err != nil {
+		return New_neterr_with_error(err)
+	}
+	if rs.ResultCode != API_SUCCESS {
+		return errors.New(rs.ResultDesc)
+	}
+	return nil
+}

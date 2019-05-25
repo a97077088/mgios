@@ -29,28 +29,20 @@ func main() {
 			return err
 		}
 		c := New_Crystal_service_with_user_token(mguser)
-		e := c.DataCollectionService_Events([]map[string]interface{}{
+		e := c.DataExposureService_Events([]map[string]interface{}{
 			map[string]interface{}{
-				"index":          "",
-				"timestamp":      "2019-05-21 18:58:23",
-				"jid":            "",
-				"contentType":    "",
-				"channelID":      "25040600-99000-200300020100001",
-				"type":           "80000000",
-				"title":          "",
-				"userId":         "",
-				"Result":         "0",
-				"MG_MSG_TIME":    "1558436303661",
-				"APP_PLAYER_KEY": "com.wondertek.hecmccmobile",
-				"clientID":       "04c43defac14467eba0a50c10809c76b",
-				"APP_NAME":       "咪咕视频",
-				"location":       "",
-				"account":        "04c43defac14467eba0a50c10809c76b",
-				"chipSet":        "iPhone 6",
-				"rateType":       "",
+				"timestamp": "1558436308531",
+				"du":        "1",
+				"eventName": "native_action",
+				"eventParams": map[string]interface{}{
+					"provinceCode": "",
+					"promotionId":  "",
+					"cityId":       "",
+					"action":       "{\"params\":{\"extra\":{\"gktype\":0,\"isRedrain\":false,\"isCast\":false,\"xAxis\":0,\"isQuickPay\":false,\"isHorizon\":false,\"yAxis\":0,\"isH5Page\":false,\"originalActionType\":\"CLICK_TOP_TAB\",\"isRemote\":false,\"isPullDlna\":false},\"index\":\"1\",\"location\":\"965823946cac4bf3b78c7b99b76b728b#5a4c4b2b47c4498f80e4d7e57bdb67c1#c27e47dfcde243aba5c6f642717368b1#2c62468a9e2b4202834a883568951fce\",\"currentProgress\":0,\"pageID\":\"9aa6465a8b41451e85e4a292bf01ec87\",\"contentID\":\"9aa6465a8b41451e85e4a292bf01ec87\"},\"type\":\"EXPOSE_PROGRAM_DATA\"}",
+				},
 			},
 		})
-		err = c.Upload_with_datacollectionservice_cli(e, nil)
+		err = c.Upload_with_dataexposureservice(e, nil)
 		fmt.Println(err)
 
 		return nil
