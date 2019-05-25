@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/brianvoe/gofakeit"
+	"github.com/iancoleman/orderedmap"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -176,6 +178,16 @@ func getTokenWithUserName_appId_uuid_andUser_(_username string, _appid string, _
 
 func Must_Data_jsonstring(_e interface{}) string {
 	bt, err := json.Marshal(_e)
+	if err != nil {
+		panic(err)
+	}
+	o := orderedmap.New()
+	err = o.UnmarshalJSON(bt)
+	if err != nil {
+		panic(err)
+	}
+	o.SortKeys(sort.Strings)
+	bt, err = json.Marshal(o)
 	if err != nil {
 		panic(err)
 	}

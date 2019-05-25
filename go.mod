@@ -7,6 +7,7 @@ require (
 	github.com/brianvoe/gofakeit v3.17.0+incompatible
 	github.com/dgkang/rsa v0.0.0-20190108084924-d19a446bc2ef
 	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/iancoleman/orderedmap v0.0.0-20190318233801-ac98e3ecb4b0
 	github.com/levigross/grequests v0.0.0-20190130132859-37c80f76a0da // indirect
 	github.com/ying32/govcl v1.2.3
 	golang.org/x/net v0.0.0-20190509222800-a4d6f7feada5 // indirect

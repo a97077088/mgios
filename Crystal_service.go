@@ -40,6 +40,7 @@ func (this *Crystal_service) Getsessionid() string {
 	return fmt.Sprintf("%s%d", fcuuid, ts)
 }
 func (this *Crystal_service) DeviceInfo() map[string]interface{} {
+
 	ts := time.Now().UnixNano() / 1e6
 	rjson := map[string]interface{}{
 		"imei":           this.user.Value_for_key("$FCUUID"),
@@ -180,7 +181,7 @@ func (this *Crystal_service) Upload_with_dataexposureservice(_d *DataExposureSer
 	cli := cli_with_cli(_cli)
 	s := Must_Data_jsonstring(_d)
 	strsign := url.QueryEscape(base64.StdEncoding.EncodeToString(Must_Rsa_sign_md5_with_in_privatekey(Must_Md5_with_in([]byte(s)), []byte(MGStatic_rsaString_privatekey))))
-	strurl := fmt.Sprintf("http://crystal.miguvideo.com/legacy/shm_video_interface/dataEventService?sign=%s", strsign)
+	strurl := fmt.Sprintf("http://crystal.miguvideo.com/legacy/shm_video_interface/dataExposureService?sign=%s", strsign)
 	r, err := cli.Post(strurl, &RequestOptions{
 		RequestBody: strings.NewReader(s),
 		Headers: map[string]string{
