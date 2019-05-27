@@ -6,15 +6,15 @@ type DataEventService struct {
 }
 
 func New_DataEventService_with_customevent_sdksessioninfo(
-	_custominfo []map[string]interface{},
+	_customevent []map[string]interface{},
 	_sdksessioninfo map[string]interface{},
 ) *DataEventService {
 	d := &DataEventService{
 		[]map[string]interface{}{},
 		map[string]interface{}{},
 	}
-	if _custominfo != nil {
-		d.CustomEvent = _custominfo
+	if _customevent != nil {
+		d.CustomEvent = _customevent
 	}
 	if _sdksessioninfo != nil {
 		d.SdkSessionInfo = _sdksessioninfo

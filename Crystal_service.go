@@ -17,6 +17,10 @@ type Crystal_service struct {
 	dataExposureService   DataExposureService
 }
 
+func Crystal_Now() string {
+	return fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
+}
+
 func New_Crystal_service_with_user_token(_user IUser) *Crystal_service {
 	c := &Crystal_service{user: _user}
 	return c

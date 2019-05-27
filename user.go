@@ -1,7 +1,11 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"encoding/json"
+	"io"
+	"io/ioutil"
 	"sync"
 )
 
@@ -65,4 +69,25 @@ func New_mguser_with_map(_mp map[string]string) *MGUser {
 }
 func New_mguser() *MGUser {
 	return &MGUser{BaseUser{sync.Map{}, sync.Map{}}}
+}
+func New_users_with_file(_fname string) ([]*MGUser, error) {
+	rs := make([]*MGUser, 0)
+	btall, err := ioutil.ReadFile(_fname)
+	if err != nil {
+		return nil, err
+	}
+	sreader := bufio.NewReader(bytes.NewReader(btall))
+	for {
+		line, _, err := sreader.ReadLine()
+		if err == io.EOF {
+			break
+		}
+		u := MGUser{}
+		err = u.Data_with_s(string(line))
+		if err != nil {
+			return nil, err
+		}
+		rs = append(rs, &u)
+	}
+	return rs, nil
 }

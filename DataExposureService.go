@@ -5,7 +5,7 @@ type DataExposureService struct {
 	SdkSessionInfo map[string]interface{}   `json:"sdkSessionInfo"`
 }
 
-func New_DataExposureService_with_customevent_sdksessioninfo(
+func New_DataExposureService_with_customevents_sdksessioninfo(
 	_custominfo []map[string]interface{},
 	_sdksessioninfo map[string]interface{},
 ) *DataExposureService {
