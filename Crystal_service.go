@@ -54,7 +54,7 @@ func (this *Crystal_service) DeviceInfo() map[string]interface{} {
 		"apppkg":         "com.wondertek.hecmccmobile",
 		"os":             "iOS",
 		"appchannel":     X_UP_CLIENT_CHANNEL_ID,
-		"userId":         "",
+		"userId":         this.user.Value_for_key("userId"),
 		"osversion":      this.user.Value_for_key("$systemVersion"),
 		"sdkversion":     sdkversion,
 		"uploadTs":       ts,
@@ -65,10 +65,10 @@ func (this *Crystal_service) SdkSessionInfo() map[string]interface{} {
 	rjson := this.DeviceInfo()
 	rjson["networkType"] = "WIFI"
 	rjson["promotion"] = ""
-	rjson["accountType"] = ""
+	rjson["accountType"] = this.user.Value_for_key("accountType")
 	rjson["sessionId"] = this.Getsessionid()
 	rjson["clientId"] = this.user.Value_for_key("$FCUUID")
-	rjson["account"] = ""
+	rjson["account"] = this.user.Value_for_key("mobile")
 	rjson["MG_SCORE_TIME"] = fmt.Sprintf("%d", rjson["uploadTs"].(int64))
 	rjson["sdkpkg"] = ""
 	return rjson

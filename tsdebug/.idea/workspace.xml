@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Crystal_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../Crystal_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/埋点分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/埋点分析.txt" afterDir="false" />
@@ -20,11 +25,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            <state relative-caret-position="97">
+              <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
               <folding>
-                <element signature="e#39#70#0" />
-                <element signature="e#78#100#0" />
+                <element signature="n#RequestData#0" expanded="true" />
+                <element signature="e#564#856#0" />
+                <element signature="e#914#2068#0" />
+                <element signature="e#1895#2169#0" />
+                <element signature="e#2313#2584#0" />
+                <element signature="e#3353#4969#0" />
+                <element signature="n#!!block;n#name_with_type#0" />
               </folding>
             </state>
           </provider>
@@ -41,9 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show_backtrace</find>
-      <find>at</find>
-      <find>implementation</find>
       <find>method</find>
       <find>NSStringFromSelector</find>
       <find>rsa</find>
@@ -68,6 +75,12 @@
       <find>534B9120BEDF3C2A7713EF40B9D99530</find>
       <find>49b8490b8d944411950668298d4603a4</find>
       <find>CbuSk2i71uTYrSyV52vPVmgFVpfXNa</find>
+      <find>MGAuthenticationEvent</find>
+      <find>customInfo</find>
+      <find>sessionStart</find>
+      <find>sessionstart</find>
+      <find>sessionend</find>
+      <find>56000004</find>
     </findStrings>
     <replaceStrings>
       <replace>export {ObjC}</replace>
@@ -98,12 +111,14 @@
         <option value="$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/埋点分析.txt" />
         <option value="$PROJECT_DIR$/index.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-2" />
+    <option name="y" value="4" />
     <option name="width" value="1938" />
     <option name="height" value="1032" />
   </component>
@@ -113,6 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,7 +140,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,12 +285,13 @@
       <workItem from="1558452029682" duration="559000" />
       <workItem from="1558452894823" duration="675000" />
       <workItem from="1558453572220" duration="1295000" />
-      <workItem from="1558525080872" duration="27638000" />
+      <workItem from="1558525080872" duration="28312000" />
+      <workItem from="1558769560665" duration="15082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141800000" />
+    <option name="totallyTimeSpent" value="157556000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -287,16 +303,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="0" width="1938" height="1032" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.23265974" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49429038" visible="true" weight="0.16766794" />
       <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.5689866" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.51135004" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -341,7 +357,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ql" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/globals.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSString.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSDictionary.d.ts" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
@@ -504,13 +519,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.ts">
+    <entry file="file://$PROJECT_DIR$/埋点分析.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
           <folding>
-            <element signature="e#39#70#0" />
-            <element signature="e#78#100#0" />
+            <element signature="n#RequestData#0" expanded="true" />
+            <element signature="e#564#856#0" />
+            <element signature="e#914#2068#0" />
+            <element signature="e#1895#2169#0" />
+            <element signature="e#2313#2584#0" />
+            <element signature="e#3353#4969#0" />
+            <element signature="n#!!block;n#name_with_type#0" />
           </folding>
         </state>
       </provider>
