@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,12 +22,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-245">
-              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            <state relative-caret-position="83">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="n#RequestData#0" expanded="true" />
-                <element signature="e#303#325#0" />
+                <element signature="e#302#435#0" />
+                <element signature="n#!!block;n#main#0" />
                 <element signature="n#!!block;n#name_with_type#0" />
+                <element signature="n#!!block;n#events_with_s#0" />
               </folding>
             </state>
           </provider>
@@ -40,12 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MGUASDKKDF</find>
-      <find>allowJs</find>
-      <find>noEmit</find>
-      <find>noImplicitAny</find>
-      <find>strict</find>
-      <find>esModuleInterop</find>
       <find>typeRoots</find>
       <find>export {classes}</find>
       <find>migu</find>
@@ -70,6 +70,12 @@
       <find>type&quot;:&quot;10</find>
       <find>39ac36f4fdf739db5385c92b710a0edf</find>
       <find>42.234.8.51</find>
+      <find>setSubsessionServiceIP</find>
+      <find>61.54.220.204</find>
+      <find>TaskInfo</find>
+      <find>subsession</find>
+      <find>subsessionserviceip</find>
+      <find>61.54.90.28</find>
     </findStrings>
     <replaceStrings>
       <replace>export {ObjC}</replace>
@@ -111,7 +117,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-2" />
     <option name="y" value="4" />
     <option name="width" value="1938" />
@@ -123,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,6 +140,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,11 +298,13 @@
       <workItem from="1559002374345" duration="9000" />
       <workItem from="1559033307108" duration="600000" />
       <workItem from="1559036153091" duration="3066000" />
+      <workItem from="1559042564331" duration="530000" />
+      <workItem from="1559043123463" duration="5297000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169061000" />
+    <option name="totallyTimeSpent" value="174888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -308,19 +316,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <layout>
-      <window_info id="npm" order="0" sideWeight="0.5077658" side_tool="true" visible="true" weight="0.19552158" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49223417" visible="true" weight="0.19552158" />
+      <window_info id="npm" order="0" sideWeight="0.51067615" side_tool="true" weight="0.19552158" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48932385" visible="true" weight="0.19552158" />
       <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.72281957" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.525687" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32855436" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32616487" />
@@ -422,13 +430,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/func.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-lib/ios/fast.ts" />
-    <entry file="file://$PROJECT_DIR$/agent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSFileCoordinator.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/objc/NSObject.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/frida-gum-types1/frida-gum/Foundation/NSThread.d.ts" />
@@ -438,13 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -458,14 +452,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/agent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2800">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-245">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        <state relative-caret-position="83">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="n#RequestData#0" expanded="true" />
-            <element signature="e#303#325#0" />
+            <element signature="e#302#435#0" />
+            <element signature="n#!!block;n#main#0" />
             <element signature="n#!!block;n#name_with_type#0" />
+            <element signature="n#!!block;n#events_with_s#0" />
           </folding>
         </state>
       </provider>

@@ -6,10 +6,17 @@ import MGStatic = ObjC.classes.MGStatic;
 import RequestData=ObjC.classes.RequestData
 import NSString = ObjC.classes.NSString;
 import NSData = ObjC.classes.NSData;
+
+// @ts-ignore
+import MGPlayerInstance=ObjC.classes.MGPlayerInstance
+
+// @ts-ignore
+import MGDLSubRequestBeginEvent=ObjC.classes.MGDLSubRequestBeginEvent
 try{
     // ios.fast.setExceptionHandle(null)
     setImmediate(function () {
-        main()
+        //main()
+        show_MGBaseMediaPlayer()
     })
 
 }catch(e){
@@ -70,6 +77,12 @@ function main(){
     })
 }
 
+function show_MGBaseMediaPlayer(){
+    ios.fast.hookoc(MGPlayerInstance["- setSubsessionServiceIP:"].implementation,function(args){
+        console.log(new ObjC.Object(args[2]))
+    })
+
+}
 var tss={
     "4":"logIdentify",
     "5":"disConnectToServer",
