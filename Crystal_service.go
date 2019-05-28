@@ -178,7 +178,7 @@ func (this *Crystal_service) Upload_with_dataeventservice(_d *DataEventService, 
 }
 
 func (this *Crystal_service) DataExposureService_Events(_events []map[string]interface{}) *DataExposureService {
-	d := New_DataExposureService_with_customevent_sdksessioninfo(_events, this.SdkSessionInfo())
+	d := New_DataExposureService_with_customevents_sdksessioninfo(_events, this.SdkSessionInfo())
 	return d
 }
 func (this *Crystal_service) Upload_with_dataexposureservice(_d *DataExposureService, _cli *Session) error {
