@@ -12,6 +12,12 @@ import MGPlayerInstance=ObjC.classes.MGPlayerInstance
 
 // @ts-ignore
 import MGDLSubRequestBeginEvent=ObjC.classes.MGDLSubRequestBeginEvent
+
+// @ts-ignore
+import MGFFMoviePlayerController=ObjC.classes.MGFFMoviePlayerController
+
+// @ts-ignore
+import MGFFMoviePlayerController = ObjC.classes.MGFFMoviePlayerController;
 try{
     // ios.fast.setExceptionHandle(null)
     setImmediate(function () {
@@ -78,8 +84,14 @@ function main(){
 }
 
 function show_MGBaseMediaPlayer(){
-    ios.fast.hookoc(MGPlayerInstance["- setSubsessionServiceIP:"].implementation,function(args){
-        console.log(new ObjC.Object(args[2]))
+    ios.fast.hookoc(MGFFMoviePlayerController["- setCurrentMediaIP:"],function(oldfn,self,sel,arg1){
+        if(Number(arg1)!=0){
+            console.log(new ObjC.Object(arg1))
+
+            // @ts-ignore
+            // console.log(ExceptionCatcher.backtrace())
+        }
+        return oldfn(self,sel,arg1)
     })
 
 }
