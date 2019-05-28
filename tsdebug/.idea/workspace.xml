@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="179">
+              <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding>
                 <element signature="n#RequestData#0" expanded="true" />
                 <element signature="n#!!block;n#main#0" />
@@ -42,7 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>migu</find>
       <find>show</find>
       <find>key</find>
       <find>system</find>
@@ -72,6 +72,7 @@
       <find>getMediaIP</find>
       <find>61.54.90.28</find>
       <find>56000004</find>
+      <find>SubsessionServiceIP</find>
     </findStrings>
     <replaceStrings>
       <replace>export {ObjC}</replace>
@@ -299,12 +300,21 @@
       <workItem from="1559043123463" duration="12997000" />
       <workItem from="1559073492909" duration="277000" />
       <workItem from="1559074923838" duration="370000" />
-      <workItem from="1559075807573" duration="543000" />
+      <workItem from="1559075807573" duration="686000" />
+      <workItem from="1559076919510" duration="1317000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1559076475474</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559076475475</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183778000" />
+    <option name="totallyTimeSpent" value="185238000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,18 +330,18 @@
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" sideWeight="0.51067615" side_tool="true" weight="0.19552158" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48932385" visible="true" weight="0.21135992" />
-      <window_info id="Structure" order="2" sideWeight="0.50570965" side_tool="true" weight="0.2200983" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48955917" visible="true" weight="0.2168214" />
+      <window_info id="Structure" order="2" sideWeight="0.5104408" side_tool="true" weight="0.21135992" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48771164" visible="true" weight="0.4850657" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48771164" weight="0.68936676" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32855436" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3297491" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32616487" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5122884" side_tool="true" weight="0.2935561" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48771164" weight="0.37005988" />
@@ -368,6 +378,10 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ql" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/frida-ios-types/types/Foundation/NSString.d.ts" />
@@ -479,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="179">
+          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
           <folding>
             <element signature="n#RequestData#0" expanded="true" />
             <element signature="n#!!block;n#main#0" />

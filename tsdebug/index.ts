@@ -21,8 +21,8 @@ import MGFFMoviePlayerController = ObjC.classes.MGFFMoviePlayerController;
 try{
     // ios.fast.setExceptionHandle(null)
     setImmediate(function () {
-        //main()
-        show_MGBaseMediaPlayer()
+        main()
+        // show_MGBaseMediaPlayer()
     })
 
 }catch(e){
