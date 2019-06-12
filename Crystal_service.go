@@ -1,4 +1,4 @@
-package main
+package mgios
 
 import (
 	"encoding/base64"

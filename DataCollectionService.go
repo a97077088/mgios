@@ -1,4 +1,4 @@
-package main
+package mgios
 
 type DataCollectionService struct {
 	SdkSessionInfo map[string]interface{}   `json:"sdkSessionInfo"`

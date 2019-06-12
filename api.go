@@ -1,4 +1,4 @@
-package main
+package mgios
 
 import (
 	"encoding/base64"
@@ -237,7 +237,7 @@ func Login_migutokenforall(_rauth map[string]string, _password string, _user IUs
 	_user.Set_key_value("carrierCode", rs.UserInfo.CarrierCode)
 	_user.Set_key_value("userNum", rs.UserInfo.UserNum)
 	_user.Set_key_value("userToken", rs.UserInfo.UserToken)
-	_user.Set_key_value("accountType","0")
+	_user.Set_key_value("accountType", "0")
 	_user.Set_key_value("userInfo", fmt.Sprintf(`{"areaId":"%s","cityId":"%s","expiredOn":"%s","mobile":"%s","passId":"%s","userId":"%s","carrierCode":"%s","userNum":"%s","userToken":"%s"}`,
 		_user.Value_for_key("areaId"),
 		_user.Value_for_key("cityId"),

@@ -1,4 +1,4 @@
-package main
+package mgios
 
 type DataExposureService struct {
 	CustomEvent    []map[string]interface{} `json:"customEvent"`
