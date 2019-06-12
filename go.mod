@@ -1,4 +1,4 @@
-module mgios
+module github.com/a97077088/mgios
 
 go 1.12
 
