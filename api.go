@@ -328,7 +328,7 @@ func Common_flow_service_province_code(_areaName string, _user IUser, _cli *Sess
 */
 func Playurl_v1_play_url(_contId string, _rateType int, _serialNo string, _clientProvinceCode string, _user IUser, _cli *Session) (*Playurl_v1_play_url_r, error) {
 	strtime := fmt.Sprintf("%d", time.Now().UnixNano()/1e6)
-	m5sign, salt := getMiguSign(_contId, appversion, strtime)
+	m5sign, salt := GetMiguSign(_contId, appversion, strtime)
 	cli := cli_with_cli(_cli)
 	strurl := fmt.Sprintf("https://play.miguvideo.com/playurl/v1/play/playurl?audio=false&contId=%s&dolby=false&drm=true&mgdbId=&nt=4&os=%s&ott=false&rateType=%d&salt=%s&serialId=&serialNo=%s&sign=%s&timestamp=%s&ua=%s&vr=true", _contId, _user.Value_for_key("$systemVersion"), _rateType, salt, _serialNo, m5sign, strtime, url.QueryEscape(_user.Value_for_key("$ua")))
 	r, err := cli.Get(strurl, &RequestOptions{

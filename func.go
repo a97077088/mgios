@@ -18,7 +18,7 @@ var appversion = "25040600"                                   //固定写死在a
 var SDKCEId = "7a9582bd-8660-4f1a-9d0f-8451f688c67b"          ///固定
 var X_UP_CLIENT_CHANNEL_ID = "25040600-99000-200300020100001" //-[MGGlobalKey CHANNELID]   固定值正常取值 25040600-99000-200300020100001 还有一个可能是低版本25050506-99000-200300020100001
 
-func getMiguSign(_cid string, _version string, _timestamp string) (string, string) {
+func GetMiguSign(_cid string, _version string, _timestamp string) (string, string) {
 	_s := fmt.Sprintf("%s%s%s", _timestamp, _cid, _version)
 	md5val := hex.EncodeToString(Must_Md5_with_in([]byte(_s)))
 	sale := fmt.Sprintf("%d", gofakeit.Number(10000000, 99999999))
