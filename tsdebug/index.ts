@@ -18,10 +18,15 @@ import MGFFMoviePlayerController=ObjC.classes.MGFFMoviePlayerController
 
 // @ts-ignore
 import MGFFMoviePlayerController = ObjC.classes.MGFFMoviePlayerController;
+
+// @ts-ignore
+import MGFFMoviePlayerController=ObjC.classes.MGFFMoviePlayerController
+import UIDevice = ObjC.classes.UIDevice;
+
 try{
     // ios.fast.setExceptionHandle(null)
     setImmediate(function () {
-        main()
+        testid()
         // show_MGBaseMediaPlayer()
     })
 
@@ -29,9 +34,48 @@ try{
     console.log(e)
 }
 
+function testid(){
+    // @ts-ignore
+    Interceptor.attach(ObjC.classes["UAUtil"]["+ open_udid"].implementation,{
+        onLeave:function (r) {
+            console.log(`open_udid:${new ObjC.Object(r)}`)
+        }
+    })
+    // @ts-ignore
+    Interceptor.attach(ObjC.classes["UIDevice"]["- getMGSDK_UUID"].implementation,{
+        onLeave:function (r) {
+            console.log(`getMGSDK_UUID:${new ObjC.Object(r)}`)
+        }
+    })
+}
+function sourceid(){
+
+    Interceptor.attach(MGFFMoviePlayerController["- generateSourceID:"].implementation,{
+        onEnter:function (args) {
+            console.log(new ObjC.Object(args[2]))
+        }
+    })
+    //ios.fast.showcallmethod_with_hookoccls(ObjC.classes["MGDownloadBytesEvent"]);
+    // Interceptor.attach(ObjC.classes["MGBaseEvent"]["- setSourceID:"].implementation,{
+    //     onEnter:function(args){
+    //         console.log("调用sourceid")
+    //         console.log((new ObjC.Object(args[0])).$className);
+    //         var r=new ObjC.Object(args[2])
+    //         console.log(r)
+    //         var bts=ObjC.classes["ExceptionCatcher"].backtrace()
+    //         console.log(Module.getBaseAddress("MiguVideo"))
+    //         console.log(bts)
+    //     },
+    //     onLeave:function(ret){
+    //         // var r=new ObjC.Object(ret)
+    //         // console.log(r)
+    //     }
+    // })
+}
+
+
+
 function main(){
-
-
     // //aquireToken
     Interceptor.attach(RequestData["+ requestVerifyWithURL:withMethod:withData:withResult:"].implementation,{
         onEnter:function(args){
