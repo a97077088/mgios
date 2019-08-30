@@ -2,59 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8a3b343-c445-498a-9053-29185fdf6165" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tsdebug/jid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsdebug/index.ts.埋点" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsdebug/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsdebug/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsdebug/index.ts.bak" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/index.ts.算法" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsdebug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsdebug/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/type.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/func.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="58" column="215" selection-start-line="58" selection-start-column="206" selection-end-line="58" selection-end-column="215" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/用户.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="125" selection-start-column="125" selection-end-column="125" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,77 +28,12 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>SDKCEId</find>
-      <find>cityId</find>
-      <find>sa</find>
-      <find>rsa</find>
-      <find>sign</find>
-      <find>\r</find>
-      <find>%E5%92%AA%E5%92%95%E8%A7%86%E9%A2%91</find>
-      <find>3.2.5</find>
-      <find>iphone 6</find>
-      <find>chipSet</find>
-      <find>Common_flow_service_province_code</find>
-      <find>3a98f8560a7c419c9b711a2e545575e7</find>
-      <find>139569bb0</find>
-      <find>title</find>
-      <find>quit_point</find>
-      <find>$</find>
-      <find>clientId</find>
-      <find>$FCUUID</find>
-      <find>install</find>
-      <find>imei</find>
-      <find>&quot;imei&quot;</find>
-      <find>sessionid</find>
-      <find>clientid</find>
-      <find>203005</find>
-      <find>jid</find>
-      <find>sourceid</find>
-      <find>MGSDK_UUID</find>
-      <find>open_udid</find>
-      <find>9A73ADCA-A513-4AC1-B2FF-A8C62F188453</find>
-      <find>$open_udid</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>_u.Value_for_key(&quot;$FCUUID&quot;)</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\src\src\mgios</dir>
-    </dirStrings>
-  </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="535" />
-    <option name="y" value="48" />
-    <option name="width" value="1930" />
-    <option name="height" value="1042" />
-  </component>
   <component name="ProjectId" id="1NMbXvMytnGBXlbB4z45BZlOiZ2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mgios" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mgios" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
@@ -146,7 +45,7 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -170,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build mgios">
+  <component name="RunManager" selected="Go Test.TestToken_refresh_migu in github.com/a97077088/mgios">
     <configuration name="go build mgios" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="mgios" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -178,6 +77,17 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="mgios" />
       <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestToken_refresh_migu in github.com/a97077088/mgios" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="mgios" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/a97077088/mgios" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestToken_refresh_migu$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_getMiguSign in mgios" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -191,13 +101,35 @@
       <pattern value="^Test_getMiguSign$" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_login in github.com/a97077088/mgios" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="mgios" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="HTTP_PROXY" value="http://127.0.0.1:8888" />
+      </envs>
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/a97077088/mgios" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_login$" />
+      <method v="2" />
+    </configuration>
     <configuration name="agent.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../bin/fridadebug" nameIsGenerated="true" node-parameters="-mode 0 -pk com.wondertek.hecmccmobile -scpath" path-to-js-file="agent.js" working-dir="$PROJECT_DIR$/tsdebug">
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build mgios" />
       <item itemvalue="Go Test.Test_getMiguSign in mgios" />
+      <item itemvalue="Go Test.Test_login in github.com/a97077088/mgios" />
+      <item itemvalue="Go Test.TestToken_refresh_migu in github.com/a97077088/mgios" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestToken_refresh_migu in github.com/a97077088/mgios" />
+        <item itemvalue="Go Test.Test_login in github.com/a97077088/mgios" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -223,38 +155,6 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 03m 54s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 04m 01s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 03s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 18s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 05m 32s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 06m 49s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 06m 56s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 08s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 17s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_getMiguSign_in_mgios - 2019.05.23 at 23h 07m 24s.xml">
-      <configuration name="Test_getMiguSign in mgios" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -263,32 +163,6 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25461456" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -314,12 +188,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -352,42 +220,5 @@
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/测试埋点.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/func.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/用户.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="125" selection-start-column="125" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="58" column="215" selection-start-line="58" selection-start-column="206" selection-end-line="58" selection-end-column="215" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

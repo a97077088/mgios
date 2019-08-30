@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1db63b-5082-44e1-a8d4-3d3d4f26c6b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts.埋点" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.js" beforeDir="false" afterPath="$PROJECT_DIR$/agent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts.bak" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts.算法" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -38,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../tmalldebug" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,13 +45,13 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
-    <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../bin/fridadebug" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="ts.external.directory.path" value="C:\Users\fbi\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.5438.26\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+    <property name="ts.external.directory.path" value="C:\Users\fbi\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6262.44\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -75,7 +74,7 @@
     <configuration default="true" type="NodeJSConfigurationType" path-to-node="M:/bin/fridadebug" node-parameters="-pk fbi.n -scpath" path-to-js-file="$PROJECT_DIR$/agent.js">
       <method v="2" />
     </configuration>
-    <configuration name="agent.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../../bin/fridadebug" nameIsGenerated="true" node-parameters="-pk com.wondertek.hecmccmobile -mode 1 -scpath" path-to-js-file="agent.js" working-dir="$PROJECT_DIR$">
+    <configuration name="agent.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../../bin/fridadebug" nameIsGenerated="true" node-parameters="-pk com.wondertek.hecmccmobile -mode 0 -scpath" path-to-js-file="agent.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -203,6 +202,8 @@
       <workItem from="1562570502215" duration="2442000" />
       <workItem from="1562920376043" duration="21000" />
       <workItem from="1562921075426" duration="438000" />
+      <workItem from="1567151648620" duration="1012000" />
+      <workItem from="1567152672361" duration="1550000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1559076475474</created>

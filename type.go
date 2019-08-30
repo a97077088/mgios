@@ -47,6 +47,16 @@ type Login_Migutokenforall_r struct {
 	Api_R
 	Login_Migutokenforall_o
 }
+type Token_refresh_migu_o struct {
+	LoginId string
+	LoginType string
+	UserInfo  Api_userInfo
+	ExtInfo   Api_extInfo
+}
+type Token_refresh_migu_r struct{
+	Api_R
+	Token_refresh_migu_o
+}
 type Common_flow_service_province_code_r struct {
 	R1
 	Common_flow_service_province_code_o

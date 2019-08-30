@@ -23,6 +23,53 @@ func cli_with_cli(_cli *Session) *Session {
 	return _cli
 }
 
+
+/*
+token_refresh_migu
+ */
+func Token_refresh_migu(_user IUser,_cli *Session)(*Token_refresh_migu_o,error){
+	cli := cli_with_cli(_cli)
+	clientid := "7a9582bd-8660-4f1a-9d0f-8451f688c67b"
+	timespamp := time.Now().Format("20060102150405")
+	strpd:=fmt.Sprintf(
+		"{\"timestamp\":%s,\"userId\":\"%s\",\"miguToken\":\"%s\",\"userToken\":\"%s\"}",
+		timespamp,
+		_user.Value_for_key("userId"),
+		_user.Value_for_key("miguToken"),
+		_user.Value_for_key("userToken"),
+	)
+	md5jsonbody := hex.EncodeToString(Must_Md5_with_in([]byte(strpd)))
+	//这一步实现了java中的rsa_privateenc 真几把不好实现这个耗时一下午
+	strsign := base64.StdEncoding.EncodeToString(Must_Rsa_with_in_privatekey([]byte(md5jsonbody), []byte(Login_migutokenforall_rsasign_privatekey)))
+
+	surl:=fmt.Sprintf("https://api.miguvideo.com/login/token_refresh_migu?clientId=%s&sign=%s&signType=RSA",clientid,strsign)
+	r,err:=cli.Post(surl,&RequestOptions{
+		RequestBody:strings.NewReader(strpd),
+		Headers: map[string]string{
+			"Connection":   "keep-alive",
+			"appType":      "4",
+			"sourceId":     "203005",
+			"appVersion":"2504060300",
+			"userId":_user.Value_for_key("userId"),
+			"userToken":_user.Value_for_key("userToken"),
+			"Content-Type": "application/json",
+		},
+		UserAgent:   fmt.Sprintf("MiguVideo/%s (iPhone; iOS %s; Scale/2.00)", _user.Value_for_key("$APP-VERSION-CODE"), _user.Value_for_key("$systemVersion")),
+	})
+	if err!=nil{
+		return nil,err
+	}
+	var rs Token_refresh_migu_r
+	err=r.JSON(&rs)
+	if err!=nil{
+		return nil,err
+	}
+	if rs.ResultCode!="REFRESH_TOKEN_SUCCESS"{
+		return nil,errors.New(rs.ResultDesc)
+	}
+
+	return &rs.Token_refresh_migu_o,nil
+}
 /*
 登录接口
 */
@@ -238,6 +285,7 @@ func Login_migutokenforall(_rauth map[string]string, _password string, _user IUs
 	_user.Set_key_value("userNum", rs.UserInfo.UserNum)
 	_user.Set_key_value("userToken", rs.UserInfo.UserToken)
 	_user.Set_key_value("accountType", "0")
+	_user.Set_key_value("migutoken",migutoken)
 	_user.Set_key_value("userInfo", fmt.Sprintf(`{"areaId":"%s","cityId":"%s","expiredOn":"%s","mobile":"%s","passId":"%s","userId":"%s","carrierCode":"%s","userNum":"%s","userToken":"%s"}`,
 		_user.Value_for_key("areaId"),
 		_user.Value_for_key("cityId"),
